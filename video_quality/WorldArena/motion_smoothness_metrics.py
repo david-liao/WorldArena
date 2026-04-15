@@ -40,7 +40,7 @@ class MotionSmoothnessMetric:
         model = Model(-1)
         ckpt_resolved = Path(ckpt_path) if ckpt_path else DEFAULT_VFIMAMBA_CKPT
         if ckpt_resolved.exists():
-            state = torch.load(ckpt_resolved, map_location="cpu")
+            state = torch.load(ckpt_resolved, map_location="cpu", weights_only=False)
             model.net.load_state_dict(convert(state), strict=True)
         else:
             model.load_model()

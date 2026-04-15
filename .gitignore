@@ -1,0 +1,78 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# === Model weights & checkpoints ===
+*.pth
+*.pt
+*.safetensors
+*.pkl
+*.ckpt
+*.bin
+*.h5
+*.onnx
+
+# === Data & output (large / generated) ===
+datasets/
+video_quality/data/
+video_quality/data_action_following/
+video_quality/models/
+video_quality/output/
+video_quality/output_VLM/
+video_quality/output_action_following/
+video_quality/tmp_VLM/
+video_quality/WorldArena/third_party/checkpoints/
+video_quality/JEDi/pretrained_models/
+embodied_task/models/
+embodied_task/output/
+embodied_task/src/
+
+# === Personal scripts (not shared) ===
+video_quality/myscript/
+embodied_task/myscript/
+
+# === CSV intermediate results ===
+video_quality/csv_results/__pycache__/
+video_quality/csv_results/deleted/
+video_quality/csv_results/vace/
+video_quality/csv_results/wan/
+
+# === Logs ===
+*.log
+*.out
+
+# === IDE / Editor ===
+.cursor/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Jupyter ===
+.ipynb_checkpoints/
+
+# === Environments ===
+.env
+.venv/
+env/
+venv/
+
+# === HuggingFace cache ===
+.cache/
+
+# === Misc ===
+# video_quality/summary.json
+video_quality/__pycache__/
+# docs/

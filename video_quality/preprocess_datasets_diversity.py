@@ -11,6 +11,7 @@ def parse_args():
     parser.add_argument("--summary_json", type=str, required=True, help="Path to summary.json")
     parser.add_argument("--gen_video_dir", type=str, required=True, help="Path to generated videos (e.g., Genie_agi_out_sort)")
     parser.add_argument("--output_base", type=str, default="your absolute path", help="Output base directory")
+    parser.add_argument("-n", "--limit", type=int, default=0, help="Only process the first N items (0 = all)")
     return parser.parse_args()
 
 def extract_frames(video_path, output_dir):
@@ -27,6 +28,17 @@ def extract_frames(video_path, output_dir):
         cv2.imwrite(os.path.join(output_dir, frame_name), frame)
         frame_count += 1
     cap.release()
+
+def _find_gen_video(video_dir, id1, id2):
+    """Find generated video, trying '{id1}_{id2}.mp4' first then '{id2}.mp4'."""
+    candidate = Path(video_dir) / f"{id1}_{id2}.mp4"
+    if candidate.exists():
+        return candidate
+    candidate = Path(video_dir) / f"{id2}.mp4"
+    if candidate.exists():
+        return candidate
+    return None
+
 
 def process_item(item, gen_video_dir, output_base):
     # 1. Extract IDs from a path like /.../327/651177/...
@@ -63,12 +75,11 @@ def process_item(item, gen_video_dir, output_base):
     video_dir_gen_1 = gen_root_1 / "video"
     os.makedirs(video_dir_gen_1, exist_ok=True)
     
-    # Find generated video (format 327_651177.mp4)
-    target_gen_video_1 = Path(gen_video_dir)/ f"{id1}_{id2}.mp4"
-    if target_gen_video_1.exists():
+    target_gen_video_1 = _find_gen_video(gen_video_dir, id1, id2)
+    if target_gen_video_1:
         extract_frames(target_gen_video_1, video_dir_gen_1)
     else:
-        print(f"Warning: Generated video not found for {id1}_{id2}")
+        print(f"Warning: Generated video not found for {id1}/{id2} in {gen_video_dir}")
 
     gen_root_2 = Path(output_base) / "generated_dataset" / id1 / id2 / "2"
     video_dir_gen_2 = gen_root_2 / "video"
@@ -76,15 +87,13 @@ def process_item(item, gen_video_dir, output_base):
     base_name_1 = os.path.basename(gen_video_dir)
     dir_name_1 = os.path.dirname(gen_video_dir)
 
-    
     new_name_1 = base_name_1.replace("_test", "_test_1")
-    
     gen_video_dir_1 = os.path.join(dir_name_1, new_name_1)
-    target_gen_video_2 = Path(gen_video_dir_1) / f"{id1}_{id2}.mp4"
-    if target_gen_video_2.exists():
+    target_gen_video_2 = _find_gen_video(gen_video_dir_1, id1, id2)
+    if target_gen_video_2:
         extract_frames(target_gen_video_2, video_dir_gen_2)
     else:
-        print(f"Warning: Generated video not found for {id1}_{id2}")
+        print(f"Warning: Generated video not found for {id1}/{id2} in {gen_video_dir_1}")
         
     gen_root_3 = Path(output_base) / "generated_dataset" / id1 / id2 / "3"
     video_dir_gen_3 = gen_root_3 / "video"
@@ -93,15 +102,13 @@ def process_item(item, gen_video_dir, output_base):
     base_name_2 = os.path.basename(gen_video_dir)
     dir_name_2 = os.path.dirname(gen_video_dir)
 
-  
     new_name_2 = base_name_2.replace("_test", "_test_2")
-   
     gen_video_dir_2 = os.path.join(dir_name_2, new_name_2)
-    target_gen_video_3 = Path(gen_video_dir_2) / f"{id1}_{id2}.mp4"
-    if target_gen_video_3.exists():
+    target_gen_video_3 = _find_gen_video(gen_video_dir_2, id1, id2)
+    if target_gen_video_3:
         extract_frames(target_gen_video_3, video_dir_gen_3)
     else:
-        print(f"Warning: Generated video not found for {id1}_{id2}")
+        print(f"Warning: Generated video not found for {id1}/{id2} in {gen_video_dir_2}")
 
 def main():
     args = parse_args()
@@ -112,6 +119,10 @@ def main():
 
     with open(args.summary_json, 'r', encoding='utf-8') as f:
         data = json.load(f)
+
+    if args.limit > 0:
+        data = data[:args.limit]
+        print(f">>> DEBUG MODE: limiting to first {args.limit} items")
 
     print(f">>> Starting preprocessing for {len(data)} items...")
     for item in tqdm(data):

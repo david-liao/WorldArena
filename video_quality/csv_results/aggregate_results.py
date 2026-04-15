@@ -41,7 +41,7 @@ METRIC_KEY_MAP: Dict[str, str] = {
     "flow_score": "Flow Score",
     "depth_accuracy": "Depth Accuracy",
     "trajectory_accuracy": "Trajectory Accuracy",
-    "photometric_consistency": "Photometric Consistency",
+    "photometric_smoothness": "Photometric Consistency",
     "motion_smoothness": "Motion Smoothness",
     "jepa_similarity": "JEPA Similarity",
 }
@@ -176,12 +176,15 @@ def aggregate_results(
 
     result: Dict[str, Dict[str, float]] = {}
 
-    # Core metric JSONs
-    core_metric_files = [
-        os.path.join(base_dir, "output", "generated_results.json"),
-        os.path.join(base_dir, "output_action_following", "generated_results.json"),
+    # Core metric JSONs (model-specific dir first, fallback to flat dir)
+    core_metric_candidates = [
+        (os.path.join(base_dir, "output", model_name, "generated_results.json"),
+         os.path.join(base_dir, "output", "generated_results.json")),
+        (os.path.join(base_dir, "output_action_following", model_name, "generated_results.json"),
+         os.path.join(base_dir, "output_action_following", "generated_results.json")),
     ]
-    for path in core_metric_files:
+    for preferred, fallback in core_metric_candidates:
+        path = preferred if os.path.exists(preferred) else fallback
         if os.path.exists(path):
             _ingest_metric_json(path, result)
 
@@ -219,8 +222,8 @@ def aggregate_results(
             row["JEPA_Similarity"] = jepa_score
         csv_rows.append(row)
 
-    # Ensure output directory exists
-    csv_dir = os.path.join(base_dir, "csv_results")
+    # Ensure output directory exists (per-model subdirectory)
+    csv_dir = os.path.join(base_dir, "csv_results", model_name)
     os.makedirs(csv_dir, exist_ok=True)
     csv_path = os.path.join(csv_dir, csv_name)
 

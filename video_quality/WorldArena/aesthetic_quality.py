@@ -44,7 +44,7 @@ def get_aesthetic_model(cache_folder_or_file):
                 wget_command = ['wget', url_model, '-P', os.path.dirname(path_to_model)]
                 subprocess.run(wget_command)
     m = nn.Linear(768, 1)
-    s = torch.load(path_to_model)
+    s = torch.load(path_to_model, weights_only=False)
     m.load_state_dict(s)
     m.eval()
     return m

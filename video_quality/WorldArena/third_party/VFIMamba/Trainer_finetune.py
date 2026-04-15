@@ -42,7 +42,7 @@ class Model:
                 name = self.name
             ckpt_path = Path(__file__).resolve().parent.parent / "checkpoints" / f"{name}.pkl"
             print(f"loading {name} ckpt from {ckpt_path}")
-            self.net.load_state_dict(convert(torch.load(ckpt_path)), strict=True)
+            self.net.load_state_dict(convert(torch.load(ckpt_path, weights_only=False)), strict=True)
 
     @classmethod
     def from_pretrained(cls, model_id, local_rank=-1):
@@ -57,7 +57,7 @@ class Model:
             model_id = "MCG-NJU/" + model_id
         ckpt_path = hf_hub_download(repo_id=model_id, filename="model.pkl")
         print(f"loading {model_id} ckpt")
-        checkpoint = torch.load(ckpt_path)
+        checkpoint = torch.load(ckpt_path, weights_only=False)
         from transformers import PretrainedConfig
         cfg = PretrainedConfig.from_pretrained(model_id)
         MODEL_CONFIG['MODEL_ARCH'] = init_model_config(

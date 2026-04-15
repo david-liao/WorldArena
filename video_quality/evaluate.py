@@ -33,6 +33,20 @@ def parse_args():
         action="store_true"
     )
 
+    parser.add_argument(
+        "--save_path",
+        type=str,
+        default=None,
+        help="Override config save_path (results output directory)",
+    )
+
+    parser.add_argument(
+        "--data_base",
+        type=str,
+        default=None,
+        help="Override config data.val_base (generated dataset directory)",
+    )
+
     args = parser.parse_args()
     return args
 
@@ -53,15 +67,15 @@ def main():
 
     config = load_config(args.config_path)
 
-    # base paths
-    save_path_default = config['save_path']
+    # base paths (CLI --save_path overrides config)
+    save_path_default = args.save_path or config['save_path']
     # optional dedicated output for action_following runs
     save_path_action = config.get('save_path_action_following') or config.get('save_path_action_floowing', save_path_default)
 
     # choose output dir: if only action_following is requested, use the dedicated path
     save_path = save_path_action if args.dimension == ['action_following'] else save_path_default
 
-    data_base = config['data']['val_base']
+    data_base = args.data_base or config['data']['val_base']
     gt_path = config['data']['gt_path']
 
     # action_following specific data roots (fallback to default if not provided)

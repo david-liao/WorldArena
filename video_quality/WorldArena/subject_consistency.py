@@ -12,7 +12,7 @@ import torch.nn.functional as F
 import torchvision.transforms as transforms
 from .dynamic_degree import DynamicDegree
 from easydict import EasyDict as edict
-from .utils import load_video, load_dimension_info, dino_transform, dino_transform_Image, CACHE_DIR
+from .utils import load_video, load_dimension_info, dino_transform, dino_transform_Image
 import logging
 
 from .distributed import (

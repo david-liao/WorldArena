@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import shutil
+import time
 from pathlib import Path
 from datetime import datetime
 import cv2
@@ -154,6 +155,7 @@ Now evaluate the provided video frames based on the above criteria.
     return prompt
 
 
+@torch.inference_mode()
 def run_qwen_vl(model, processor, prompt, images):
     messages = [{
         "role": "user",
@@ -182,8 +184,6 @@ def run_qwen_vl(model, processor, prompt, images):
         do_sample=False,
         eos_token_id=processor.tokenizer.eos_token_id,
         pad_token_id=processor.tokenizer.eos_token_id,
-        temperature=0.1,
-        early_stopping=True,
     )
     input_len = inputs["input_ids"].shape[1]
     gen_trim = generated_ids[:, input_len:]
@@ -215,16 +215,23 @@ def normalize_metrics(parsed):
     return metrics
 
 
-def vlm_judge(model_name, video_dir, summary_json, output_root, tmp_root, metrics_filter, num_frames=16, model_path=None):
+def vlm_judge(model_name, video_dir, summary_json, output_root, tmp_root, metrics_filter, num_frames=16, model_path=None, max_videos=0, shard_id=0, num_shards=1):
     os.makedirs(output_root, exist_ok=True)
-    tmp_dir = os.path.join(tmp_root, model_name)
+    tmp_suffix = f"_shard{shard_id}" if num_shards > 1 else ""
+    tmp_dir = os.path.join(tmp_root, f"{model_name}{tmp_suffix}")
     os.makedirs(tmp_dir, exist_ok=True)
 
     model_path = model_path or DEFAULT_MODEL_PATH
+    print(f"Loading model from {model_path} ...")
+    t_load = time.time()
     model = Qwen3VLForConditionalGeneration.from_pretrained(
-        model_path, torch_dtype="auto", device_map="auto"
+        model_path,
+        torch_dtype=torch.bfloat16,
+        device_map="auto",
+        attn_implementation="sdpa",
     ).eval()
     processor = AutoProcessor.from_pretrained(model_path)
+    print(f"Model loaded in {time.time() - t_load:.1f}s (attn=sdpa)")
 
     instruction_map, valid_names = load_instruction_json(summary_json)
 
@@ -233,14 +240,27 @@ def vlm_judge(model_name, video_dir, summary_json, output_root, tmp_root, metric
         if fname.lower().endswith((".mp4", ".avi", ".mov", ".mkv", ".webm")) and fname in valid_names:
             videos.append(os.path.join(video_dir, fname))
     videos.sort()
+    if max_videos > 0:
+        videos = videos[:max_videos]
+    if num_shards > 1:
+        videos = [v for i, v in enumerate(videos) if i % num_shards == shard_id]
 
+    total_videos = len(videos)
+    shard_tag = f" shard {shard_id}/{num_shards}" if num_shards > 1 else ""
+    print(f"Evaluating {total_videos} videos (num_frames={num_frames}){shard_tag}")
     results = []
-    for video_path in tqdm(videos, desc=f"{model_name} evaluating", ncols=100):
+    t_total_start = time.time()
+    video_times = []
+
+    pbar = tqdm(videos, desc=f"{model_name} evaluating", ncols=120)
+    for video_path in pbar:
+        t_video = time.time()
         item = {"video": os.path.basename(video_path), "metrics": {}, "raw_response_file": None, "error": None}
         frames = sample_frames(video_path, num_frames=num_frames)
         if not frames:
             item["error"] = "no frames"
             results.append(item)
+            video_times.append(time.time() - t_video)
             continue
 
         instruction = instruction_map.get(os.path.basename(video_path), "")
@@ -259,17 +279,34 @@ def vlm_judge(model_name, video_dir, summary_json, output_root, tmp_root, metric
                 item["error"] = "parse_failed"
             else:
                 metrics = normalize_metrics(parsed)
-                # Always keep all three metrics; no filtering
                 item["metrics"] = metrics
         except Exception as e:
             item["error"] = str(e)
 
+        elapsed = time.time() - t_video
+        video_times.append(elapsed)
+        avg_time = sum(video_times) / len(video_times)
+        remaining = avg_time * (total_videos - len(video_times))
+        pbar.set_postfix_str(f"{elapsed:.1f}s/vid  avg={avg_time:.1f}s  ETA={remaining/60:.0f}min")
         results.append(item)
+    pbar.close()
+
+    t_total = time.time() - t_total_start
+    n_ok = sum(1 for r in results if r["error"] is None)
+    n_err = sum(1 for r in results if r["error"] is not None)
+    print(f"\n{'='*60}")
+    print(f"  Total time : {t_total:.1f}s ({t_total/60:.1f} min)")
+    print(f"  Videos     : {total_videos} (success={n_ok}, error={n_err})")
+    if video_times:
+        print(f"  Per video  : avg={sum(video_times)/len(video_times):.1f}s  "
+              f"min={min(video_times):.1f}s  max={max(video_times):.1f}s")
+    print(f"{'='*60}\n")
 
     # Save final aggregated results
     out_dir = os.path.join(output_root, model_name)
     os.makedirs(out_dir, exist_ok=True)
-    out_file = os.path.join(out_dir, f"{model_name}_summary_val_all_intern.json")
+    suffix = f"_shard{shard_id}" if num_shards > 1 else ""
+    out_file = os.path.join(out_dir, f"{model_name}_summary_val_all_intern{suffix}.json")
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
@@ -292,6 +329,9 @@ def main():
     parser.add_argument("--tmp_root", default="tmp_VLM")
     parser.add_argument("--num_frames", type=int, default=16)
     parser.add_argument("--config_path", default="video_quality/config/config.yaml")
+    parser.add_argument("--max_videos", type=int, default=0, help="Only evaluate first N videos (0 = all)")
+    parser.add_argument("--shard_id", type=int, default=0, help="Shard index for multi-GPU (0-based)")
+    parser.add_argument("--num_shards", type=int, default=1, help="Total number of shards")
     args = parser.parse_args()
 
     # load model path from config
@@ -313,6 +353,9 @@ def main():
         metrics_filter=args.metrics,
         num_frames=args.num_frames,
         model_path=model_path,
+        max_videos=args.max_videos,
+        shard_id=args.shard_id,
+        num_shards=args.num_shards,
     )
     print(f"Saved results to {out_file}")
 

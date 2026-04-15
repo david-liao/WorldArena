@@ -4,8 +4,12 @@ import numpy as np
 from scipy import interpolate
 
 def load_ckpt(model, path):
-    """ Load checkpoint """
-    state_dict = torch.load(path, map_location=torch.device('cpu'))
+    """ Load checkpoint (supports both pickle .pth and safetensors) """
+    try:
+        state_dict = torch.load(path, map_location=torch.device('cpu'), weights_only=False)
+    except Exception:
+        from safetensors.torch import load_file
+        state_dict = load_file(path, device='cpu')
     model.load_state_dict(state_dict, strict=False)
 
 def resize_data(img1, img2, flow, factor=1.0):

@@ -31,7 +31,7 @@ class DynamicDegree:
 
     def load_model(self):
         self.model = RAFT(self.args)
-        ckpt = torch.load(self.args.model, map_location="cpu")
+        ckpt = torch.load(self.args.model, map_location="cpu", weights_only=False)
         new_ckpt = {k.replace('module.', ''): v for k, v in ckpt.items()}
         self.model.load_state_dict(new_ckpt)
         self.model.to(self.device)

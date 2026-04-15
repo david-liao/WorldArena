@@ -1,43 +1,43 @@
 # === Configuration File Guide ===
 model_name: test
 data:
-  gt_path: "your absolute path"/WorldArena/video_quality/data/gt_dataset
-  val_base: "your absolute path"/WorldArena/video_quality/data/generated_dataset
+  gt_path: /mydir/code/WorldArena/video_quality/data/gt_dataset
+  val_base: /mydir/code/WorldArena/video_quality/data/generated_dataset
 data_action_following:
-  gt_path: "your absolute path"/WorldArena/video_quality/data_action_following/gt_dataset
-  val_base: "your absolute path"/WorldArena/video_quality/data_action_following/generated_dataset
-save_path: "your absolute path"/WorldArena/video_quality/output
-save_path_action_following: "your absolute path"/WorldArena/video_quality/output_action_following
+  gt_path: /mydir/code/WorldArena/video_quality/data_action_following/gt_dataset
+  val_base: /mydir/code/WorldArena/video_quality/data_action_following/generated_dataset
+save_path: /mydir/code/WorldArena/video_quality/output
+save_path_action_following: /mydir/code/WorldArena/video_quality/output_action_following
 ckpt:
-  action_following: "your absolute path"/models/ViT-B-32.pt
+  action_following: /mydir/code/WorldArena/video_quality/models/clip_model/ViT-B-32.pt
   semantic_alignment:
-    caption: "your absolute path"/models/Qwen2.5-VL-7B-Instruct
-    CLIP: "your absolute path"/models/clip-vit-base-patch16
-  depth_accuracy: "your absolute path"/depth-anything
+    caption: /mydir/code/WorldArena/video_quality/models/Qwen2.5-VL-7B-Instruct
+    CLIP: /mydir/code/WorldArena/video_quality/models/clip-vit-base-patch16
+  depth_accuracy: /mydir/code/WorldArena/video_quality/models/depth-anything
   aesthetic_quality:
-    clip: "your absolute path"/models/clip_model/ViT-L-14.pt
-    aesthetic_head: "your absolute path"/models/aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth
+    clip: /mydir/code/WorldArena/video_quality/models/clip_model/ViT-L-14.pt
+    aesthetic_head: /mydir/code/WorldArena/video_quality/models/aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth
   background_consistency:
-    clip: "your absolute path"/models/clip_model/ViT-B-32.pt
-    raft: "your absolute path"/models/raft_model/models/raft-things.pth
+    clip: /mydir/code/WorldArena/video_quality/models/clip_model/ViT-B-32.pt
+    raft: /mydir/code/WorldArena/video_quality/models/raft_model/RAFT/models/raft-things.pth
   dynamic_degree:
-    raft:"your absolute path"/models/raft_model/models/raft-things.pth
+    raft: /mydir/code/WorldArena/video_quality/models/raft_model/RAFT/models/raft-things.pth
   flow_score:
-    raft: "your absolute path"/models/raft_model/models/raft-things.pth
+    raft: /mydir/code/WorldArena/video_quality/models/raft_model/RAFT/models/raft-things.pth
   photometric_smoothness:
-    cfg: "your absolute path"/WorldArena/video_quality/WorldArena/third_party/SEA-RAFT/config/eval/spring-M.json
-    model: "your absolute path"/WorldArena/video_quality/WorldArena/third_party/checkpoints/Tartan-C-T-TSKH-spring540x960-M.pth
+    cfg: /mydir/code/WorldArena/video_quality/WorldArena/third_party/SEA-RAFT/config/eval/spring-M.json
+    model: /mydir/code/WorldArena/video_quality/WorldArena/third_party/checkpoints/Tartan-C-T-TSKH-spring540x960-M.pth
   motion_smoothness:
-    model: "your absolute path"/WorldArena/video_quality/WorldArena/third_party/checkpoints/VFIMamba.pkl
+    model: /mydir/code/WorldArena/video_quality/WorldArena/third_party/checkpoints/VFIMamba.pkl
   image_quality:
-    musiq: "your absolute path"/models/pyiqa_model/musiq_spaq_ckpt-358bb6af.pth
+    musiq: /mydir/code/WorldArena/video_quality/models/pyiqa_model/musiq_spaq_ckpt-358bb6af.pth
   subject_consistency:
-    repo: "your absolute path"/models/dino_model/facebookresearch_dino_main
-    weight: "your absolute path"/models/dino_model/dino_vitbase16_pretrain.pth
+    repo: /mydir/code/WorldArena/video_quality/models/dino_model/facebookresearch_dino_main
+    weight: /mydir/code/WorldArena/video_quality/models/dino_model/dino_vitbase16_pretrain.pth
     model: dino_vitb16
-    raft: "your absolute path"/models/raft_model/models/raft-things.pth
-  sam3_model_ckpt: "your absolute path"/models/sam
-  vlm_model: "your absolute path"/models/qwenvl3
+    raft: /mydir/code/WorldArena/video_quality/models/raft_model/RAFT/models/raft-things.pth
+  sam3_model_ckpt: /mydir/code/WorldArena/video_quality/models/sam
+  vlm_model: /mydir/code/WorldArena/video_quality/models/qwenvl3
 
 # - `action_following`: https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt
 # - `semantic_alignment`:
@@ -55,7 +55,7 @@ ckpt:
 # - `flow_score`:
 #     - `raft`: https://huggingface.co/RaphaelLiu/EvalCrafter-Models/tree/main/RAFT/models
 # - `photometric_smoothness`:
-#     - `cfg`: "your absolute path"/WorldArena/video_quality/WorldArena/third_party/SEA-RAFT/config/eval/spring-M.json (already included locally)
+#     - `cfg`: (already included locally)
 #     - `model`: https://huggingface.co/MemorySlices/Tartan-C-T-TSKH-spring540x960-M/blob/main/model.safetensors
 # - `motion_smoothness`:
 #     - `model`: https://huggingface.co/MCG-NJU/VFIMamba/blob/main/model.pkl
