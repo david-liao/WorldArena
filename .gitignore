@@ -50,6 +50,7 @@ video_quality/csv_results/*
 .cursor/
 .vscode/
 .idea/
+pyrightconfig.json
 *.swp
 *.swo
 *~

@@ -72,7 +72,7 @@ def main():
     if args.save_path:
         save_path = args.save_path
     elif args.dimension == ['action_following']:
-        save_path = config.get('save_path_action_following') or config.get('save_path_action_floowing', save_path_default)
+        save_path = config.get('save_path_action_following') or config.get('save_path_action_following', save_path_default)
     else:
         save_path = save_path_default
 
