@@ -39,10 +39,8 @@ video_quality/myscript/
 embodied_task/myscript/
 
 # === CSV intermediate results ===
-video_quality/csv_results/__pycache__/
-video_quality/csv_results/deleted/
-video_quality/csv_results/vace/
-video_quality/csv_results/wan/
+video_quality/csv_results/*
+!video_quality/csv_results/aggregate_results.py
 
 # === Logs ===
 *.log
@@ -75,4 +73,4 @@ venv/
 # === Misc ===
 # video_quality/summary.json
 video_quality/__pycache__/
-# docs/
+docs/

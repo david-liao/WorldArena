@@ -50,7 +50,7 @@ echo ">>> [Preprocessing] $(fmt_elapsed $((SECONDS - STEP_START)))"
 
 STEP_START=$SECONDS
 echo ">>> Running action_following evaluation..."
-python evaluate.py --dimension "action_following" --config "$CONFIG_PATH" --overwrite || echo ">>> [WARNING] evaluate.py (action_following) returned non-zero code"
+python evaluate.py --dimension "action_following" --config "$CONFIG_PATH" --overwrite --save_path "$OUTPUT_DIR_ACTION/$MODEL_NAME" || echo ">>> [WARNING] evaluate.py (action_following) returned non-zero code"
 echo ">>> [Evaluation] $(fmt_elapsed $((SECONDS - STEP_START)))"
 
 echo ""

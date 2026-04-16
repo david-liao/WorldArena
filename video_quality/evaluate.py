@@ -67,13 +67,14 @@ def main():
 
     config = load_config(args.config_path)
 
-    # base paths (CLI --save_path overrides config)
+    # base paths (CLI --save_path always takes priority)
     save_path_default = args.save_path or config['save_path']
-    # optional dedicated output for action_following runs
-    save_path_action = config.get('save_path_action_following') or config.get('save_path_action_floowing', save_path_default)
-
-    # choose output dir: if only action_following is requested, use the dedicated path
-    save_path = save_path_action if args.dimension == ['action_following'] else save_path_default
+    if args.save_path:
+        save_path = args.save_path
+    elif args.dimension == ['action_following']:
+        save_path = config.get('save_path_action_following') or config.get('save_path_action_floowing', save_path_default)
+    else:
+        save_path = save_path_default
 
     data_base = args.data_base or config['data']['val_base']
     gt_path = config['data']['gt_path']

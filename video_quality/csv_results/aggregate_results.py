@@ -209,6 +209,18 @@ def aggregate_results(
             if jepa_score is not None:
                 break
 
+    # Merge VLM-only short IDs (e.g. "episode1") with core metric IDs
+    # that have a task prefix (e.g. "fixed_scene_task_episode1")
+    short_keys = [k for k in result if not "_episode" in k and k.startswith("episode")]
+    if short_keys:
+        prefixed = {k: k for k in result if "_episode" in k}
+        for sk in short_keys:
+            matches = [pk for pk in prefixed if pk.endswith(f"_{sk}")]
+            if len(matches) == 1:
+                result[matches[0]].update(result.pop(sk))
+            elif not matches:
+                pass  # no matching prefixed key, keep as is
+
     # Prepare rows
     csv_rows: List[Dict[str, str]] = []
     for video_id in sorted(result.keys()):
