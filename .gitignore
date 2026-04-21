@@ -35,8 +35,8 @@ embodied_task/output/
 embodied_task/src/
 
 # === Personal scripts (not shared) ===
-video_quality/myscript/
-embodied_task/myscript/
+# video_quality/myscript/
+# embodied_task/myscript/
 
 # === CSV intermediate results ===
 video_quality/csv_results/*
