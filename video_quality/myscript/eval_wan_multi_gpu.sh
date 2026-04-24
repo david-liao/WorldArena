@@ -1,29 +1,36 @@
 cd /mydir/code/WorldArena/video_quality
 
-# MODEL_NAME=wan
-# VIDEO_DIR=/mydir/code/WorldArena/embodied_task/output/wan_test
-# # 原占位 summary（gt_path 是假路径，不能跑 GT 相关指标）
-# SUMMARY_JSON=./summary.json
-# CONFIG_PATH=./config/config.yaml
-
-
-MODEL_NAME=wan_newtest
-VIDEO_DIR=/mydir/code/WorldArena/embodied_task/output/wan_newtest
 # 新测试集的 summary.json，含真实 GT 视频路径（由 myscript/build_summary_new_test.py 生成）
 # 如果还没生成，先执行：python myscript/build_summary_new_test.py
 SUMMARY_JSON=./summary_new_test.json
-CONFIG_PATH=./config/config_newtest.yaml
-LIMIT=2
 
+# 原占位 summary（gt_path 是假路径，不能跑 GT 相关指标）
+# SUMMARY_JSON=./summary.json
 
 ########################################################
 # 标准评测（8 个无需 GT 的指标）
 ########################################################
 
 # --- WAN 模型示例 ---
-# bash run_evaluation.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH \
-#   "image_quality,aesthetic_quality,background_consistency,subject_consistency,dynamic_degree,flow_score,photometric_smoothness,motion_smoothness" \
-#   10
+bash run_evaluation.sh \
+  wan \
+  /mydir/code/WorldArena/embodied_task/output/wan_test \
+  $SUMMARY_JSON \
+  "image_quality,aesthetic_quality,background_consistency,subject_consistency,dynamic_degree,flow_score,photometric_smoothness,motion_smoothness" \
+  10
+
+
+# 多 GPU 版本
+bash run_evaluation_multi_gpu.sh wan \
+  /mydir/code/WorldArena/embodied_task/output/wan_test \
+  $SUMMARY_JSON \
+  "image_quality,aesthetic_quality,background_consistency,subject_consistency,dynamic_degree,flow_score,photometric_smoothness,motion_smoothness" \
+  10
+
+bash run_evaluation_multi_gpu.sh wan \
+  /mydir/code/WorldArena/embodied_task/output/wan_test \
+  $SUMMARY_JSON \
+  "image_quality,aesthetic_quality,background_consistency,subject_consistency,dynamic_degree,flow_score,photometric_smoothness,motion_smoothness"
 
 
 ########################################################
@@ -36,33 +43,46 @@ LIMIT=2
 # 建议先用 LIMIT=10 小样本冒烟，全量 1000 条跑 trajectory_accuracy 比较耗时
 ########################################################
 
-# bash run_evaluation.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH \
-#   "trajectory_accuracy,semantic_alignment,depth_accuracy" \
-#   1
+bash run_evaluation.sh \
+  wan_newtest \
+  /mydir/code/WorldArena/embodied_task/output/wan_newtest \
+  $SUMMARY_JSON \
+  "trajectory_accuracy,semantic_alignment,depth_accuracy" \
+  1
 
+# 全量 + 多 GPU
+bash run_evaluation_multi_gpu.sh wan \
+  /mydir/code/WorldArena/embodied_task/output/wan_test \
+  $SUMMARY_JSON \
+  "trajectory_accuracy,semantic_alignment,depth_accuracy,psnr,ssim"
 
 
 ########################################################
 # 全指标评测 11个指标
 ########################################################
-bash run_evaluation.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH \
+bash run_evaluation.sh \
+  wan_newtest \
+  /mydir/code/WorldArena/embodied_task/output/wan_newtest \
+  $SUMMARY_JSON \
   "image_quality,aesthetic_quality,background_consistency,subject_consistency,dynamic_degree,flow_score,photometric_smoothness,motion_smoothness,trajectory_accuracy,semantic_alignment,depth_accuracy" \
-  $LIMIT
+  1
 
 
 ########################################################
 # VLM 评测
 ########################################################
 
-bash run_VLM_judge.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH all $LIMIT
+bash run_VLM_judge.sh wan /mydir/code/WorldArena/embodied_task/output/wan_test $SUMMARY_JSON all "" 2
 
+# 多 GPU 版本，使用多个 GPU 进行评测，自动检测 GPU 数量
+bash run_VLM_judge_multi_gpu.sh wan /mydir/code/WorldArena/embodied_task/output/wan_test $SUMMARY_JSON all "" 2
 
 
 ########################################################
 # action following 评测（使用 preprocess_datasets_diversity.py）
 ########################################################
 
-bash run_action_following.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH $LIMIT
+bash run_action_following.sh wan /mydir/code/WorldArena/embodied_task/output/wan_test $SUMMARY_JSON 40
 
 ########################################################
 # JEPA 相似度（直接吃 GT 目录，不走 summary.json）
@@ -74,15 +94,22 @@ bash run_action_following.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH $
 # 两边通过文件名 stem 对齐（episode{N}.mp4）
 ########################################################
 
-# 调试：只跑前 $LIMIT 对
-bash run_evaluation_JEPA.sh $MODEL_NAME $VIDEO_DIR /mydir/code/WorldArena/datasets/new_test_dataset/gt_video/fixed_scene_task $LIMIT
+# 调试：只跑前 10 对
+bash run_evaluation_JEPA.sh \
+  wan_newtest \
+  /mydir/code/WorldArena/embodied_task/output/wan_newtest \
+  /mydir/code/WorldArena/datasets/new_test_dataset/gt_video/fixed_scene_task \
+  10
 
 # 全量
-# bash run_evaluation_JEPA.sh $MODEL_NAME $VIDEO_DIR /mydir/code/WorldArena/datasets/new_test_dataset/gt_video/fixed_scene_task
+bash run_evaluation_JEPA.sh \
+  wan_newtest \
+  /mydir/code/WorldArena/embodied_task/output/wan_newtest \
+  /mydir/code/WorldArena/datasets/new_test_dataset/gt_video/fixed_scene_task
 
 ########################################################
 # 结果聚合
 ########################################################
 
-python csv_results/aggregate_results.py --model_name $MODEL_NAME --base_dir .
-python myscript/summarize_csv.py csv_results/$MODEL_NAME/aggregated_results.csv --with-header --full
+python csv_results/aggregate_results.py --model_name wan --base_dir .
+python myscript/summarize_csv.py csv_results/wan/aggregated_results.csv --with-header

@@ -41,12 +41,12 @@ def _find_gen_video(video_dir, id1, id2):
 
 
 def process_item(item, gen_video_dir, output_base):
-    # 1. Extract IDs from a path like /.../327/651177/...
+    # 1. Extract IDs from the gt_path.
+    #    id1 = direct parent folder name (task group, e.g. fixed_scene_task)
+    #    id2 = file stem (episode id, e.g. episode1)
     gt_video_path = Path(item["gt_path"])
-    parts = gt_video_path.parts
-    # Assume the fourth item from the end is ID1 (e.g., 327) and the third is ID2 (e.g., 651177)
-    # id2 is like episode0.mp4; drop the extension to keep the prefix only
-    id1, id2 = parts[-5], parts[-1].split('.')[0]
+    id2 = gt_video_path.stem
+    id1 = gt_video_path.parent.name or "flat"
     
     # 2. Build GT path structure
     gt_root = Path(output_base) / "gt_dataset" / id1 / id2

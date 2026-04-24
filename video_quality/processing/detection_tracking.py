@@ -592,8 +592,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--config_path', type=str, required=True, 
                        help='Path to config.yaml')
-    parser.add_argument('--detect_gt', action='store_false',
-                       help='Whether to detect ground-truth trajectories')
+    parser.add_argument('--detect_gt', action='store_true', default=False,
+                       help='Also detect trajectories on GT videos (required for trajectory_accuracy)')
     parser.add_argument('--force_reprocess', action='store_true',
                        help='Force reprocess all videos even if outputs exist')
     args = parser.parse_args()

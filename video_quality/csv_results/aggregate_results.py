@@ -199,11 +199,15 @@ def aggregate_results(
     if jepa_result_path:
         jepa_score = _ingest_jepa_score(jepa_result_path)
     else:
-        # Try common defaults
+        # Try common defaults. Newer runs save to output_JEDi/<model_name>/results.json
+        # to avoid overwriting between models; keep legacy flat paths as fallback.
         candidates = [
+            os.path.join(base_dir, "output_JEDi", model_name, "results.json"),
+            os.path.join(base_dir, "output_JEDi", model_name, "generated_results.json"),
             os.path.join(base_dir, "output_JEDi", "generated_results.json"),
             os.path.join(base_dir, "output_JEDi", "results.json"),
-        ] + glob.glob(os.path.join(base_dir, "output_JEDi", "*.json"))
+        ] + glob.glob(os.path.join(base_dir, "output_JEDi", model_name, "*.json")) \
+          + glob.glob(os.path.join(base_dir, "output_JEDi", "*.json"))
         for cand in candidates:
             jepa_score = _ingest_jepa_score(cand)
             if jepa_score is not None:
@@ -231,7 +235,7 @@ def aggregate_results(
             if metric_col in COLUMN_ORDER:
                 row[metric_col] = value
         if jepa_score is not None:
-            row["JEPA_Similarity"] = jepa_score
+            row["JEPA Similarity"] = jepa_score
         csv_rows.append(row)
 
     # Ensure output directory exists (per-model subdirectory)

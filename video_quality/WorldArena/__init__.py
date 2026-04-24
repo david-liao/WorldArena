@@ -225,31 +225,53 @@ class WorldArenaBenchmark(object):
 
         json_path = os.path.join(self.output_path, f"{data_name}_results.json")
 
+        results_dict = {}
+
         if overwrite and os.path.exists(json_path):
             print0(f"[overwrite] Removing existing results at {json_path}")
             try:
                 os.remove(json_path)
             except OSError as exc:
                 print0(f"[overwrite] Warning: failed to remove {json_path}: {exc}")
+        elif (not overwrite) and os.path.exists(json_path):
+            # Resume: load whatever dimensions were already computed so we only
+            # run the missing ones (avoids wasting hours when a later metric crashes).
+            try:
+                with open(json_path, "r") as f:
+                    results_dict = json.load(f)
+                print0(f"[resume] Loaded {len(results_dict)} existing dimension(s) from {json_path}: {sorted(results_dict.keys())}")
+            except Exception as exc:
+                print0(f"[resume] Failed to load existing results ({exc}); will recompute from scratch")
+                results_dict = {}
 
-        if (not os.path.exists(json_path)) or overwrite:
+        if dimension_list is None:
+            dimension_list = self.build_full_dimension_list()
 
-            results_dict = {}
-            
-            if dimension_list is None:
-                dimension_list = self.build_full_dimension_list()
+        if "psnr" in dimension_list and "ssim" in dimension_list:
+            dimension_list.pop(dimension_list.index("psnr"))
+            dimension_list.pop(dimension_list.index("ssim"))
+            dimension_list.append("psnr_ssim")
 
-            if "psnr" in dimension_list and "ssim" in dimension_list:
-                dimension_list.pop(dimension_list.index("psnr"))
-                dimension_list.pop(dimension_list.index("ssim"))
-                dimension_list.append("psnr_ssim")
+        # Filter out dimensions that are already in results_dict (resume path).
+        pending_dimensions = []
+        for dim in dimension_list:
+            if dim == "psnr_ssim":
+                if "psnr" in results_dict and "ssim" in results_dict:
+                    print0(f"[resume] Skipping already-computed: psnr_ssim")
+                    continue
+            elif dim in results_dict:
+                print0(f"[resume] Skipping already-computed: {dim}")
+                continue
+            pending_dimensions.append(dim)
 
-            print(dimension_list)
+        if pending_dimensions:
 
-            submodules_dict = init_submodules(dimension_list, local=local, **kwargs)
+            print(f"Pending dimensions: {pending_dimensions}")
 
-            for dimension in dimension_list:
-                
+            submodules_dict = init_submodules(pending_dimensions, local=local, **kwargs)
+
+            for dimension in pending_dimensions:
+
                 print0(f"Evaluating: {dimension}")
 
                 # choose dataset roots per dimension (action_following can use dedicated roots)
@@ -289,14 +311,43 @@ class WorldArenaBenchmark(object):
                     submodules_list = submodules_dict[dimension] 
                     caption_model = submodules_list['caption_model'] 
                     semantics_model = submodules_list['clip_model'] 
+                    # Legacy layout keeps generated videos under `.../data/<data_name>_dataset/...`.
+                    # Sharded evaluations instead put them under `.../data/<data_name>/...`
+                    # (e.g. `.../data/shard_0/fixed_scene_task/...`), so caption.py's default
+                    # `{model_name}_dataset` boundary-marker cannot be found in the path and
+                    # every entry collapses into a single `error_in_filename_construction`
+                    # bucket. Detect the sharded case and override the marker while still
+                    # emitting the canonical `generated_dataset_` key prefix that the
+                    # downstream matcher in `semantic_alignment.py` splits on.
+                    is_shard_data = data_name.startswith("shard_")
+                    caption_json = os.path.join(self.output_path, f"{data_name}_caption_responses.json")
+                    gt_caption_json = os.path.join(self.output_path, f"gt_caption_responses.json")
+                    gt_full_info_json = os.path.join(self.output_path, "gt_full_info.json")
+                    # Honour the caller's --overwrite: both caption caches and
+                    # the gt_full_info snapshot are otherwise kept forever and
+                    # can become stale after the data paths or LIMIT change
+                    # (e.g. switching config files), silently dropping episodes
+                    # from semantic_alignment because caption_reference() and
+                    # the GT branch below only regenerate when the files are
+                    # missing.
+                    if overwrite:
+                        for stale in (caption_json, gt_caption_json, gt_full_info_json):
+                            if os.path.exists(stale):
+                                print0(f"[overwrite] Removing stale caption cache at {stale}")
+                                try:
+                                    os.remove(stale)
+                                except OSError as exc:
+                                    print0(f"[overwrite] Warning: failed to remove {stale}: {exc}")
+
                     caption = caption_reference(
                                         model_name=data_name,
                                         model_path = caption_model,
                                         video_folder_root = cur_full_info_path,
                                         save_path = self.output_path,
+                                        path_marker=data_name if is_shard_data else None,
+                                        key_prefix="generated_dataset" if is_shard_data else None,
                                         **kwargs
                                         )
-                    caption_json = os.path.join(self.output_path, f"{data_name}_caption_responses.json")
                     with open(caption_json, 'r') as f:
                         data = json.load(f)
 
@@ -308,7 +359,6 @@ class WorldArenaBenchmark(object):
                             print(f"Warning: No 'Overall_Constraints' found in {sample_id}")
                     results_dict['logics'] = result
 
-                    gt_caption_json = os.path.join(self.output_path, f"gt_caption_responses.json")
                     if not os.path.isfile(gt_caption_json):
                         gt_full_info_path = self.build_full_gt_info_json(gt_path, 'gt', **kwargs)
                         gt_caption = caption_reference(
@@ -407,16 +457,18 @@ class WorldArenaBenchmark(object):
                     results_dict["ssim"] = results["ssim"]
                 else:
                     results_dict[dimension] = results
-            
 
-            results_json = os.path.join(self.output_path,f'{data_name}_results.json')    
-            with open(results_json, "w") as f:
-                json.dump(results_dict, f, indent=2)
-
+                # Incremental checkpoint after every dimension so a later crash
+                # (e.g. network download failure in the middle of the list) does
+                # not lose all the hours of compute we already did.
+                os.makedirs(os.path.dirname(json_path), exist_ok=True)
+                tmp_path = json_path + ".tmp"
+                with open(tmp_path, "w") as f:
+                    json.dump(results_dict, f, indent=2)
+                os.replace(tmp_path, json_path)
+                print0(f"[checkpoint] Saved {len(results_dict)} dimension(s) -> {json_path}")
         else:
-
-            with open(json_path, "r") as f:
-                results_dict = json.load(f)
+            print0("[resume] All requested dimensions already computed; nothing to do.")
 
 
 

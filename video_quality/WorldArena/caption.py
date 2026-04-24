@@ -99,8 +99,20 @@ def caption_reference(
                         model_path,
                         video_folder_root,
                         save_path,
+                        path_marker=None,
+                        key_prefix=None,
                         **kwargs
                         ):
+    # `path_marker` is the directory name that separates the dataset root from
+    # <task>/<episode>/... inside each mp4's path. Defaults to `f"{model_name}_dataset"`,
+    # which matches the legacy layout where videos live under `.../generated_dataset/...`
+    # or `.../gt_dataset/...`. For sharded evaluations the videos live under `.../shard_N/...`
+    # so the caller can pass `path_marker="shard_N"` to locate the boundary correctly.
+    # `key_prefix` is the token that will be prepended to every output key (and used so
+    # that downstream `semantic_alignment.py` can still rely on the canonical
+    # `generated_dataset_` / `gt_dataset_` prefix regardless of what marker we scanned on).
+    effective_path_marker = path_marker if path_marker else f"{model_name}_dataset"
+    effective_key_prefix = key_prefix if key_prefix else f"{model_name}_dataset"
 
     # Delay heavy imports so other dimensions can run without Qwen dependencies
     from transformers import AutoProcessor, AutoModelForCausalLM
@@ -135,6 +147,7 @@ def caption_reference(
 
 
         all_responses = {}
+        error_counter = 0
         for mp4_file in tqdm(all_mp4_files):
 
             prompt = prepare_prompt(mp4_file)
@@ -145,14 +158,20 @@ def caption_reference(
                 response = "Error: " + str(e)
 
             parts = mp4_file.split('/')
-            model_dataset = f"{model_name}_dataset"
             try:
-                start_index = parts.index(model_dataset)+1
+                start_index = parts.index(effective_path_marker) + 1
                 video_index = parts.index('video')
                 selected_parts = parts[start_index:video_index]
-                mp4_file_name = "_".join([model_dataset] + selected_parts)
+                mp4_file_name = "_".join([effective_key_prefix] + selected_parts)
             except ValueError:
-                mp4_file_name = "error_in_filename_construction"
+                # Keep each failure under a unique key so entries don't collapse and
+                # swallow the whole caption response dict.
+                error_counter += 1
+                mp4_file_name = f"error_in_filename_construction_{error_counter}_{os.path.basename(mp4_file.rstrip('/'))}"
+                print(
+                    f"[caption_reference] Could not locate path_marker "
+                    f"'{effective_path_marker}' or 'video' in {mp4_file}"
+                )
 
             all_responses[mp4_file_name] = response
             

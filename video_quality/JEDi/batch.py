@@ -126,6 +126,7 @@ def main():
     parser.add_argument("--model_dir", type=str, default="pretrained_models", help="Directory containing vith16.pth.tar and ssv2-probe.pth.tar")
     parser.add_argument("--config_path", type=str, default="configs/vith16_ssv2_16x2x3.yaml", help="Local JEPA config path")
     parser.add_argument("--output_root", type=str, required=True, help="the path of the result")
+    parser.add_argument("--model_name", type=str, default="", help="optional model name; when set, results are saved under <output_root>/<model_name>/")
     args = parser.parse_args()
 
     torch.manual_seed(args.seed)
@@ -142,13 +143,21 @@ def main():
         real_paths = real_paths[: args.max_samples]
         gen_paths = gen_paths[: args.max_samples]
 
-    # save intersection list for reproducibility
-    Path(args.save_intersection).write_text(json.dumps(names, indent=2, ensure_ascii=False), encoding="utf-8")
+    # Results directory: <output_root>/<model_name>/ when model_name is given,
+    # otherwise fall back to <output_root>/ directly to preserve old behavior.
+    out_dir = Path(args.output_root)
+    if args.model_name:
+        out_dir = out_dir / args.model_name
+    os.makedirs(out_dir, exist_ok=True)
+
+    # save intersection list inside the per-run dir so parallel runs don't overwrite each other
+    intersection_path = out_dir / Path(args.save_intersection).name
+    intersection_path.write_text(json.dumps(names, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"[INFO] real videos: {len(list(real_dir.glob('*.mp4')))}")
     print(f"[INFO] gen  videos: {len(list(gen_dir.glob('*.mp4')))}")
     print(f"[INFO] intersected pairs used for eval: {len(names)}")
-    print(f"[INFO] saved intersection names -> {args.save_intersection}")
+    print(f"[INFO] saved intersection names -> {intersection_path}")
 
     real_ds = PairedVideoFolderDataset(names, real_paths, num_frames=args.num_frames, size=args.size)
     gen_ds  = PairedVideoFolderDataset(names, gen_paths,  num_frames=args.num_frames, size=args.size)
@@ -170,9 +179,16 @@ def main():
         collate_fn=collate_videos,
     )
 
-    # JEDiMetric will extract V-JEPA features internally and compute distance
-    jedi = JEDiMetric()
-    # load_features expects two loaders + num_samples
+    # JEDiMetric will extract V-JEPA features internally and compute distance.
+    # IMPORTANT: pass model_dir/config_path so it finds local checkpoints instead
+    # of re-downloading ~10GB vith16.pth.tar + ~215MB ssv2-probe.pth.tar.
+    model_dir_abs = str(Path(args.model_dir).resolve())
+    config_path_abs = str(Path(args.config_path).resolve())
+    if not (Path(model_dir_abs) / "vith16.pth.tar").exists():
+        print(f"[WARN] vith16.pth.tar not found under {model_dir_abs}; videojedi will try to download it.")
+    if not (Path(model_dir_abs) / "ssv2-probe.pth.tar").exists():
+        print(f"[WARN] ssv2-probe.pth.tar not found under {model_dir_abs}; videojedi will try to download it.")
+    jedi = JEDiMetric(model_dir=model_dir_abs, config_path=config_path_abs)
     num_samples = len(names)
     jedi.load_features(real_loader, gen_loader, num_samples=num_samples)
     score = jedi.compute_metric()
@@ -182,13 +198,12 @@ def main():
     print(f"JEDi score (higher is better): {score}")
     print("==============================\n")
     try:
-        gen_dir_name = Path(args.gen_dir).name
-        output_root=args.output_root
-        out_json = Path(output_root) / f"results.json"
-        os.makedirs(out_json.parent, exist_ok=True)
+        out_json = out_dir / "results.json"
         result = {
+            "model_name": args.model_name,
             "gen_dir": str(args.gen_dir),
             "real_dir": str(args.real_dir),
+            "num_samples": len(names),
             "score": float(score) if hasattr(score, "__float__") else score,
         }
         out_json.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")

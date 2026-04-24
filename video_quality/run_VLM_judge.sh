@@ -4,9 +4,9 @@ set -euo pipefail
 MODEL_NAME=${1:?model name required}
 VIDEO_DIR=${2:?video dir required}
 SUMMARY_JSON=${3:?summary json required}
-METRICS=${4:-all}
 # Optional: pass a custom config path; defaults to the repo config
-CONFIG_PATH=${5:-}
+CONFIG_PATH=${4:-}
+METRICS=${5:-all}
 # Optional: limit to first N videos for debugging (0 = no limit)
 MAX_VIDEOS=${6:-0}
 

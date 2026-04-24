@@ -9,7 +9,10 @@ set -euo pipefail
 #
 # Strategy:
 #   1. Preprocess / Resize / Tracking — single process (shared data)
-#   2. Shard episodes into per-GPU symlink trees
+#      (Auto-skipped when $DATA_DIR/shard_0..N-1 already exist, unless
+#       SKIP_PREP=0 is passed. Pass SKIP_PREP=1 to force skip even if sharding
+#       looks incomplete; FORCE_PREP=1 to force re-preprocess.)
+#   2. Shard episodes into per-GPU symlink trees (skipped together with Phase 1)
 #   3. Launch one evaluate.py per GPU in parallel (CUDA_VISIBLE_DEVICES)
 #   4. Wait for all, then merge shard results into final JSON
 
@@ -20,6 +23,16 @@ RAW_METRICS=${4:-}
 LIMIT=${5:-0}
 CONFIG_PATH=${6:-"./config/config.yaml"}
 NGPUS=${7:-0}
+
+# Optional envs:
+#   SKIP_PREP=1  -> force skip preprocessing (use existing data/shard_*)
+#   FORCE_PREP=1 -> force re-run preprocessing even if data/shard_* already exists
+#   OVERWRITE=0  -> do not pass --overwrite to evaluate.py so it can resume
+#                   already-computed dimensions from shard_N_results.json
+#                   (default 1 preserves legacy behavior of re-running everything).
+SKIP_PREP=${SKIP_PREP:-auto}
+FORCE_PREP=${FORCE_PREP:-0}
+OVERWRITE=${OVERWRITE:-1}
 
 if [ -z "$MODEL_NAME" ] || [ -z "$GEN_VIDEO_DIR" ] || [ -z "$SUMMARY_JSON" ] || [ -z "$RAW_METRICS" ]; then
     echo "Usage: $0 <MODEL_NAME> <GEN_VIDEO_DIR> <SUMMARY_JSON> <METRIC_LIST> [LIMIT] [CONFIG_PATH] [NGPUS]"
@@ -82,69 +95,97 @@ done
 
 # Standard metrics
 if [ ${#EVAL_METRICS[@]} -gt 0 ]; then
-    # === Phase 1: Preprocessing (single process) ===
-    echo ">>> Cleaning previous preprocessed data..."
-    rm -rf "$DATA_DIR/gt_dataset" "$GEN_DATASET_DIR" "$DATA_DIR"/shard_*
-
-    STEP_START=$SECONDS
-    echo ">>> Running Preprocessing..."
-    LIMIT_FLAG=""
-    if [ "$LIMIT" -gt 0 ] 2>/dev/null; then
-        LIMIT_FLAG="--limit $LIMIT"
-    fi
-    python preprocess_datasets.py --summary_json "$SUMMARY_JSON" --gen_video_dir "$GEN_VIDEO_DIR" --output_base "$DATA_DIR" $LIMIT_FLAG
-    echo ">>> [Preprocessing] $(fmt_elapsed $((SECONDS - STEP_START)))"
-
-    STEP_START=$SECONDS
-    echo ">>> Running Resize..."
-    python ./processing/video_resize.py --config_path "$CONFIG_PATH"
-    echo ">>> [Resize] $(fmt_elapsed $((SECONDS - STEP_START)))"
-
-    if [ "$RUN_TRACKING" = true ]; then
-        STEP_START=$SECONDS
-        echo ">>> Running Detection & Tracking (for trajectory_accuracy)..."
-        python ./processing/detection_tracking.py --config_path "$CONFIG_PATH" --detect_gt
-        echo ">>> [Detection & Tracking] $(fmt_elapsed $((SECONDS - STEP_START)))"
+    # === Decide whether preprocessing + sharding can be skipped ===
+    PREP_NEEDED=1
+    if [ "$FORCE_PREP" = "1" ]; then
+        PREP_NEEDED=1
+        echo ">>> FORCE_PREP=1 — re-running preprocessing"
+    elif [ "$SKIP_PREP" = "1" ]; then
+        PREP_NEEDED=0
+        echo ">>> SKIP_PREP=1 — reusing existing $DATA_DIR/shard_* as-is"
     else
-        echo ">>> Skipping Detection & Tracking (trajectory_accuracy not requested)"
+        # auto-detect: all $NGPUS shards present AND generated_dataset exists
+        ALL_SHARDS_OK=1
+        for (( i=0; i<NGPUS; i++ )); do
+            if [ ! -d "$DATA_DIR/shard_$i" ]; then
+                ALL_SHARDS_OK=0
+                break
+            fi
+        done
+        if [ "$ALL_SHARDS_OK" = "1" ] && [ -d "$GEN_DATASET_DIR" ] && [ -d "$DATA_DIR/gt_dataset" ]; then
+            PREP_NEEDED=0
+            echo ">>> Found existing $GEN_DATASET_DIR + $DATA_DIR/shard_0..$((NGPUS-1)); skipping Preprocessing/Resize/Shard."
+            echo ">>> (Pass FORCE_PREP=1 to regenerate them.)"
+        fi
     fi
 
-    # === Phase 2: Create shard symlink trees ===
-    STEP_START=$SECONDS
+    if [ "$PREP_NEEDED" = "1" ]; then
+        # === Phase 1: Preprocessing (single process) ===
+        echo ">>> Cleaning previous preprocessed data..."
+        rm -rf "$DATA_DIR/gt_dataset" "$GEN_DATASET_DIR" "$DATA_DIR"/shard_*
 
-    # Collect all task/episode pairs
-    EPISODES=()
-    for task_dir in "$GEN_DATASET_DIR"/*/; do
-        task_name=$(basename "$task_dir")
-        for ep_dir in "$task_dir"*/; do
-            ep_name=$(basename "$ep_dir")
-            # Skip non-directory entries
-            [ -d "$ep_dir" ] || continue
-            EPISODES+=("$task_name/$ep_name")
+        STEP_START=$SECONDS
+        echo ">>> Running Preprocessing..."
+        LIMIT_FLAG=""
+        if [ "$LIMIT" -gt 0 ] 2>/dev/null; then
+            LIMIT_FLAG="--limit $LIMIT"
+        fi
+        python preprocess_datasets.py --summary_json "$SUMMARY_JSON" --gen_video_dir "$GEN_VIDEO_DIR" --output_base "$DATA_DIR" $LIMIT_FLAG
+        echo ">>> [Preprocessing] $(fmt_elapsed $((SECONDS - STEP_START)))"
+
+        STEP_START=$SECONDS
+        echo ">>> Running Resize..."
+        python ./processing/video_resize.py --config_path "$CONFIG_PATH"
+        echo ">>> [Resize] $(fmt_elapsed $((SECONDS - STEP_START)))"
+
+        if [ "$RUN_TRACKING" = true ]; then
+            STEP_START=$SECONDS
+            echo ">>> Running Detection & Tracking (for trajectory_accuracy)..."
+            python ./processing/detection_tracking.py --config_path "$CONFIG_PATH" --detect_gt
+            echo ">>> [Detection & Tracking] $(fmt_elapsed $((SECONDS - STEP_START)))"
+        else
+            echo ">>> Skipping Detection & Tracking (trajectory_accuracy not requested)"
+        fi
+
+        # === Phase 2: Create shard symlink trees ===
+        STEP_START=$SECONDS
+
+        # Collect all task/episode pairs
+        EPISODES=()
+        for task_dir in "$GEN_DATASET_DIR"/*/; do
+            task_name=$(basename "$task_dir")
+            for ep_dir in "$task_dir"*/; do
+                ep_name=$(basename "$ep_dir")
+                # Skip non-directory entries
+                [ -d "$ep_dir" ] || continue
+                EPISODES+=("$task_name/$ep_name")
+            done
         done
-    done
 
-    NUM_EPISODES=${#EPISODES[@]}
-    echo ">>> Found $NUM_EPISODES episodes, distributing across $NGPUS GPUs"
+        NUM_EPISODES=${#EPISODES[@]}
+        echo ">>> Found $NUM_EPISODES episodes, distributing across $NGPUS GPUs"
 
-    # Round-robin distribute episodes to shards via symlinks
-    for (( i=0; i<NGPUS; i++ )); do
-        rm -rf "$DATA_DIR/shard_$i"
-    done
+        # Round-robin distribute episodes to shards via symlinks
+        for (( i=0; i<NGPUS; i++ )); do
+            rm -rf "$DATA_DIR/shard_$i"
+        done
 
-    for (( idx=0; idx<NUM_EPISODES; idx++ )); do
-        shard_id=$((idx % NGPUS))
-        task_ep="${EPISODES[$idx]}"
-        task_name="${task_ep%%/*}"
-        ep_name="${task_ep##*/}"
+        for (( idx=0; idx<NUM_EPISODES; idx++ )); do
+            shard_id=$((idx % NGPUS))
+            task_ep="${EPISODES[$idx]}"
+            task_name="${task_ep%%/*}"
+            ep_name="${task_ep##*/}"
 
-        shard_task_dir="$DATA_DIR/shard_$shard_id/$task_name"
-        mkdir -p "$shard_task_dir"
+            shard_task_dir="$DATA_DIR/shard_$shard_id/$task_name"
+            mkdir -p "$shard_task_dir"
 
-        # Absolute symlink to the actual episode directory
-        src="$(cd "$GEN_DATASET_DIR/$task_name/$ep_name" && pwd)"
-        ln -s "$src" "$shard_task_dir/$ep_name"
-    done
+            # Absolute symlink to the actual episode directory
+            src="$(cd "$GEN_DATASET_DIR/$task_name/$ep_name" && pwd)"
+            ln -s "$src" "$shard_task_dir/$ep_name"
+        done
+    else
+        STEP_START=$SECONDS
+    fi
 
     # Print shard distribution
     for (( i=0; i<NGPUS; i++ )); do
@@ -162,10 +203,14 @@ if [ ${#EVAL_METRICS[@]} -gt 0 ]; then
         mkdir -p "$shard_output"
         SHARD_RESULTS+=("$shard_output/shard_${i}_results.json")
 
+        OVERWRITE_FLAG=""
+        if [ "$OVERWRITE" = "1" ]; then
+            OVERWRITE_FLAG="--overwrite"
+        fi
         CUDA_VISIBLE_DEVICES=$i MASTER_PORT=$((29500 + i)) python evaluate.py \
             --dimension ${EVAL_METRICS[@]} \
             --config "$CONFIG_PATH" \
-            --overwrite \
+            $OVERWRITE_FLAG \
             --save_path "$shard_output" \
             --data_base "$shard_data" \
             > "$shard_output/eval.log" 2>&1 &

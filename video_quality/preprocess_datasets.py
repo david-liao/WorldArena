@@ -30,16 +30,21 @@ def extract_frames(video_path, output_dir):
     cap.release()
 
 def _extract_ids(gt_path_str):
-    """Extract (id1, id2) from gt_path, supporting both deep and flat naming.
+    """Extract (id1, id2) from gt_path using the parent directory as task group.
 
-    Deep path  : /.../task_name/x/y/episodeK.mp4  -> (task_name, episodeK)
-    Flat path  : any path ending in /episodeK.mp4  -> ("flat", episodeK)
+    This works regardless of how deeply the gt video is nested, as long as the
+    direct parent folder is the task group name and the file stem is the
+    episode id, e.g.:
+
+      /.../gt_video/fixed_scene_task/episode1.mp4 -> ("fixed_scene_task", "episode1")
+      /data/fixed_scene_task/a/b/c/episode1.mp4   -> ("c",               "episode1")
+
+    Empty parent (e.g. just "episode1.mp4") falls back to "flat".
     """
-    parts = Path(gt_path_str).parts
-    basename = parts[-1].split('.')[0]
-    if len(parts) >= 5:
-        return parts[-5], basename
-    return "flat", basename
+    p = Path(gt_path_str)
+    id2 = p.stem
+    id1 = p.parent.name or "flat"
+    return id1, id2
 
 
 def _find_gen_video(gen_video_dir, id1, id2):

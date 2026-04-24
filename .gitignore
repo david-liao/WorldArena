@@ -23,10 +23,14 @@ build/
 datasets/
 video_quality/data/
 video_quality/data_action_following/
+video_quality/newtest_data/
+video_quality/newtest_data_action_following/
+video_quality/logs/
 video_quality/models/
 video_quality/output/
 video_quality/output_VLM/
 video_quality/output_action_following/
+video_quality/output_JEDi/
 video_quality/tmp_VLM/
 video_quality/WorldArena/third_party/checkpoints/
 video_quality/JEDi/pretrained_models/

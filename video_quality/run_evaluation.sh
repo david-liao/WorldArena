@@ -8,11 +8,11 @@ set -euo pipefail
 MODEL_NAME=${1:-}
 GEN_VIDEO_DIR=${2:-}
 SUMMARY_JSON=${3:-}
-RAW_METRICS=${4:-}
-LIMIT=${5:-0}
-CONFIG_PATH=${6:-"./config/config.yaml"}
-if [ -z "$MODEL_NAME" ] || [ -z "$GEN_VIDEO_DIR" ] || [ -z "$SUMMARY_JSON" ] || [ -z "$RAW_METRICS" ]; then
-    echo "Usage: $0 <MODEL_NAME> <GEN_VIDEO_DIR> <SUMMARY_JSON> <METRIC_LIST> [LIMIT] [CONFIG_PATH]"
+CONFIG_PATH=${4:-"./config/config.yaml"}
+RAW_METRICS=${5:-}
+LIMIT=${6:-0}
+if [ -z "$MODEL_NAME" ] || [ -z "$GEN_VIDEO_DIR" ] || [ -z "$SUMMARY_JSON" ] || [ -z "$RAW_METRICS" ] || [ -z "$CONFIG_PATH" ]; then
+    echo "Usage: $0 <MODEL_NAME> <GEN_VIDEO_DIR> <SUMMARY_JSON> <METRIC_LIST> [CONFIG_PATH] [LIMIT]"
     exit 1
 fi
 
@@ -38,13 +38,103 @@ METRIC_ARRAY=($CLEAN_METRICS)
 echo ">>> Input metrics: $RAW_METRICS"
 echo ">>> Formatted for evaluate.py: ${METRIC_ARRAY[*]}"
 
-DATA_DIR="./data"
+# Derive every path from config.yaml (single source of truth).
+# This lets two concurrent runs live in the same code directory as long as
+# their config files point to different data / save paths.
+if [ ! -f "$CONFIG_PATH" ]; then
+    echo "ERROR: config file not found: $CONFIG_PATH"
+    exit 1
+fi
+
+eval "$(python - "$CONFIG_PATH" <<'PY'
+import sys, shlex, yaml
+with open(sys.argv[1]) as f:
+    c = yaml.safe_load(f) or {}
+d  = c.get('data', {}) or {}
+da = c.get('data_action_following', {}) or {}
+out = {
+    'GT_PATH':          d.get('gt_path',  ''),
+    'VAL_BASE':         d.get('val_base', ''),
+    'GT_PATH_ACTION':   da.get('gt_path',  ''),
+    'VAL_BASE_ACTION':  da.get('val_base', ''),
+    'SAVE_PATH':        c.get('save_path', ''),
+    'SAVE_PATH_ACTION': c.get('save_path_action_following', ''),
+}
+for k, v in out.items():
+    print(f'{k}={shlex.quote(str(v))}')
+PY
+)"
+
+# ---- validate standard data paths ---------------------------------------
+if [ -z "$GT_PATH" ] || [ -z "$VAL_BASE" ]; then
+    echo "ERROR: data.gt_path and data.val_base must be set in $CONFIG_PATH"
+    exit 1
+fi
+GT_PARENT=$(dirname "$GT_PATH")
+VAL_PARENT=$(dirname "$VAL_BASE")
+if [ "$GT_PARENT" != "$VAL_PARENT" ]; then
+    echo "ERROR: data.gt_path and data.val_base must share the same parent directory."
+    echo "  gt_path  = $GT_PATH   (parent: $GT_PARENT)"
+    echo "  val_base = $VAL_BASE (parent: $VAL_PARENT)"
+    echo "  preprocess_datasets.py writes to <parent>/gt_dataset and <parent>/generated_dataset,"
+    echo "  so both paths must sit under the same parent."
+    exit 1
+fi
+if [ "$(basename "$GT_PATH")" != "gt_dataset" ] || [ "$(basename "$VAL_BASE")" != "generated_dataset" ]; then
+    echo "ERROR: expected data.gt_path to end with 'gt_dataset' and data.val_base to end with 'generated_dataset'."
+    echo "  gt_path  = $GT_PATH"
+    echo "  val_base = $VAL_BASE"
+    exit 1
+fi
+DATA_DIR="$GT_PARENT"
+
+# ---- validate action_following data paths (optional; only if provided) --
+DATA_DIR_ACTION=""
+if [ -n "$GT_PATH_ACTION" ] || [ -n "$VAL_BASE_ACTION" ]; then
+    if [ -z "$GT_PATH_ACTION" ] || [ -z "$VAL_BASE_ACTION" ]; then
+        echo "ERROR: data_action_following.gt_path and data_action_following.val_base must both be set (or both omitted)."
+        exit 1
+    fi
+    GT_PARENT_ACTION=$(dirname "$GT_PATH_ACTION")
+    VAL_PARENT_ACTION=$(dirname "$VAL_BASE_ACTION")
+    if [ "$GT_PARENT_ACTION" != "$VAL_PARENT_ACTION" ]; then
+        echo "ERROR: data_action_following.gt_path and data_action_following.val_base must share the same parent directory."
+        echo "  gt_path  = $GT_PATH_ACTION   (parent: $GT_PARENT_ACTION)"
+        echo "  val_base = $VAL_BASE_ACTION (parent: $VAL_PARENT_ACTION)"
+        exit 1
+    fi
+    if [ "$(basename "$GT_PATH_ACTION")" != "gt_dataset" ] || [ "$(basename "$VAL_BASE_ACTION")" != "generated_dataset" ]; then
+        echo "ERROR: expected data_action_following.gt_path to end with 'gt_dataset' and data_action_following.val_base to end with 'generated_dataset'."
+        exit 1
+    fi
+    DATA_DIR_ACTION="$GT_PARENT_ACTION"
+fi
+
+# ---- validate save paths ------------------------------------------------
+if [ -z "$SAVE_PATH" ]; then
+    echo "ERROR: save_path must be set in $CONFIG_PATH"
+    exit 1
+fi
+# save_path_action_following falls back to save_path when not provided
+if [ -z "$SAVE_PATH_ACTION" ]; then
+    SAVE_PATH_ACTION="$SAVE_PATH"
+fi
+
 CONFIG_DIR="./config"
-OUTPUT_DIR="./output/$MODEL_NAME"
-OUTPUT_DIR_ACTION="./output_action_following/$MODEL_NAME"
+OUTPUT_DIR="${SAVE_PATH%/}/$MODEL_NAME"
+OUTPUT_DIR_ACTION="${SAVE_PATH_ACTION%/}/$MODEL_NAME"
 
 mkdir -p "$DATA_DIR" "$CONFIG_DIR" "$OUTPUT_DIR" "$OUTPUT_DIR_ACTION"
-echo ">>> Results will be saved to: $OUTPUT_DIR"
+if [ -n "$DATA_DIR_ACTION" ]; then
+    mkdir -p "$DATA_DIR_ACTION"
+fi
+
+echo ">>> Data dir (from config):        $DATA_DIR"
+if [ -n "$DATA_DIR_ACTION" ]; then
+    echo ">>> Data dir action (from config): $DATA_DIR_ACTION"
+fi
+echo ">>> Results will be saved to:        $OUTPUT_DIR"
+echo ">>> Action results will be saved to: $OUTPUT_DIR_ACTION"
 
 # Split metrics
 EVAL_METRICS=()
@@ -64,7 +154,9 @@ done
 # Standard metrics
 if [ ${#EVAL_METRICS[@]} -gt 0 ]; then
     echo ">>> Cleaning previous preprocessed data..."
-    rm -rf "$DATA_DIR/gt_dataset" "$DATA_DIR/generated_dataset"
+    echo "    - $GT_PATH"
+    echo "    - $VAL_BASE"
+    rm -rf "$GT_PATH" "$VAL_BASE"
 
     STEP_START=$SECONDS
     echo ">>> Running Preprocessing for standard metrics..."

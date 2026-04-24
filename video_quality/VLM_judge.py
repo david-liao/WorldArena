@@ -16,11 +16,22 @@ DEFAULT_MODEL_PATH = "your absolute path"
 
 
 def load_instruction_json(json_path):
+    """Parse summary.json.
+
+    Returns:
+        instruction_map: {generated_filename: instruction_text}
+        valid_video_basenames: list of generated filenames in the order they
+            appear in the summary JSON (duplicates removed, first occurrence
+            wins). Returning an ordered list (instead of a set) lets callers
+            iterate in summary order, which matches the ordering used by
+            preprocess_datasets.py so that LIMIT-based debug runs across
+            pipelines always select the same videos.
+    """
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     instruction_map = {}
-    valid_video_basenames = set()
+    valid_video_basenames = []
 
     for item in data:
         gt_path = item.get("gt_path", "")
@@ -39,8 +50,9 @@ def load_instruction_json(json_path):
             base_name = os.path.basename(gt_path)
             generated_filename = f"unknown_{base_name}"
 
+        if generated_filename not in instruction_map:
+            valid_video_basenames.append(generated_filename)
         instruction_map[generated_filename] = instruction
-        valid_video_basenames.add(generated_filename)
 
     return instruction_map, valid_video_basenames
 
@@ -235,11 +247,18 @@ def vlm_judge(model_name, video_dir, summary_json, output_root, tmp_root, metric
 
     instruction_map, valid_names = load_instruction_json(summary_json)
 
-    videos = []
-    for fname in os.listdir(video_dir):
-        if fname.lower().endswith((".mp4", ".avi", ".mov", ".mkv", ".webm")) and fname in valid_names:
-            videos.append(os.path.join(video_dir, fname))
-    videos.sort()
+    # Iterate in summary-JSON order (not lexicographic listdir order) so that
+    # LIMIT/max_videos selects the same videos as preprocess_datasets.py and
+    # preprocess_datasets_diversity.py, keeping aggregate_results.py's joins
+    # consistent. Skip entries whose .mp4 isn't present under video_dir.
+    video_exts = (".mp4", ".avi", ".mov", ".mkv", ".webm")
+    existing_files = {
+        f for f in os.listdir(video_dir) if f.lower().endswith(video_exts)
+    }
+    missing = [n for n in valid_names if n not in existing_files]
+    if missing:
+        print(f"[WARN] {len(missing)} video(s) listed in summary are missing under {video_dir}; first 3: {missing[:3]}")
+    videos = [os.path.join(video_dir, n) for n in valid_names if n in existing_files]
     if max_videos > 0:
         videos = videos[:max_videos]
     if num_shards > 1:

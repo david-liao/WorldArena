@@ -36,6 +36,7 @@ def compute_basic_metrics(gt_path, pd_path, metric_names=["psnr", "ssim"]):
                 res[_][task_id][episode_id] = {}
 
             gt_image_list = glob.glob(os.path.join(gt_path, task_id, episode_id, "video", "frame_*.png"))
+            gt_image_list += glob.glob(os.path.join(gt_path, task_id, episode_id, "video", "frame_*.jpg"))
             gt_image_list.sort()
             n_frames = len(gt_image_list)
 
