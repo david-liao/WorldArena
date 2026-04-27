@@ -3,17 +3,18 @@
 # MODEL_NAME=worldarena_robotwin2_vlm_qwen35_worldarena_ft_20260416_480p_ema_test_dataset_instructions
 # VIDEO_DIR=/mnt/xukai/code/ckp/OminiEWM/infer_output/20260416/worldarena_robotwin2_vlm_qwen35_worldarena_ft_20260416_480p_ema_test_dataset_instructions/step-655000/step-655000-ema_infer/videos
 
-MODEL_NAME=OminiEWM_0422_newtest
-VIDEO_DIR=/mnt/jackzou/ckp/OminiEWM/infer_output/20260422/worldarena_robotwin2_0419_vace_action_robotwin_frame_121_640p_test_dataset_instructions/step-792500/step-792500_infer/videos
+MODEL_NAME=jack_0426
+VIDEO_DIR=/mnt/jackzou/ckp/OminiEWM/infer_output/20260426/worldarena_robotwin2_0424_vace_action_robotwin_frame_121_640p_test_dataset_instructions_test_dataset_x4_finetune_200000/step-862500/step-862500_infer/test_40
 SUMMARY_JSON=./summary_new_test.json
+CONFIG_PATH=./config/config_newtest.yaml
 
 echo "Running evaluation..."
-bash run_evaluation_multi_gpu.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON \
-  "image_quality,aesthetic_quality,background_consistency,subject_consistency,dynamic_degree,flow_score,photometric_smoothness,motion_smoothness,semantic_alignment,depth_accuracy"
+bash run_evaluation_multi_gpu.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH "image_quality,aesthetic_quality,background_consistency,subject_consistency,dynamic_degree,flow_score,photometric_smoothness,motion_smoothness,trajectory_accuracy,semantic_alignment,depth_accuracy"
 
 echo "Running VLM judge..."
-bash run_VLM_judge_multi_gpu.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON
+bash run_VLM_judge_multi_gpu.sh $MODEL_NAME $VIDEO_DIR $SUMMARY_JSON $CONFIG_PATH all
 
+echo "Running JEPA..."
 bash run_evaluation_JEPA.sh $MODEL_NAME $VIDEO_DIR /mydir/code/WorldArena/datasets/new_test_dataset/gt_video/fixed_scene_task
 
 echo "Aggregating results..."

@@ -13,8 +13,8 @@ set -euo pipefail
 MODEL_NAME=${1:?model name required}
 VIDEO_DIR=${2:?video dir required}
 SUMMARY_JSON=${3:?summary json required}
-METRICS=${4:-all}
-CONFIG_PATH=${5:-}
+CONFIG_PATH=${4:-}
+METRICS=${5:-all}
 MAX_VIDEOS=${6:-0}
 NGPUS=${7:-0}
 

@@ -13,7 +13,7 @@ VIDEO_DIR=/mydir/code/WorldArena/embodied_task/output/wan_newtest
 # 如果还没生成，先执行：python myscript/build_summary_new_test.py
 SUMMARY_JSON=./summary_new_test.json
 CONFIG_PATH=./config/config_newtest.yaml
-LIMIT=2
+LIMIT=1
 
 
 ########################################################

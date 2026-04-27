@@ -92,6 +92,9 @@ if [ "$LIMIT" -gt 0 ] 2>/dev/null; then
   LIMIT_FLAG="--limit $LIMIT"
 fi
 
+echo ">>> Cleaning previous preprocessed data..."
+rm -rf "$DATA_DIR/gt_dataset" "$DATA_DIR/generated_dataset"
+
 STEP_START=$SECONDS
 echo ">>> Running action_following preprocessing..."
 python preprocess_datasets_diversity.py --summary_json "$SUMMARY_JSON" --gen_video_dir "$GEN_VIDEO_DIR" --output_base "$DATA_DIR" $LIMIT_FLAG

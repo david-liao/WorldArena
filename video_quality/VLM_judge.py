@@ -43,12 +43,14 @@ def load_instruction_json(json_path):
         else:
             instruction = ""
 
-        path_obj = Path(gt_path)
-        if len(path_obj.parts) >= 5:
-            generated_filename = f"{path_obj.parts[-1].split('.')[0]}.mp4"
-        else:
-            base_name = os.path.basename(gt_path)
-            generated_filename = f"unknown_{base_name}"
+        # Derive the generated mp4 filename from gt_path's stem. This is
+        # independent of how deep the gt_path is nested (previous logic
+        # required len(parts) >= 5 which broke when summary.json used
+        # shallow placeholder paths like /data/fixed_scene_task/episodeK.mp4).
+        stem = Path(gt_path).stem
+        generated_filename = f"{stem}.mp4" if stem else ""
+        if not generated_filename:
+            continue
 
         if generated_filename not in instruction_map:
             valid_video_basenames.append(generated_filename)

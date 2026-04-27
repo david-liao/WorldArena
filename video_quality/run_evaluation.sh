@@ -4,6 +4,12 @@ set -euo pipefail
 # Usage: run_evaluation.sh <MODEL_NAME> <GEN_VIDEO_DIR> <SUMMARY_JSON> <METRIC_LIST> [LIMIT] [CONFIG_PATH]
 # METRIC_LIST example: "image_quality,photometric_smoothness,action_following"
 # LIMIT: only preprocess/evaluate the first N videos (0 or omit = all). Useful for debugging.
+# Env:
+#   FORCE_GT_CLEAN=1  Force re-extracting GT frames and re-computing GT trajectories.
+#                     By default the GT directory is preserved across runs so that
+#                     trajectory_accuracy can reuse cached <gt_path>/.../traj/traj.npy
+#                     produced by processing/detection_tracking.py (SAM3 is expensive).
+#                     Set to 1 whenever the GT dataset or its videos have changed.
 
 MODEL_NAME=${1:-}
 GEN_VIDEO_DIR=${2:-}
@@ -154,9 +160,14 @@ done
 # Standard metrics
 if [ ${#EVAL_METRICS[@]} -gt 0 ]; then
     echo ">>> Cleaning previous preprocessed data..."
-    echo "    - $GT_PATH"
     echo "    - $VAL_BASE"
-    rm -rf "$GT_PATH" "$VAL_BASE"
+    rm -rf "$VAL_BASE"
+    if [ "${FORCE_GT_CLEAN:-0}" = "1" ]; then
+        echo "    - $GT_PATH (FORCE_GT_CLEAN=1)"
+        rm -rf "$GT_PATH"
+    else
+        echo "    - (preserving $GT_PATH to reuse GT trajectory cache; set FORCE_GT_CLEAN=1 to invalidate)"
+    fi
 
     STEP_START=$SECONDS
     echo ">>> Running Preprocessing for standard metrics..."

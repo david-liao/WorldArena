@@ -165,9 +165,12 @@ class GripperDetector:
         return results
 
 
-def check_if_already_processed(output_video_path, output_traj_path, input_path):
+def check_if_already_processed(output_video_path, output_traj_path, input_path, verbose=True):
     """
     Check whether a video has already been processed.
+    Args:
+        verbose: if True, print "✓ already processed" on cache hit. The pre-filter
+                 scan in __main__ disables this to avoid N×items lines of noise.
     Returns:
         True: already processed
         False: needs processing
@@ -185,10 +188,12 @@ def check_if_already_processed(output_video_path, output_traj_path, input_path):
     try:
         traj_data = np.load(traj_file)
         if len(traj_data.shape) != 3 or traj_data.shape[1] != 2 or traj_data.shape[2] != 2:
-            print(f"Warning: invalid trajectory shape: {traj_data.shape}")
+            if verbose:
+                print(f"Warning: invalid trajectory shape: {traj_data.shape}")
             return False
     except Exception as e:
-        print(f"Warning: failed to load trajectory: {e}")
+        if verbose:
+            print(f"Warning: failed to load trajectory: {e}")
         return False
     
     # Check video exists
@@ -204,10 +209,12 @@ def check_if_already_processed(output_video_path, output_traj_path, input_path):
     
     # Ensure trajectory frames match image count
     if len(traj_data) != len(image_files):
-        print(f"Warning: trajectory frames ({len(traj_data)}) do not match images ({len(image_files)})")
+        if verbose:
+            print(f"Warning: trajectory frames ({len(traj_data)}) do not match images ({len(image_files)})")
         return False
     
-    print(f"✓ already processed: {input_path}")
+    if verbose:
+        print(f"✓ already processed: {input_path}")
     return True
 
 
@@ -596,7 +603,16 @@ if __name__ == "__main__":
                        help='Also detect trajectories on GT videos (required for trajectory_accuracy)')
     parser.add_argument('--force_reprocess', action='store_true',
                        help='Force reprocess all videos even if outputs exist')
+    parser.add_argument('--shard_id', type=int, default=0,
+                       help='This process handles only work items whose index mod num_shards equals shard_id.')
+    parser.add_argument('--num_shards', type=int, default=1,
+                       help='Total number of parallel shards/processes. Use with CUDA_VISIBLE_DEVICES to run one per GPU.')
     args = parser.parse_args()
+
+    if args.num_shards < 1:
+        raise ValueError(f"--num_shards must be >= 1, got {args.num_shards}")
+    if not (0 <= args.shard_id < args.num_shards):
+        raise ValueError(f"--shard_id must be in [0, {args.num_shards}), got {args.shard_id}")
     
     config = load_config(args.config_path)
     
@@ -616,74 +632,135 @@ if __name__ == "__main__":
     print(f"Force reprocess: {'yes' if args.force_reprocess else 'no'}")
     print("=" * 60)
     
-    # ===== Load model once =====
-    print("Initializing detector...")
+    shard_tag = f"[shard {args.shard_id}/{args.num_shards}]" if args.num_shards > 1 else ""
+
+    # ===== Build deterministic work-item lists =====
+    # GT and val are kept in SEPARATE lists. With a single combined list, the
+    # sequence (gt_ep1, val_ep1, gt_ep2, val_ep2, ...) gave GT items only even
+    # global indices, so on even NGPUS every GT landed on even-numbered GPUs
+    # while every val landed on odd-numbered ones — fatal load skew because
+    # GT videos are longer, and useless idle when GT is fully cached.
+    # Sharding each list independently breaks that periodicity for any NGPUS.
+    gt_items = []   # list of {kind, input_path, output_video_path, output_traj_path, output_path, gid, task, episode}
+    val_items = []
+
+    for task in sorted(os.listdir(data_base)):
+        task_path = os.path.join(data_base, task)
+        if not os.path.isdir(task_path):
+            continue
+
+        for episode in sorted(os.listdir(task_path)):
+            if episode.endswith(('.png', '.json')):
+                continue
+
+            episode_path = os.path.join(task_path, episode)
+
+            # Ground-truth trajectory
+            if args.detect_gt:
+                gt_episode_path = os.path.join(gt_path, task, episode)
+                gt_video = os.path.join(gt_episode_path, 'video')
+                if os.path.exists(gt_video):
+                    gt_items.append({
+                        'kind': 'gt',
+                        'input_path': gt_video,
+                        'output_path': gt_episode_path,
+                        # mirrors the layout produced by process_video_with_tracking
+                        'output_video_path': os.path.join(gt_episode_path, 'gripper_detection'),
+                        'output_traj_path':  os.path.join(gt_episode_path, 'traj'),
+                        'gid': None,
+                        'task': task,
+                        'episode': episode,
+                    })
+
+            # Generated trajectories (one per gid)
+            for gid in sorted(os.listdir(episode_path)):
+                input_path = os.path.join(episode_path, gid, "video")
+                if os.path.exists(input_path):
+                    val_items.append({
+                        'kind': 'val',
+                        'input_path': input_path,
+                        'output_path': episode_path,
+                        'output_video_path': os.path.join(episode_path, gid, 'gripper_detection'),
+                        'output_traj_path':  os.path.join(episode_path, gid, 'traj'),
+                        'gid': gid,
+                        'task': task,
+                        'episode': episode,
+                    })
+
+    # ===== Pre-filter already-processed items =====
+    # Done before sharding so the *pending* set (not the *all* set) gets
+    # round-robined. Otherwise, when GT is fully cached and val is not, all
+    # real work concentrates on a single GPU stripe.
+    def _is_done(item):
+        return check_if_already_processed(
+            item['output_video_path'],
+            item['output_traj_path'],
+            item['input_path'],
+            verbose=False,
+        )
+
+    if args.force_reprocess:
+        gt_pending, val_pending = list(gt_items), list(val_items)
+        gt_cached = val_cached = 0
+    else:
+        gt_pending = [w for w in gt_items if not _is_done(w)]
+        val_pending = [w for w in val_items if not _is_done(w)]
+        gt_cached = len(gt_items) - len(gt_pending)
+        val_cached = len(val_items) - len(val_pending)
+
+    # ===== Round-robin shard each list independently, then concat =====
+    my_gt = [w for i, w in enumerate(gt_pending)
+             if i % args.num_shards == args.shard_id]
+    my_val = [w for i, w in enumerate(val_pending)
+              if i % args.num_shards == args.shard_id]
+    my_items = my_gt + my_val
+
+    print(f"{shard_tag} gt:  {len(gt_items):4d} total, {gt_cached:4d} cached, {len(gt_pending):4d} pending -> my {len(my_gt):3d}")
+    print(f"{shard_tag} val: {len(val_items):4d} total, {val_cached:4d} cached, {len(val_pending):4d} pending -> my {len(my_val):3d}")
+    print(f"{shard_tag} this shard will process {len(my_items)} items")
+
+    # ===== Early exit: skip SAM3 load (~5GB GPU + tens of seconds) =====
+    if not my_items:
+        print(f"{shard_tag} Nothing to do — skipping SAM3 load.")
+        exit(0)
+
+    # ===== Load model once per process =====
+    # Under multi-GPU launch, each process sees a single visible device via
+    # CUDA_VISIBLE_DEVICES=<i>, so SAM3 loads onto that GPU automatically.
+    print(f"{shard_tag} Initializing detector...")
     try:
         detector = GripperDetector(model_path=model_path)
     except Exception as e:
         print(f"Failed to initialize detector: {e}")
         exit(1)
-    
+
     # Counters
     processed_count = 0
     skipped_count = 0
-    total_count = 0
-    
-    # Iterate tasks
-    for task in sorted(os.listdir(data_base)):
-        task_path = os.path.join(data_base, task)
-        
-        if not os.path.isdir(task_path):
-            continue
-            
-        for episode in sorted(os.listdir(task_path)):
-            if episode.endswith(('.png', '.json')):
-                continue
-                
-            episode_path = os.path.join(task_path, episode)
-            
-            # Process ground-truth videos
-            if args.detect_gt:
-                gt_episode_path = os.path.join(gt_path, task, episode)
-                gt_video = os.path.join(gt_episode_path, 'video')
-                
-                if os.path.exists(gt_video):
-                    total_count += 1
-                    print(f"\n[GT] task: {task}, episode: {episode}")
-                    if process_video_with_tracking(
-                        input_path=gt_video,
-                        output_path=gt_episode_path,
-                        detector=detector,
-                        gid=None,
-                        data_type='gt',
-                        force_reprocess=args.force_reprocess
-                    ):
-                        processed_count += 1
-                    else:
-                        skipped_count += 1
-            
-            # Process generated videos
-            for gid in sorted(os.listdir(episode_path)):
-                input_path = os.path.join(episode_path, gid, "video")
-                
-                if os.path.exists(input_path):
-                    total_count += 1
-                    print(f"\n[GEN] task: {task}, episode: {episode}, GID: {gid}")
-                    if process_video_with_tracking(
-                        input_path=input_path,
-                        output_path=episode_path,
-                        detector=detector,
-                        gid=gid,
-                        data_type='val',
-                        force_reprocess=args.force_reprocess
-                    ):
-                        processed_count += 1
-                    else:
-                        skipped_count += 1
-    
+
+    for item in my_items:
+        kind = item['kind']
+        tag = f"{shard_tag} [{'GT' if kind == 'gt' else 'GEN'}] task: {item['task']}, episode: {item['episode']}"
+        if kind == 'val':
+            tag += f", GID: {item['gid']}"
+        print(f"\n{tag}")
+
+        ok = process_video_with_tracking(
+            input_path=item['input_path'],
+            output_path=item['output_path'],
+            detector=detector,
+            gid=item['gid'],
+            data_type=kind,
+            force_reprocess=args.force_reprocess,
+        )
+        if ok:
+            processed_count += 1
+        else:
+            skipped_count += 1
+
     print("\n" + "=" * 60)
-    print("Processing done!")
-    print(f"Total videos: {total_count}")
+    print(f"{shard_tag} Processing done!")
+    print(f"Total videos (this shard): {len(my_items)}")
     print(f"Processed: {processed_count}")
     print(f"Skipped: {skipped_count}")
     print("=" * 60)

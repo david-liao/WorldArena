@@ -171,6 +171,17 @@ class WorldArenaBenchmark(object):
                     gid_path = os.path.join(episode_path, gid)
                     video_path = os.path.join(gid_path, "video")
 
+                    # Skip empty/missing video dirs to avoid load_video() NotImplementedError
+                    if not os.path.isdir(video_path):
+                        continue
+                    has_frames = any(
+                        fn.endswith(('.jpg', '.jpeg', '.png'))
+                        for fn in os.listdir(video_path)
+                    )
+                    if not has_frames:
+                        print0(f"[build_full_info_json] Skipping empty video dir: {video_path}")
+                        continue
+
                     cur_full_info_list.append({
                         "dimension": dimension_list, 
                         "video_list": [video_path]
