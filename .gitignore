@@ -37,6 +37,7 @@ video_quality/JEDi/pretrained_models/
 embodied_task/models/
 embodied_task/output/
 embodied_task/src/
+video_quality/results
 
 # === Personal scripts (not shared) ===
 # video_quality/myscript/
