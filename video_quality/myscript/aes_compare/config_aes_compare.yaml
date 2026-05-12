@@ -1,0 +1,11 @@
+model_name: aes_compare
+data:
+  # placeholder; aesthetic_quality does not use gt_path,
+  # but evaluate.py reads the key unconditionally.
+  gt_path: /tmp/_aes_compare_dummy_gt
+  val_base: /tmp/_aes_compare_dummy_val_base   # overridden by --data_base
+save_path: /tmp/_aes_compare_dummy_save        # overridden by --save_path
+ckpt:
+  aesthetic_quality:
+    clip: /mydir/code/WorldArena/video_quality/models/clip_model/ViT-L-14.pt
+    aesthetic_head: /mydir/code/WorldArena/video_quality/models/aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth

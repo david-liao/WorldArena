@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import shutil
+import sys
 import time
 from pathlib import Path
 from datetime import datetime
@@ -273,7 +274,17 @@ def vlm_judge(model_name, video_dir, summary_json, output_root, tmp_root, metric
     t_total_start = time.time()
     video_times = []
 
-    pbar = tqdm(videos, desc=f"{model_name} evaluating", ncols=120)
+    # `desc` 不放完整 model_name（上面已 print，且 model_name 常达 100+ 字符）。
+    # 当 stdout 是文件（如 shard_$i.log）时，使用 dynamic_ncols=True + 较大
+    # mininterval，避免 tqdm 用固定 ncols 把行截断、并减少进度条 \r 刷新写入。
+    is_tty = sys.stdout.isatty()
+    short_desc = f"VLM judge[shard {shard_id}/{num_shards}]" if num_shards > 1 else "VLM judge"
+    pbar = tqdm(
+        videos,
+        desc=short_desc,
+        dynamic_ncols=True,
+        mininterval=1.0 if is_tty else 30.0,
+    )
     for video_path in pbar:
         t_video = time.time()
         item = {"video": os.path.basename(video_path), "metrics": {}, "raw_response_file": None, "error": None}

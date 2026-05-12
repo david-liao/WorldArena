@@ -21,23 +21,20 @@ build/
 
 # === Data & output (large / generated) ===
 datasets/
-video_quality/data/
-video_quality/data_action_following/
-video_quality/newtest_data/
-video_quality/newtest_data_action_following/
+video_quality/data*/
+video_quality/newtest_data*/
 video_quality/logs/
 video_quality/models/
-video_quality/output/
-video_quality/output_VLM/
-video_quality/output_action_following/
-video_quality/output_JEDi/
+video_quality/output*/
 video_quality/tmp_VLM/
 video_quality/WorldArena/third_party/checkpoints/
 video_quality/JEDi/pretrained_models/
+video_quality/results
+
 embodied_task/models/
 embodied_task/output/
 embodied_task/src/
-video_quality/results
+
 
 # === Personal scripts (not shared) ===
 # video_quality/myscript/
@@ -79,4 +76,5 @@ venv/
 # === Misc ===
 # video_quality/summary.json
 video_quality/__pycache__/
+video_quality/config/.auto_eval_config_*.yaml
 docs/
