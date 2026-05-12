@@ -1,0 +1,14 @@
+your_model_name_eval/
+├── your_model_name_10data/
+│   ├── fixed_scene_task_episode1_*.mp4
+│   ├── fixed_scene_task_episode2_*.mp4
+│   └── ...                              # 500 videos
+├── your_model_name_20data/
+│   └── ...
+├── your_model_name_30data/
+│   └── ...
+├── your_model_name_50data/
+│   └── ...
+├── your_model_name_fulldata/
+│   └── ...
+└── model_README.md
