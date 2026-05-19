@@ -1,7 +1,7 @@
 cd /mydir/code/WorldArena/video_quality
 
-MODEL_NAME=AngryBird_eval
-VIDEO_DIR=/mnt/jackzou/WorldArena_Submission/AngryBird_eval/example_test
+MODEL_NAME=Pelican-Unify_eval
+VIDEO_DIR=/mnt/jackzou/WorldArena_Submission/Pelican-Unify_eval/Pelican-Unify_test
 SUMMARY_JSON=./summary.json
 CONFIG_PATH=./config/config.yaml
 

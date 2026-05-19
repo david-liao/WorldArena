@@ -38,3 +38,19 @@ python myscript/eval/auto_eval.py \
     --results-dir /mnt/jackzou/WorldArena/results \
     --target-dir-name '40_frames'
 
+python myscript/eval/auto_eval.py \
+    --scan-path /mnt/jackzou/ckp/OminiEWM/infer_output/20260512/worldarena_robotwin2_0510_vace_action_robotwin_frame_121_640p_test_dataset_instructions_1_x4_finetune_155000.step-950000 \
+    --results-dir /mnt/jackzou/WorldArena/results \
+    --target-dir-name '40_frames'
+
+# 0513
+python myscript/eval/auto_eval.py \
+    --scan-path /mnt/jackzou/ckp/OminiEWM/infer_output/20260513 \
+    --results-dir /mnt/jackzou/WorldArena/results \
+    --target-dir-name '40_frames'
+
+# Pelican-Unify submission
+python myscript/eval/auto_eval.py \
+    --scan-path /mnt/jackzou/WorldArena_Submission/Pelican-Unify_eval \
+    --results-dir myscript/eval/results \
+    --target-dir-name 'Pelican-Unify_test'

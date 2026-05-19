@@ -1,0 +1,149 @@
+"""根据两个视频目录, 生成 trajectory_accuracy 对比所需的 summary.json + config.yaml.
+
+用法:
+    python myscript/eval/compare/build_compare_assets.py \
+        --name pelican_AvsB \
+        --dir_a /path/to/videos_as_gt   \
+        --dir_b /path/to/videos_as_pred
+
+会写出:
+    summary/summary_<NAME>.json           (列出 A 目录的全部 .mp4 作为 gt_path)
+    config/config_<NAME>.yaml             (data.gt_path/val_base 指向 data_trj_acc_compare/<NAME>/)
+
+随后可跑:
+    bash run_evaluation_multi_gpu.sh <NAME> <DIR_B> ./summary_<NAME>.json \\
+        ./config/config_<NAME>.yaml trajectory_accuracy
+
+或直接用 eval_compare_any.sh 串联整套流程.
+
+约束:
+    - A 与 B 目录里的 .mp4 文件名应一致 (preprocess_datasets.py 按 "{id2}.mp4" 匹配)
+    - --name 仅允许字母数字下划线 (会作为目录名/CSV column 使用)
+"""
+import argparse
+import json
+import os
+import re
+import sys
+from pathlib import Path
+
+import yaml
+
+
+def _numkey(s: str):
+    """让 'episode2.mp4' < 'episode10.mp4' 而不是字符串排序结果."""
+    m = re.search(r"(\d+)", s)
+    return (int(m.group(1)) if m else 0, s)
+
+
+def _check_b_match(a_mp4s, dir_b, task_id):
+    """检查 B 中是否能按 preprocess_datasets._find_gen_video 规则找到对应文件.
+
+    Returns:
+        (matched_a_paths, missing_basenames)
+    """
+    matched = []
+    missing = []
+    for p in a_mp4s:
+        stem = p.stem
+        cand1 = dir_b / f"{p.name}"               # episodeK.mp4
+        cand2 = dir_b / f"{task_id}_{stem}.mp4"   # <task>_episodeK.mp4
+        if cand1.exists() or cand2.exists():
+            matched.append(p)
+        else:
+            missing.append(p.name)
+    return matched, missing
+
+
+def main():
+    ap = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
+                                 description=__doc__)
+    ap.add_argument("--name", required=True, help="实验名 (字母/数字/下划线)")
+    ap.add_argument("--dir_a", required=True, help="作为 GT 的视频目录 (.mp4 文件)")
+    ap.add_argument("--dir_b", required=True, help="作为 Pred 的视频目录, 文件名需与 A 一致")
+    ap.add_argument("--base", default=str(Path(__file__).resolve().parents[3]),
+                    help="video_quality 根目录, 默认按脚本位置推断")
+    ap.add_argument(
+        "--template",
+        default=None,
+        help="config 模板路径, 默认 <base>/config/config.yaml (模型 ckpt 等沿用模板)",
+    )
+    args = ap.parse_args()
+
+    if not re.match(r"^[A-Za-z0-9_]+$", args.name):
+        sys.exit(f"--name 只允许字母/数字/下划线, got: {args.name}")
+
+    dir_a = Path(args.dir_a).resolve()
+    dir_b = Path(args.dir_b).resolve()
+    base = Path(args.base).resolve()
+    template_path = Path(args.template).resolve() if args.template else (base / "config" / "config.yaml")
+
+    if not dir_a.is_dir():
+        sys.exit(f"DIR_A 不存在: {dir_a}")
+    if not dir_b.is_dir():
+        sys.exit(f"DIR_B 不存在: {dir_b}")
+    if not template_path.exists():
+        sys.exit(f"模板 config 不存在: {template_path}")
+
+    a_mp4s = sorted([p for p in dir_a.glob("*.mp4")], key=lambda p: _numkey(p.name))
+    if not a_mp4s:
+        sys.exit(f"DIR_A 下未找到 .mp4: {dir_a}")
+
+    task_id = dir_a.name or "compare"   # preprocess_datasets 用 mp4 父目录名作 task
+    matched, missing = _check_b_match(a_mp4s, dir_b, task_id)
+
+    if missing:
+        print(f"WARN: B 目录缺少 {len(missing)} 个对应文件 (按 episodeK.mp4 或 {task_id}_episodeK.mp4 命名). "
+              f"前 5: {missing[:5]}", file=sys.stderr)
+        print(f"      只评测 A 中能在 B 中找到对应文件的 {len(matched)} 个样本.", file=sys.stderr)
+
+    entries = []
+    for p in matched:
+        entries.append({
+            "gt_path": str(p),
+            "image": "/nonexistent_placeholder.png",
+            "prompt": ["placeholder; trajectory_accuracy ignores prompt"],
+        })
+
+    # === 写 summary.json (集中放在 summary/ 目录) ===
+    summary_dir = base / "summary"
+    summary_dir.mkdir(parents=True, exist_ok=True)
+    summary_path = summary_dir / f"summary_{args.name}.json"
+    summary_path.write_text(json.dumps(entries, indent=2, ensure_ascii=False))
+    print(f">>> Wrote {summary_path}  ({len(entries)} entries, task_id={task_id})")
+
+    # === 写 config.yaml ===
+    cfg = yaml.safe_load(template_path.read_text()) or {}
+    cfg["model_name"] = args.name
+
+    # trajectory_accuracy 的中间数据集中放在 data_trj_acc_compare/<NAME>/
+    data_root_parent = base / "data_trj_acc_compare"
+    data_root = data_root_parent / args.name
+    data_af_root = data_root_parent / f"{args.name}_action_following"
+
+    cfg.setdefault("data", {})
+    cfg["data"]["gt_path"] = str(data_root / "gt_dataset")
+    cfg["data"]["val_base"] = str(data_root / "generated_dataset")
+
+    cfg.setdefault("data_action_following", {})
+    cfg["data_action_following"]["gt_path"] = str(data_af_root / "gt_dataset")
+    cfg["data_action_following"]["val_base"] = str(data_af_root / "generated_dataset")
+
+    cfg["save_path"] = str(base / "output")
+    cfg["save_path_action_following"] = str(base / "output_action_following")
+
+    config_path = base / "config" / f"config_{args.name}.yaml"
+    config_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(config_path, "w", encoding="utf-8") as f:
+        f.write(f"# Auto-generated by build_compare_assets.py for compare run '{args.name}'.\n")
+        f.write(f"# A (GT)   = {dir_a}\n")
+        f.write(f"# B (Pred) = {dir_b}\n")
+        yaml.safe_dump(cfg, f, sort_keys=False, allow_unicode=True)
+    print(f">>> Wrote {config_path}  (data root: {data_root})")
+
+    if not entries:
+        sys.exit("没有可评测的 entries (B 目录无任何匹配文件).")
+
+
+if __name__ == "__main__":
+    main()

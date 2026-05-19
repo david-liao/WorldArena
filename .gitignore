@@ -30,6 +30,8 @@ video_quality/tmp_VLM/
 video_quality/WorldArena/third_party/checkpoints/
 video_quality/JEDi/pretrained_models/
 video_quality/results
+video_quality/compare_data/
+video_quality/myscript/eval/results/
 
 embodied_task/models/
 embodied_task/output/
@@ -78,3 +80,6 @@ venv/
 video_quality/__pycache__/
 video_quality/config/.auto_eval_config_*.yaml
 docs/
+
+# === links ===
+RoboTwin2.0

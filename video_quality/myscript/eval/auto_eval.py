@@ -176,6 +176,66 @@ def file_lock(lock_path: Path, exclusive: bool = True, timeout: float = -1.0):
         os.close(fd)
 
 
+@contextlib.contextmanager
+def cross_node_lock(
+    lock_path: Path,
+    owner_id: str,
+    *,
+    stale_after: float = 600.0,
+    poll_interval: float = 1.0,
+):
+    """跨节点安全的咨询锁（不依赖 NFS 上的 flock）。
+
+    使用 ``O_CREAT | O_EXCL`` 在 NFS 上的原子创建作为互斥原语：哪个节点能成
+    功创建 lock 文件谁就持有锁。lock 文件内容是 owner（hostname/pid/ts），
+    超过 ``stale_after`` 秒未刷新则视为僵尸，可被其他节点强抢。
+
+    Args:
+        lock_path: lock 文件路径（不存在时由本函数创建）。
+        owner_id: 写入 lock 文件的标识，用于诊断与僵尸判定。
+        stale_after: 持有时长上限（秒）；超过则被视为僵尸。
+        poll_interval: 抢锁失败时的轮询间隔（秒）。
+    """
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    acquired = False
+    while not acquired:
+        try:
+            # O_EXCL 在同一 NFS 卷下是 server 端原子创建，跨节点可靠
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)
+            try:
+                os.write(fd, f"{owner_id}\n{time.time()}\n".encode("utf-8"))
+            finally:
+                os.close(fd)
+            acquired = True
+        except FileExistsError:
+            # 检查是否是僵尸
+            try:
+                st = lock_path.stat()
+                age = time.time() - st.st_mtime
+            except FileNotFoundError:
+                continue  # 刚好被别人释放了，下轮再 EXCL
+            if age > stale_after:
+                # 抢占：直接删除，下一轮 O_EXCL 重新创建
+                try:
+                    lock_path.unlink()
+                except FileNotFoundError:
+                    pass
+                continue
+            time.sleep(poll_interval)
+    try:
+        yield
+    finally:
+        # 只删自己写的（避免误删被抢占后别人写的）
+        try:
+            with lock_path.open("rb") as f:
+                head = f.read(4096)
+            current_owner = head.decode("utf-8", "replace").split("\n", 1)[0]
+            if current_owner == owner_id:
+                lock_path.unlink(missing_ok=True)
+        except (FileNotFoundError, OSError):
+            pass
+
+
 def count_videos(directory: Path, exts: Tuple[str, ...]) -> int:
     if not directory.is_dir():
         return 0
@@ -283,9 +343,14 @@ class State:
 
     def __init__(self, path: Path, instance_id: str, heartbeat_timeout: int):
         self.path = path
+        # fcntl.flock 锁（节点内进程间互斥；NFS 上跨节点可能失效）
         self.lock_path = path.with_suffix(path.suffix + ".lock")
+        # NFS 跨节点咨询锁（O_CREAT|O_EXCL，不依赖 NFS lockd）
+        self.cross_node_lock_path = path.with_suffix(path.suffix + ".lock.owner")
         self.instance_id = instance_id
         self.heartbeat_timeout = heartbeat_timeout
+        # 进程内独占 tmp 文件名：避免多节点共享同一 ``<state>.tmp`` 被 rename 抢走
+        self._tmp_suffix = f".{instance_id}.{os.getpid()}.tmp"
 
     def _read_unlocked(self) -> Dict[str, Dict[str, Any]]:
         if not self.path.exists():
@@ -303,18 +368,49 @@ class State:
         return data
 
     def _write_unlocked(self, data: Dict[str, Dict[str, Any]]) -> None:
+        """原子写 state.json。
+
+        关键设计：tmp 文件名带 instance_id + pid 后缀，避免 NFS 上跨节点
+        flock 失效时两节点 rename 同一 ``.tmp`` 文件导致 ``FileNotFoundError``。
+        """
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        tmp = self.path.with_suffix(self.path.suffix + ".tmp")
+        tmp = self.path.with_suffix(self.path.suffix + self._tmp_suffix)
         with tmp.open("w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        tmp.replace(self.path)
+            f.flush()
+            try:
+                os.fsync(f.fileno())
+            except OSError:
+                pass  # NFS 上 fsync 偶尔不支持，不致命
+        try:
+            tmp.replace(self.path)
+        except FileNotFoundError:
+            # 极端情况下 tmp 也可能被外部干扰丢失，重新写一遍走 atomic 路径
+            log(
+                f"WARN: state tmp 文件不存在，可能被外部干扰；重试一次: {tmp}"
+            )
+            with tmp.open("w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            tmp.replace(self.path)
 
     @contextlib.contextmanager
     def _locked_data(self):
-        with file_lock(self.lock_path, exclusive=True):
-            data = self._read_unlocked()
-            yield data
-            self._write_unlocked(data)
+        """获取 state 数据并在退出时写回。
+
+        双层互斥：
+            1. cross_node_lock：O_CREAT|O_EXCL，跨节点安全（不依赖 NFS lockd）
+            2. fcntl.flock：节点内进程间互斥（多个 auto_eval 同节点并存时用）
+        """
+        owner = f"{self.instance_id}:{os.getpid()}"
+        with cross_node_lock(
+            self.cross_node_lock_path,
+            owner_id=owner,
+            stale_after=max(60.0, float(self.heartbeat_timeout)),
+        ):
+            with file_lock(self.lock_path, exclusive=True):
+                data = self._read_unlocked()
+                yield data
+                self._write_unlocked(data)
 
     def _is_alive_running(self, info: Dict[str, Any], now_ts: float) -> bool:
         hb_ts = float(info.get("heartbeat_at_ts", 0) or 0)
@@ -540,12 +636,13 @@ def push_gt_mirror(
 
 
 def ensure_tsv_header(tsv_path: Path) -> None:
-    """无表头则写一次表头；用文件锁防止多节点并发情况下重复写表头。"""
+    """无表头则写一次表头；用 NFS 安全的 O_CREAT|O_EXCL 锁防止多节点并发重复写。"""
     if tsv_path.exists() and tsv_path.stat().st_size > 0:
         return
     tsv_path.parent.mkdir(parents=True, exist_ok=True)
-    lock_path = tsv_path.with_suffix(tsv_path.suffix + ".header.lock")
-    with file_lock(lock_path, exclusive=True):
+    lock_path = tsv_path.with_suffix(tsv_path.suffix + ".header.lock.owner")
+    owner = f"{socket.gethostname()}:{os.getpid()}:tsv_header"
+    with cross_node_lock(lock_path, owner_id=owner, stale_after=60.0):
         if tsv_path.exists() and tsv_path.stat().st_size > 0:
             return
         with tsv_path.open("w", encoding="utf-8") as f:

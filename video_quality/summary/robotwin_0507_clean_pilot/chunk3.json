@@ -1,0 +1,2562 @@
+[
+  {
+    "gt_path": "/pool/shake_bottle__aloha-agilex_clean_500__episode41__row0.mp4",
+    "prompt": "Hold the medium cylinder-shaped bottle and shake it properly.",
+    "uuid": "shake_bottle/aloha-agilex_clean_500/episode41",
+    "task_name": "shake_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/shake_bottle/aloha-agilex_clean_500/video/episode41.mp4",
+    "src_line_no": 130365
+  },
+  {
+    "gt_path": "/pool/place_a2b_right__aloha-agilex_clean_500__episode464__row1.mp4",
+    "prompt": "Move the compact stapler right of the compact glossy blue toycar with the right arm",
+    "uuid": "place_a2b_right/aloha-agilex_clean_500/episode464",
+    "task_name": "place_a2b_right",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_a2b_right/aloha-agilex_clean_500/video/episode464.mp4",
+    "src_line_no": 215044
+  },
+  {
+    "gt_path": "/pool/grab_roller__aloha-agilex_clean_500__episode214__row2.mp4",
+    "prompt": "Pick up the wood roller from the table directly.",
+    "uuid": "grab_roller/aloha-agilex_clean_500/episode214",
+    "task_name": "grab_roller",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/grab_roller/aloha-agilex_clean_500/video/episode214.mp4",
+    "src_line_no": 45632
+  },
+  {
+    "gt_path": "/pool/pick_diverse_bottles__aloha-agilex_clean_500__episode47__row3.mp4",
+    "prompt": "Grab the plastic bottle and pick up the bottle with white screw cap.",
+    "uuid": "pick_diverse_bottles/aloha-agilex_clean_500/episode47",
+    "task_name": "pick_diverse_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/pick_diverse_bottles/aloha-agilex_clean_500/video/episode47.mp4",
+    "src_line_no": 146144
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode403__row4.mp4",
+    "prompt": "Click the compact bell with round base's <top center> using the right arm",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode403",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode403.mp4",
+    "src_line_no": 35244
+  },
+  {
+    "gt_path": "/pool/handover_block__aloha-agilex_clean_500__episode469__row5.mp4",
+    "prompt": "Lift the red block with your left arm.",
+    "uuid": "handover_block/aloha-agilex_clean_500/episode469",
+    "task_name": "handover_block",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/handover_block/aloha-agilex_clean_500/video/episode469.mp4",
+    "src_line_no": 188643
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode495__row6.mp4",
+    "prompt": "Press the plastic and metal bell's top center on the table.",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode495",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode495.mp4",
+    "src_line_no": 162891
+  },
+  {
+    "gt_path": "/pool/move_pillbottle_pad__aloha-agilex_clean_500__episode144__row7.mp4",
+    "prompt": "Move the plastic bottle with ridged white cap and drop it on the pad",
+    "uuid": "move_pillbottle_pad/aloha-agilex_clean_500/episode144",
+    "task_name": "move_pillbottle_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_pillbottle_pad/aloha-agilex_clean_500/video/episode144.mp4",
+    "src_line_no": 7535
+  },
+  {
+    "gt_path": "/pool/place_shoe__aloha-agilex_clean_500__episode440__row8.mp4",
+    "prompt": "Take the shoe with colorful stripes with the right arm and place it carefully on the mat",
+    "uuid": "place_shoe/aloha-agilex_clean_500/episode440",
+    "task_name": "place_shoe",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_shoe/aloha-agilex_clean_500/video/episode440.mp4",
+    "src_line_no": 126528
+  },
+  {
+    "gt_path": "/pool/blocks_ranking_size__aloha-agilex_clean_500__episode159__row9.mp4",
+    "prompt": "Position large block, medium block, and small block centrally, ordered from largest to smallest.",
+    "uuid": "blocks_ranking_size/aloha-agilex_clean_500/episode159",
+    "task_name": "blocks_ranking_size",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/blocks_ranking_size/aloha-agilex_clean_500/video/episode159.mp4",
+    "src_line_no": 180663
+  },
+  {
+    "gt_path": "/pool/open_laptop__aloha-agilex_clean_500__episode365__row10.mp4",
+    "prompt": "Gently open the clamshell laptop with flat screen upward.",
+    "uuid": "open_laptop/aloha-agilex_clean_500/episode365",
+    "task_name": "open_laptop",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/open_laptop/aloha-agilex_clean_500/video/episode365.mp4",
+    "src_line_no": 170337
+  },
+  {
+    "gt_path": "/pool/stack_bowls_three__aloha-agilex_clean_500__episode270__row11.mp4",
+    "prompt": "Pick up each the ceramic bowl with earthy brown trim and set them one over another.",
+    "uuid": "stack_bowls_three/aloha-agilex_clean_500/episode270",
+    "task_name": "stack_bowls_three",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stack_bowls_three/aloha-agilex_clean_500/video/episode270.mp4",
+    "src_line_no": 198988
+  },
+  {
+    "gt_path": "/pool/move_pillbottle_pad__aloha-agilex_clean_500__episode309__row12.mp4",
+    "prompt": "Hold the palm-sized bottle with orange cover and position it on the pad",
+    "uuid": "move_pillbottle_pad/aloha-agilex_clean_500/episode309",
+    "task_name": "move_pillbottle_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_pillbottle_pad/aloha-agilex_clean_500/video/episode309.mp4",
+    "src_line_no": 7554
+  },
+  {
+    "gt_path": "/pool/press_stapler__aloha-agilex_clean_500__episode278__row13.mp4",
+    "prompt": "Firmly press the curved blue and silver stapler using an arm.",
+    "uuid": "press_stapler/aloha-agilex_clean_500/episode278",
+    "task_name": "press_stapler",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/press_stapler/aloha-agilex_clean_500/video/episode278.mp4",
+    "src_line_no": 23503
+  },
+  {
+    "gt_path": "/pool/place_object_scale__aloha-agilex_clean_500__episode303__row14.mp4",
+    "prompt": "Take the blue stapler and put it down on the electronicscale with black pad",
+    "uuid": "place_object_scale/aloha-agilex_clean_500/episode303",
+    "task_name": "place_object_scale",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_object_scale/aloha-agilex_clean_500/video/episode303.mp4",
+    "src_line_no": 193829
+  },
+  {
+    "gt_path": "/pool/move_pillbottle_pad__aloha-agilex_clean_500__episode119__row15.mp4",
+    "prompt": "Pick the orange bottle with blue stripe label with the right arm and drop it onto the pad.",
+    "uuid": "move_pillbottle_pad/aloha-agilex_clean_500/episode119",
+    "task_name": "move_pillbottle_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/move_pillbottle_pad/aloha-agilex_clean_500/video/episode119.mp4",
+    "src_line_no": 136562
+  },
+  {
+    "gt_path": "/pool/beat_block_hammer__aloha-agilex_clean_500__episode458__row16.mp4",
+    "prompt": "Grab the hammer with two-tone handle using the right arm then pound block",
+    "uuid": "beat_block_hammer/aloha-agilex_clean_500/episode458",
+    "task_name": "beat_block_hammer",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/beat_block_hammer/aloha-agilex_clean_500/video/episode458.mp4",
+    "src_line_no": 37786
+  },
+  {
+    "gt_path": "/pool/place_bread_basket__aloha-agilex_clean_500__episode488__row17.mp4",
+    "prompt": "Move the soft brown bread and the medium bread with rounded sides to the medium breadbasket with perforated sides",
+    "uuid": "place_bread_basket/aloha-agilex_clean_500/episode488",
+    "task_name": "place_bread_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_bread_basket/aloha-agilex_clean_500/video/episode488.mp4",
+    "src_line_no": 144898
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode499__row18.mp4",
+    "prompt": "Using the arm, slide the cup for holding liquids onto the flat round wooden coaster.",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode499",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0413_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode499.mp4",
+    "src_line_no": 50173
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode307__row19.mp4",
+    "prompt": "Take the seal with smooth handle and stamp it on Gray.",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode307",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode307.mp4",
+    "src_line_no": 14090
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode48__row20.mp4",
+    "prompt": "Use the right arm to grab the seal with vertical textured grip, press Turquoise",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode48",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode48.mp4",
+    "src_line_no": 93892
+  },
+  {
+    "gt_path": "/pool/hanging_mug__clean_100_7__episode32__row21.mp4",
+    "prompt": "Use your left arm to grab the plain glossy mug, rotate it, set it down, then hang on the angled rack with long and short rods.",
+    "uuid": "hanging_mug/clean_100_7/episode32",
+    "task_name": "hanging_mug",
+    "robot_config": "clean_100_7",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_difficult_task/hanging_mug/clean_100_7/video/episode32.mp4",
+    "src_line_no": 123972
+  },
+  {
+    "gt_path": "/pool/pick_dual_bottles__aloha-agilex_clean_500__episode140__row22.mp4",
+    "prompt": "Hold the red-capped bottle in one hand, then hold the smooth green bottle in the other.",
+    "uuid": "pick_dual_bottles/aloha-agilex_clean_500/episode140",
+    "task_name": "pick_dual_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/pick_dual_bottles/aloha-agilex_clean_500/video/episode140.mp4",
+    "src_line_no": 112189
+  },
+  {
+    "gt_path": "/pool/shake_bottle__aloha-agilex_clean_500__episode111__row23.mp4",
+    "prompt": "Grasp the smooth bottle with red lid with the left arm and shake it.",
+    "uuid": "shake_bottle/aloha-agilex_clean_500/episode111",
+    "task_name": "shake_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/shake_bottle/aloha-agilex_clean_500/video/episode111.mp4",
+    "src_line_no": 81007
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode161__row24.mp4",
+    "prompt": "Hold the round yellow seal base with the right arm and stamp Beige",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode161",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode161.mp4",
+    "src_line_no": 143481
+  },
+  {
+    "gt_path": "/pool/pick_dual_bottles__aloha-agilex_clean_500__episode117__row25.mp4",
+    "prompt": "Hold the long thin bottle and the green bottle with indented base using both arms.",
+    "uuid": "pick_dual_bottles/aloha-agilex_clean_500/episode117",
+    "task_name": "pick_dual_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/pick_dual_bottles/aloha-agilex_clean_500/video/episode117.mp4",
+    "src_line_no": 112123
+  },
+  {
+    "gt_path": "/pool/lift_pot__aloha-agilex_clean_500__episode305__row26.mp4",
+    "prompt": "Raise and hold the cylindrical kitchenpot together",
+    "uuid": "lift_pot/aloha-agilex_clean_500/episode305",
+    "task_name": "lift_pot",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/lift_pot/aloha-agilex_clean_500/video/episode305.mp4",
+    "src_line_no": 115004
+  },
+  {
+    "gt_path": "/pool/place_dual_shoes__aloha-agilex_clean_500__episode276__row27.mp4",
+    "prompt": "Hold two the canvas shoe with grooved sole, tips left, and place in the smooth orange box for shoes.",
+    "uuid": "place_dual_shoes/aloha-agilex_clean_500/episode276",
+    "task_name": "place_dual_shoes",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_dual_shoes/aloha-agilex_clean_500/video/episode276.mp4",
+    "src_line_no": 224858
+  },
+  {
+    "gt_path": "/pool/hanging_mug__clean_100_1__episode22__row28.mp4",
+    "prompt": "Take the ceramic mug from the table, rotate it, place it in the center, then hang it onto the dark gray angled rack.",
+    "uuid": "hanging_mug/clean_100_1/episode22",
+    "task_name": "hanging_mug",
+    "robot_config": "clean_100_1",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_difficult_task/hanging_mug/clean_100_1/video/episode22.mp4",
+    "src_line_no": 123975
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode289__row29.mp4",
+    "prompt": "Grasp the microphone with cylindrical handle and shift it to the opposite hand.",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode289",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode289.mp4",
+    "src_line_no": 99254
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode130__row30.mp4",
+    "prompt": "Grab the cup with smooth plastic surface and place it on the flat round wooden coaster.",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode130",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode130.mp4",
+    "src_line_no": 222650
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_500__episode353__row31.mp4",
+    "prompt": "Pick up the mouse with two buttons and a scroll wheel and move it to Cyan mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_500/episode353",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_mouse_pad/aloha-agilex_clean_500/video/episode353.mp4",
+    "src_line_no": 134638
+  },
+  {
+    "gt_path": "/pool/dump_bin_bigbin__aloha-agilex_clean_500__episode444__row32.mp4",
+    "prompt": "Take the small white trashbin using arm, pour contents inside",
+    "uuid": "dump_bin_bigbin/aloha-agilex_clean_500/episode444",
+    "task_name": "dump_bin_bigbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/dump_bin_bigbin/aloha-agilex_clean_500/video/episode444.mp4",
+    "src_line_no": 91852
+  },
+  {
+    "gt_path": "/pool/place_fan__aloha-agilex_clean_500__episode179__row33.mp4",
+    "prompt": "Lift the fan with round blades and put it on the Turquoise mat so it faces the robot",
+    "uuid": "place_fan/aloha-agilex_clean_500/episode179",
+    "task_name": "place_fan",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_fan/aloha-agilex_clean_500/video/episode179.mp4",
+    "src_line_no": 22735
+  },
+  {
+    "gt_path": "/pool/stack_bowls_three__aloha-agilex_clean_500__episode477__row34.mp4",
+    "prompt": "Use arms to place each the bowl with brown outer rim atop the previous one.",
+    "uuid": "stack_bowls_three/aloha-agilex_clean_500/episode477",
+    "task_name": "stack_bowls_three",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/stack_bowls_three/aloha-agilex_clean_500/video/episode477.mp4",
+    "src_line_no": 147022
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_500__episode410__row35.mp4",
+    "prompt": "Take the the dark mouse with slight textured sides and place it on the Black mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_500/episode410",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_mouse_pad/aloha-agilex_clean_500/video/episode410.mp4",
+    "src_line_no": 5540
+  },
+  {
+    "gt_path": "/pool/put_bottles_dustbin__aloha-agilex_clean_500__episode477__row36.mp4",
+    "prompt": "Use arms to pick the medium yellow cylindrical bottle, the bottle for holding liquids, the plastic bottle with red cap, and place them one by one in the medium black garbage container.",
+    "uuid": "put_bottles_dustbin/aloha-agilex_clean_500/episode477",
+    "task_name": "put_bottles_dustbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/put_bottles_dustbin/aloha-agilex_clean_500/video/episode477.mp4",
+    "src_line_no": 221759
+  },
+  {
+    "gt_path": "/pool/place_bread_skillet__aloha-agilex_clean_500__episode125__row37.mp4",
+    "prompt": "Use the right arm to lift the hand-sized bread block and place it into the black pan with curved edges.",
+    "uuid": "place_bread_skillet/aloha-agilex_clean_500/episode125",
+    "task_name": "place_bread_skillet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_bread_skillet/aloha-agilex_clean_500/video/episode125.mp4",
+    "src_line_no": 164085
+  },
+  {
+    "gt_path": "/pool/adjust_bottle__aloha-agilex_clean_500__episode262__row38.mp4",
+    "prompt": "Secure the hand-sized soda bottle upright with the left arm",
+    "uuid": "adjust_bottle/aloha-agilex_clean_500/episode262",
+    "task_name": "adjust_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/adjust_bottle/aloha-agilex_clean_500/video/episode262.mp4",
+    "src_line_no": 14819
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode385__row39.mp4",
+    "prompt": "Set the cylindrical light blue cup carefully onto the light gray round grainy coaster",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode385",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode385.mp4",
+    "src_line_no": 118153
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_500__episode128__row40.mp4",
+    "prompt": "Lift the the compact matte gray computer mouse and position it on the Yellow mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_500/episode128",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_mouse_pad/aloha-agilex_clean_500/video/episode128.mp4",
+    "src_line_no": 84672
+  },
+  {
+    "gt_path": "/pool/adjust_bottle__aloha-agilex_clean_500__episode282__row41.mp4",
+    "prompt": "Take the brown bottle with red label from the table and keep upright",
+    "uuid": "adjust_bottle/aloha-agilex_clean_500/episode282",
+    "task_name": "adjust_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/adjust_bottle/aloha-agilex_clean_500/video/episode282.mp4",
+    "src_line_no": 195798
+  },
+  {
+    "gt_path": "/pool/move_playingcard_away__aloha-agilex_clean_500__episode342__row42.mp4",
+    "prompt": "Take the blue pack holding playingcards and place it further outward.",
+    "uuid": "move_playingcard_away/aloha-agilex_clean_500/episode342",
+    "task_name": "move_playingcard_away",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_playingcard_away/aloha-agilex_clean_500/video/episode342.mp4",
+    "src_line_no": 18994
+  },
+  {
+    "gt_path": "/pool/stack_blocks_two__aloha-agilex_clean_500__episode187__row43.mp4",
+    "prompt": "the right arm takes red block, sets it in the center, the left arm places green block on red block.",
+    "uuid": "stack_blocks_two/aloha-agilex_clean_500/episode187",
+    "task_name": "stack_blocks_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stack_blocks_two/aloha-agilex_clean_500/video/episode187.mp4",
+    "src_line_no": 229980
+  },
+  {
+    "gt_path": "/pool/place_bread_basket__aloha-agilex_clean_500__episode325__row44.mp4",
+    "prompt": "Simultaneously grab the brown bread loaf and the bread loaf with uneven edges, drop in the smooth textured breadbasket.",
+    "uuid": "place_bread_basket/aloha-agilex_clean_500/episode325",
+    "task_name": "place_bread_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_bread_basket/aloha-agilex_clean_500/video/episode325.mp4",
+    "src_line_no": 196449
+  },
+  {
+    "gt_path": "/pool/click_alarmclock__aloha-agilex_clean_500__episode98__row45.mp4",
+    "prompt": "Use the right arm to click the center button on the square alarm clock",
+    "uuid": "click_alarmclock/aloha-agilex_clean_500/episode98",
+    "task_name": "click_alarmclock",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/click_alarmclock/aloha-agilex_clean_500/video/episode98.mp4",
+    "src_line_no": 11276
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode52__row46.mp4",
+    "prompt": "Grab the rounded base blue cup and lower it onto the wooden coaster",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode52",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode52.mp4",
+    "src_line_no": 222942
+  },
+  {
+    "gt_path": "/pool/scan_object__aloha-agilex_clean_500__episode103__row47.mp4",
+    "prompt": "the scanner with blue scanning area is picked with the left arm, the rectangular yellow tea box grabbed with the right arm, scan the rectangular yellow tea box using the scanner with blue scanning area.",
+    "uuid": "scan_object/aloha-agilex_clean_500/episode103",
+    "task_name": "scan_object",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/scan_object/aloha-agilex_clean_500/video/episode103.mp4",
+    "src_line_no": 9046
+  },
+  {
+    "gt_path": "/pool/click_alarmclock__aloha-agilex_clean_500__episode405__row48.mp4",
+    "prompt": "Press the center top button on the small clock with rounded edges with the left arm",
+    "uuid": "click_alarmclock/aloha-agilex_clean_500/episode405",
+    "task_name": "click_alarmclock",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/click_alarmclock/aloha-agilex_clean_500/video/episode405.mp4",
+    "src_line_no": 90694
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_50__episode23__row49.mp4",
+    "prompt": "Set the smooth blue drinking cup carefully onto the light gray streaked wooden coaster",
+    "uuid": "place_empty_cup/aloha-agilex_clean_50/episode23",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/place_empty_cup/aloha-agilex_clean_50/video/episode23.mp4",
+    "src_line_no": 73689
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_500__episode314__row50.mp4",
+    "prompt": "Grip the dark ergonomic mouse for computer navigation using the left arm and move it to the Black mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_500/episode314",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_mouse_pad/aloha-agilex_clean_500/video/episode314.mp4",
+    "src_line_no": 5673
+  },
+  {
+    "gt_path": "/pool/handover_block__aloha-agilex_clean_500__episode165__row51.mp4",
+    "prompt": "Pick the red block up with the left arm, hand it to the right arm, and set it on the blue pad.",
+    "uuid": "handover_block/aloha-agilex_clean_500/episode165",
+    "task_name": "handover_block",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/handover_block/aloha-agilex_clean_500/video/episode165.mp4",
+    "src_line_no": 188497
+  },
+  {
+    "gt_path": "/pool/place_dual_shoes__aloha-agilex_clean_500__episode258__row52.mp4",
+    "prompt": "Transfer two the rounded front shoe, tips left-aligned, into the rectangular shoe-box with orange lid.",
+    "uuid": "place_dual_shoes/aloha-agilex_clean_500/episode258",
+    "task_name": "place_dual_shoes",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_dual_shoes/aloha-agilex_clean_500/video/episode258.mp4",
+    "src_line_no": 42469
+  },
+  {
+    "gt_path": "/pool/scan_object__aloha-agilex_clean_500__episode116__row53.mp4",
+    "prompt": "First pick the black plastic scanner with blue trim, then the black tea-box, and use the black plastic scanner with blue trim to scan the black tea-box.",
+    "uuid": "scan_object/aloha-agilex_clean_500/episode116",
+    "task_name": "scan_object",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/scan_object/aloha-agilex_clean_500/video/episode116.mp4",
+    "src_line_no": 88546
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode98__row54.mp4",
+    "prompt": "Activate the plastic and metal bell by pressing its top center.",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode98",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode98.mp4",
+    "src_line_no": 35044
+  },
+  {
+    "gt_path": "/pool/move_playingcard_away__aloha-agilex_clean_500__episode495__row55.mp4",
+    "prompt": "Pick up the playing cards box with gold text using the right arm and shift it outward.",
+    "uuid": "move_playingcard_away/aloha-agilex_clean_500/episode495",
+    "task_name": "move_playingcard_away",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/move_playingcard_away/aloha-agilex_clean_500/video/episode495.mp4",
+    "src_line_no": 147953
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode298__row56.mp4",
+    "prompt": "Pick up the mesh-patterned microphone head and move it to the opposite side",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode298",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode298.mp4",
+    "src_line_no": 200830
+  },
+  {
+    "gt_path": "/pool/move_stapler_pad__aloha-agilex_clean_500__episode226__row57.mp4",
+    "prompt": "Grab the curved red stapler and stick it onto Red mat",
+    "uuid": "move_stapler_pad/aloha-agilex_clean_500/episode226",
+    "task_name": "move_stapler_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_stapler_pad/aloha-agilex_clean_500/video/episode226.mp4",
+    "src_line_no": 31991
+  },
+  {
+    "gt_path": "/pool/place_dual_shoes__aloha-agilex_clean_500__episode484__row58.mp4",
+    "prompt": "Hold two the shoe with textured bottom, drop them in the rectangular shoe-box with orange lid, tips pointing left.",
+    "uuid": "place_dual_shoes/aloha-agilex_clean_500/episode484",
+    "task_name": "place_dual_shoes",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_dual_shoes/aloha-agilex_clean_500/video/episode484.mp4",
+    "src_line_no": 170143
+  },
+  {
+    "gt_path": "/pool/place_a2b_left__aloha-agilex_clean_500__episode464__row59.mp4",
+    "prompt": "Grab the bright blue toycar with the right arm and shift it left of the plastic mouse with smooth finish.",
+    "uuid": "place_a2b_left/aloha-agilex_clean_500/episode464",
+    "task_name": "place_a2b_left",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_a2b_left/aloha-agilex_clean_500/video/episode464.mp4",
+    "src_line_no": 82852
+  },
+  {
+    "gt_path": "/pool/pick_diverse_bottles__aloha-agilex_clean_500__episode471__row60.mp4",
+    "prompt": "Grab the green bottle with white label using one arm and the blue bottle with label using the other.",
+    "uuid": "pick_diverse_bottles/aloha-agilex_clean_500/episode471",
+    "task_name": "pick_diverse_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/pick_diverse_bottles/aloha-agilex_clean_500/video/episode471.mp4",
+    "src_line_no": 145827
+  },
+  {
+    "gt_path": "/pool/place_container_plate__aloha-agilex_clean_500__episode441__row61.mp4",
+    "prompt": "Place the container onto the smooth greenish table plate with the medium-sized smooth bowl.",
+    "uuid": "place_container_plate/aloha-agilex_clean_500/episode441",
+    "task_name": "place_container_plate",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_container_plate/aloha-agilex_clean_500/video/episode441.mp4",
+    "src_line_no": 208763
+  },
+  {
+    "gt_path": "/pool/place_object_scale__aloha-agilex_clean_500__episode403__row62.mp4",
+    "prompt": "Utilize the left arm to grab the mouse with two buttons and a scroll wheel and place on the electronicscale with silver buttons",
+    "uuid": "place_object_scale/aloha-agilex_clean_500/episode403",
+    "task_name": "place_object_scale",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_object_scale/aloha-agilex_clean_500/video/episode403.mp4",
+    "src_line_no": 92870
+  },
+  {
+    "gt_path": "/pool/place_object_basket__aloha-agilex_clean_500__episode50__row63.mp4",
+    "prompt": "Use the left arm to grab the toycar with smiling face design, place it in the basket with loop handle, and move the basket with loop handle using the right arm.",
+    "uuid": "place_object_basket/aloha-agilex_clean_500/episode50",
+    "task_name": "place_object_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_object_basket/aloha-agilex_clean_500/video/episode50.mp4",
+    "src_line_no": 226600
+  },
+  {
+    "gt_path": "/pool/grab_roller__aloha-agilex_clean_500__episode236__row64.mp4",
+    "prompt": "Grip the roller with smooth and shiny texture firmly with arms.",
+    "uuid": "grab_roller/aloha-agilex_clean_500/episode236",
+    "task_name": "grab_roller",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/grab_roller/aloha-agilex_clean_500/video/episode236.mp4",
+    "src_line_no": 122134
+  },
+  {
+    "gt_path": "/pool/place_cans_plasticbox__aloha-agilex_clean_500__episode59__row65.mp4",
+    "prompt": "Use both arms to grab the smooth brown can with rounded edges and the smooth brown can with rounded edges, place them in the medium storage plasticbox.",
+    "uuid": "place_cans_plasticbox/aloha-agilex_clean_500/episode59",
+    "task_name": "place_cans_plasticbox",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_cans_plasticbox/aloha-agilex_clean_500/video/episode59.mp4",
+    "src_line_no": 46492
+  },
+  {
+    "gt_path": "/pool/place_a2b_left__aloha-agilex_clean_500__episode53__row66.mp4",
+    "prompt": "Use the left arm to put the smooth gray bar of soap left of the blue top toycar",
+    "uuid": "place_a2b_left/aloha-agilex_clean_500/episode53",
+    "task_name": "place_a2b_left",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_a2b_left/aloha-agilex_clean_500/video/episode53.mp4",
+    "src_line_no": 184026
+  },
+  {
+    "gt_path": "/pool/move_can_pot__aloha-agilex_clean_500__episode138__row67.mp4",
+    "prompt": "Use the left arm to grab the cylindrical sauce can and move it beside the medium-sized teal blue cooking pot",
+    "uuid": "move_can_pot/aloha-agilex_clean_500/episode138",
+    "task_name": "move_can_pot",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/move_can_pot/aloha-agilex_clean_500/video/episode138.mp4",
+    "src_line_no": 184675
+  },
+  {
+    "gt_path": "/pool/put_bottles_dustbin__aloha-agilex_clean_500__episode317__row68.mp4",
+    "prompt": "Move the bottle with green cap into the black dustbin, then do the same for the bottle with turquoise cap and the black soda bottle with white top.",
+    "uuid": "put_bottles_dustbin/aloha-agilex_clean_500/episode317",
+    "task_name": "put_bottles_dustbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/put_bottles_dustbin/aloha-agilex_clean_500/video/episode317.mp4",
+    "src_line_no": 221615
+  },
+  {
+    "gt_path": "/pool/move_stapler_pad__aloha-agilex_clean_500__episode395__row69.mp4",
+    "prompt": "Lift the red stapler with black base and drop it onto Green mat",
+    "uuid": "move_stapler_pad/aloha-agilex_clean_500/episode395",
+    "task_name": "move_stapler_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/move_stapler_pad/aloha-agilex_clean_500/video/episode395.mp4",
+    "src_line_no": 213739
+  },
+  {
+    "gt_path": "/pool/move_stapler_pad__aloha-agilex_clean_500__episode159__row70.mp4",
+    "prompt": "Move the blue stapler with shiny silver parts to the Cyan mat.",
+    "uuid": "move_stapler_pad/aloha-agilex_clean_500/episode159",
+    "task_name": "move_stapler_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_stapler_pad/aloha-agilex_clean_500/video/episode159.mp4",
+    "src_line_no": 32010
+  },
+  {
+    "gt_path": "/pool/stack_blocks_two__aloha-agilex_clean_500__episode358__row71.mp4",
+    "prompt": "the left arm relocates red block and the right arm moves green block, then stacks green block on red block.",
+    "uuid": "stack_blocks_two/aloha-agilex_clean_500/episode358",
+    "task_name": "stack_blocks_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stack_blocks_two/aloha-agilex_clean_500/video/episode358.mp4",
+    "src_line_no": 229522
+  },
+  {
+    "gt_path": "/pool/grab_roller__aloha-agilex_clean_500__episode70__row72.mp4",
+    "prompt": "Hold the roller with smooth texture from the table.",
+    "uuid": "grab_roller/aloha-agilex_clean_500/episode70",
+    "task_name": "grab_roller",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/grab_roller/aloha-agilex_clean_500/video/episode70.mp4",
+    "src_line_no": 45465
+  },
+  {
+    "gt_path": "/pool/stack_bowls_two__aloha-agilex_clean_500__episode77__row73.mp4",
+    "prompt": "Take the small bowl with brown edge, place the ceramic bowl above, and let go.",
+    "uuid": "stack_bowls_two/aloha-agilex_clean_500/episode77",
+    "task_name": "stack_bowls_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/stack_bowls_two/aloha-agilex_clean_500/video/episode77.mp4",
+    "src_line_no": 107549
+  },
+  {
+    "gt_path": "/pool/place_cans_plasticbox__aloha-agilex_clean_500__episode483__row74.mp4",
+    "prompt": "Move the metal can with printed white graphics into the smooth blue plasticbox with handle, then pick and drop the red can with white lettering into the same box.",
+    "uuid": "place_cans_plasticbox/aloha-agilex_clean_500/episode483",
+    "task_name": "place_cans_plasticbox",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_cans_plasticbox/aloha-agilex_clean_500/video/episode483.mp4",
+    "src_line_no": 173732
+  },
+  {
+    "gt_path": "/pool/move_pillbottle_pad__aloha-agilex_clean_500__episode151__row75.mp4",
+    "prompt": "Lift the white bottle using the right arm and position it on the pad.",
+    "uuid": "move_pillbottle_pad/aloha-agilex_clean_500/episode151",
+    "task_name": "move_pillbottle_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_pillbottle_pad/aloha-agilex_clean_500/video/episode151.mp4",
+    "src_line_no": 7365
+  },
+  {
+    "gt_path": "/pool/stack_bowls_two__aloha-agilex_clean_500__episode117__row76.mp4",
+    "prompt": "Use the arm to place the ceramic bowl with earthy brown trim, then stack the curved bowl light blue shade on top.",
+    "uuid": "stack_bowls_two/aloha-agilex_clean_500/episode117",
+    "task_name": "stack_bowls_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/stack_bowls_two/aloha-agilex_clean_500/video/episode117.mp4",
+    "src_line_no": 107671
+  },
+  {
+    "gt_path": "/pool/place_cans_plasticbox__aloha-agilex_clean_500__episode221__row77.mp4",
+    "prompt": "Place the red can with white Coca-Cola logo and the can with red-orange text into the deep blue box for storage using both arms.",
+    "uuid": "place_cans_plasticbox/aloha-agilex_clean_500/episode221",
+    "task_name": "place_cans_plasticbox",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_cans_plasticbox/aloha-agilex_clean_500/video/episode221.mp4",
+    "src_line_no": 173328
+  },
+  {
+    "gt_path": "/pool/rotate_qrcode__aloha-agilex_clean_500__episode310__row78.mp4",
+    "prompt": "Grab the paymentsign with tilted rectangular panel using the right arm, lift, and rotate until QR code faces you.",
+    "uuid": "rotate_qrcode/aloha-agilex_clean_500/episode310",
+    "task_name": "rotate_qrcode",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/rotate_qrcode/aloha-agilex_clean_500/video/episode310.mp4",
+    "src_line_no": 202864
+  },
+  {
+    "gt_path": "/pool/stack_blocks_two__aloha-agilex_clean_500__episode50__row79.mp4",
+    "prompt": "Place red block and green block in the center, then stack green block above red block.",
+    "uuid": "stack_blocks_two/aloha-agilex_clean_500/episode50",
+    "task_name": "stack_blocks_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/stack_blocks_two/aloha-agilex_clean_500/video/episode50.mp4",
+    "src_line_no": 123446
+  },
+  {
+    "gt_path": "/pool/put_bottles_dustbin__aloha-agilex_clean_500__episode315__row80.mp4",
+    "prompt": "Grab the yellow liquid container with green top, the bottle with turquoise cap, and the black soda bottle with white top and put them sequentially into the dustbin with lid and bag.",
+    "uuid": "put_bottles_dustbin/aloha-agilex_clean_500/episode315",
+    "task_name": "put_bottles_dustbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/put_bottles_dustbin/aloha-agilex_clean_500/video/episode315.mp4",
+    "src_line_no": 127350
+  },
+  {
+    "gt_path": "/pool/place_can_basket__aloha-agilex_clean_500__episode144__row81.mp4",
+    "prompt": "Use the left arm to grab the red green can, place it into the smooth ribbed light brown basket, and lift the smooth ribbed light brown basket using the other arm.",
+    "uuid": "place_can_basket/aloha-agilex_clean_500/episode144",
+    "task_name": "place_can_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_can_basket/aloha-agilex_clean_500/video/episode144.mp4",
+    "src_line_no": 212801
+  },
+  {
+    "gt_path": "/pool/beat_block_hammer__aloha-agilex_clean_50__episode6__row82.mp4",
+    "prompt": "Beat the block after grabbing the hammer for nails",
+    "uuid": "beat_block_hammer/aloha-agilex_clean_50/episode6",
+    "task_name": "beat_block_hammer",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/beat_block_hammer/aloha-agilex_clean_50/video/episode6.mp4",
+    "src_line_no": 72067
+  },
+  {
+    "gt_path": "/pool/rotate_qrcode__aloha-agilex_clean_500__episode82__row83.mp4",
+    "prompt": "Locate the white paymentsign with raised base, pick it up, and adjust its angle.",
+    "uuid": "rotate_qrcode/aloha-agilex_clean_500/episode82",
+    "task_name": "rotate_qrcode",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/rotate_qrcode/aloha-agilex_clean_500/video/episode82.mp4",
+    "src_line_no": 21445
+  },
+  {
+    "gt_path": "/pool/blocks_ranking_size__aloha-agilex_clean_500__episode339__row84.mp4",
+    "prompt": "Move large block, medium block, and small block to the center and align.",
+    "uuid": "blocks_ranking_size/aloha-agilex_clean_500/episode339",
+    "task_name": "blocks_ranking_size",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/blocks_ranking_size/aloha-agilex_clean_500/video/episode339.mp4",
+    "src_line_no": 180690
+  },
+  {
+    "gt_path": "/pool/put_object_cabinet__aloha-agilex_clean_500__episode299__row85.mp4",
+    "prompt": "Pull the wooden cabinet's drawer open and transfer the blue stapler with ergonomic curve into it.",
+    "uuid": "put_object_cabinet/aloha-agilex_clean_500/episode299",
+    "task_name": "put_object_cabinet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/put_object_cabinet/aloha-agilex_clean_500/video/episode299.mp4",
+    "src_line_no": 206603
+  },
+  {
+    "gt_path": "/pool/scan_object__aloha-agilex_clean_500__episode353__row86.mp4",
+    "prompt": "Using the right arm, pick the barcode scanner, then use the left arm to grab the tea-box with white TEA text and scan it.",
+    "uuid": "scan_object/aloha-agilex_clean_500/episode353",
+    "task_name": "scan_object",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/scan_object/aloha-agilex_clean_500/video/episode353.mp4",
+    "src_line_no": 189796
+  },
+  {
+    "gt_path": "/pool/place_phone_stand__aloha-agilex_clean_500__episode62__row87.mp4",
+    "prompt": "Move the multi-camera black phone onto the phonestand with slot.",
+    "uuid": "place_phone_stand/aloha-agilex_clean_500/episode62",
+    "task_name": "place_phone_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_phone_stand/aloha-agilex_clean_500/video/episode62.mp4",
+    "src_line_no": 89613
+  },
+  {
+    "gt_path": "/pool/place_burger_fries__aloha-agilex_clean_500__episode283__row88.mp4",
+    "prompt": "Grab the hamburg box with lid and the Golden fries sticks in red carton, then put them on the dark rectangular serving tray.",
+    "uuid": "place_burger_fries/aloha-agilex_clean_500/episode283",
+    "task_name": "place_burger_fries",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_burger_fries/aloha-agilex_clean_500/video/episode283.mp4",
+    "src_line_no": 28356
+  },
+  {
+    "gt_path": "/pool/open_microwave__aloha-agilex_clean_500__episode173__row89.mp4",
+    "prompt": "Use the left arm to pull the microwave with patterned top and knobs open.",
+    "uuid": "open_microwave/aloha-agilex_clean_500/episode173",
+    "task_name": "open_microwave",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/open_microwave/aloha-agilex_clean_500/video/episode173.mp4",
+    "src_line_no": 207965
+  },
+  {
+    "gt_path": "/pool/grab_roller__aloha-agilex_clean_500__episode32__row90.mp4",
+    "prompt": "Grip the smooth cylindrical roller firmly with arms.",
+    "uuid": "grab_roller/aloha-agilex_clean_500/episode32",
+    "task_name": "grab_roller",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/grab_roller/aloha-agilex_clean_500/video/episode32.mp4",
+    "src_line_no": 227833
+  },
+  {
+    "gt_path": "/pool/put_object_cabinet__aloha-agilex_clean_500__episode185__row91.mp4",
+    "prompt": "Access the smooth-surface cabinet's drawer and set the rounded computer mouse inside.",
+    "uuid": "put_object_cabinet/aloha-agilex_clean_500/episode185",
+    "task_name": "put_object_cabinet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/put_object_cabinet/aloha-agilex_clean_500/video/episode185.mp4",
+    "src_line_no": 104812
+  },
+  {
+    "gt_path": "/pool/press_stapler__aloha-agilex_clean_500__episode140__row92.mp4",
+    "prompt": "Use one arm to press the simple stapler.",
+    "uuid": "press_stapler/aloha-agilex_clean_500/episode140",
+    "task_name": "press_stapler",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/press_stapler/aloha-agilex_clean_500/video/episode140.mp4",
+    "src_line_no": 204770
+  },
+  {
+    "gt_path": "/pool/stack_blocks_three__aloha-agilex_clean_500__episode249__row93.mp4",
+    "prompt": "Place red block, green block, and blue block in the center, then arrange green block on red block and blue block on green block.",
+    "uuid": "stack_blocks_three/aloha-agilex_clean_500/episode249",
+    "task_name": "stack_blocks_three",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stack_blocks_three/aloha-agilex_clean_500/video/episode249.mp4",
+    "src_line_no": 182780
+  },
+  {
+    "gt_path": "/pool/pick_dual_bottles__aloha-agilex_clean_500__episode262__row94.mp4",
+    "prompt": "Lift bottle the red-capped bottle, then bottle the handheld green bottle.",
+    "uuid": "pick_dual_bottles/aloha-agilex_clean_500/episode262",
+    "task_name": "pick_dual_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/pick_dual_bottles/aloha-agilex_clean_500/video/episode262.mp4",
+    "src_line_no": 33860
+  },
+  {
+    "gt_path": "/pool/open_laptop__aloha-agilex_clean_500__episode74__row95.mp4",
+    "prompt": "Pull the lid of the rectangular laptop with hinge upward.",
+    "uuid": "open_laptop/aloha-agilex_clean_500/episode74",
+    "task_name": "open_laptop",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/open_laptop/aloha-agilex_clean_500/video/episode74.mp4",
+    "src_line_no": 170560
+  },
+  {
+    "gt_path": "/pool/click_alarmclock__aloha-agilex_clean_500__episode309__row96.mp4",
+    "prompt": "Use the left arm to press the square plastic alarm clock button",
+    "uuid": "click_alarmclock/aloha-agilex_clean_500/episode309",
+    "task_name": "click_alarmclock",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/click_alarmclock/aloha-agilex_clean_500/video/episode309.mp4",
+    "src_line_no": 11386
+  },
+  {
+    "gt_path": "/pool/shake_bottle_horizontally__aloha-agilex_clean_500__episode248__row97.mp4",
+    "prompt": "Using the right arm, grab the yellow capped drink bottle and shake it sideways.",
+    "uuid": "shake_bottle_horizontally/aloha-agilex_clean_500/episode248",
+    "task_name": "shake_bottle_horizontally",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/shake_bottle_horizontally/aloha-agilex_clean_500/video/episode248.mp4",
+    "src_line_no": 117291
+  },
+  {
+    "gt_path": "/pool/pick_dual_bottles__aloha-agilex_clean_500__episode455__row98.mp4",
+    "prompt": "Secure the brown bottle with red label in one hand, the smooth green bottle in other.",
+    "uuid": "pick_dual_bottles/aloha-agilex_clean_500/episode455",
+    "task_name": "pick_dual_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/pick_dual_bottles/aloha-agilex_clean_500/video/episode455.mp4",
+    "src_line_no": 162210
+  },
+  {
+    "gt_path": "/pool/move_pillbottle_pad__aloha-agilex_clean_500__episode400__row99.mp4",
+    "prompt": "Take the rounded bottle with small white cap and place it onto the pad",
+    "uuid": "move_pillbottle_pad/aloha-agilex_clean_500/episode400",
+    "task_name": "move_pillbottle_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/move_pillbottle_pad/aloha-agilex_clean_500/video/episode400.mp4",
+    "src_line_no": 136531
+  },
+  {
+    "gt_path": "/pool/stack_bowls_three__aloha-agilex_clean_500__episode74__row100.mp4",
+    "prompt": "Grab the first the ceramic bowl with earthy brown trim, position the second, then add the third.",
+    "uuid": "stack_bowls_three/aloha-agilex_clean_500/episode74",
+    "task_name": "stack_bowls_three",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stack_bowls_three/aloha-agilex_clean_500/video/episode74.mp4",
+    "src_line_no": 198789
+  },
+  {
+    "gt_path": "/pool/grab_roller__aloha-agilex_clean_500__episode269__row101.mp4",
+    "prompt": "Lift the wood roller with your arms.",
+    "uuid": "grab_roller/aloha-agilex_clean_500/episode269",
+    "task_name": "grab_roller",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/grab_roller/aloha-agilex_clean_500/video/episode269.mp4",
+    "src_line_no": 122354
+  },
+  {
+    "gt_path": "/pool/move_playingcard_away__aloha-agilex_clean_500__episode197__row102.mp4",
+    "prompt": "Lift the hand-sized playingcards container and slide it off the table.",
+    "uuid": "move_playingcard_away/aloha-agilex_clean_500/episode197",
+    "task_name": "move_playingcard_away",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_playingcard_away/aloha-agilex_clean_500/video/episode197.mp4",
+    "src_line_no": 19066
+  },
+  {
+    "gt_path": "/pool/place_container_plate__aloha-agilex_clean_500__episode144__row103.mp4",
+    "prompt": "Move the gray bowl and drop the container onto the greenish-gray flat dinner plate",
+    "uuid": "place_container_plate/aloha-agilex_clean_500/episode144",
+    "task_name": "place_container_plate",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_container_plate/aloha-agilex_clean_500/video/episode144.mp4",
+    "src_line_no": 156200
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode462__row104.mp4",
+    "prompt": "With the right arm, secure the brown seal and mark Maroon.",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode462",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode462.mp4",
+    "src_line_no": 194957
+  },
+  {
+    "gt_path": "/pool/beat_block_hammer__aloha-agilex_clean_500__episode227__row105.mp4",
+    "prompt": "Grab the handheld medium claw hammer with the right arm and hit the block",
+    "uuid": "beat_block_hammer/aloha-agilex_clean_500/episode227",
+    "task_name": "beat_block_hammer",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/beat_block_hammer/aloha-agilex_clean_500/video/episode227.mp4",
+    "src_line_no": 116008
+  },
+  {
+    "gt_path": "/pool/place_a2b_left__aloha-agilex_clean_500__episode213__row106.mp4",
+    "prompt": "With the left arm, move the glass-faced phone to the left side of the dark soap bar.",
+    "uuid": "place_a2b_left/aloha-agilex_clean_500/episode213",
+    "task_name": "place_a2b_left",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_a2b_left/aloha-agilex_clean_500/video/episode213.mp4",
+    "src_line_no": 3658
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_500__episode113__row107.mp4",
+    "prompt": "Lift the dark gray palm-sized mouse using the right arm and drop it on the Green colored mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_500/episode113",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_mouse_pad/aloha-agilex_clean_500/video/episode113.mp4",
+    "src_line_no": 134440
+  },
+  {
+    "gt_path": "/pool/place_fan__aloha-agilex_clean_500__episode490__row108.mp4",
+    "prompt": "Place the table fan with white finish on the Gray mat and position it to face the robot.",
+    "uuid": "place_fan/aloha-agilex_clean_500/episode490",
+    "task_name": "place_fan",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_fan/aloha-agilex_clean_500/video/episode490.mp4",
+    "src_line_no": 152134
+  },
+  {
+    "gt_path": "/pool/stack_bowls_two__aloha-agilex_clean_500__episode326__row109.mp4",
+    "prompt": "Arrange the ceramic bowl with earthy brown trim, lift the blue bowl with slightly rounded base with the arm, and stack them.",
+    "uuid": "stack_bowls_two/aloha-agilex_clean_500/episode326",
+    "task_name": "stack_bowls_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/stack_bowls_two/aloha-agilex_clean_500/video/episode326.mp4",
+    "src_line_no": 29333
+  },
+  {
+    "gt_path": "/pool/handover_block__aloha-agilex_clean_500__episode24__row110.mp4",
+    "prompt": "Hand over the red block to the right arm.",
+    "uuid": "handover_block/aloha-agilex_clean_500/episode24",
+    "task_name": "handover_block",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/handover_block/aloha-agilex_clean_500/video/episode24.mp4",
+    "src_line_no": 137705
+  },
+  {
+    "gt_path": "/pool/open_laptop__aloha-agilex_clean_500__episode276__row111.mp4",
+    "prompt": "Carefully open the laptop with wood panel background using the right arm",
+    "uuid": "open_laptop/aloha-agilex_clean_500/episode276",
+    "task_name": "open_laptop",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/open_laptop/aloha-agilex_clean_500/video/episode276.mp4",
+    "src_line_no": 120255
+  },
+  {
+    "gt_path": "/pool/click_alarmclock__aloha-agilex_clean_500__episode19__row112.mp4",
+    "prompt": "Click the compact alarm-clock's top center button using the left arm.",
+    "uuid": "click_alarmclock/aloha-agilex_clean_500/episode19",
+    "task_name": "click_alarmclock",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/click_alarmclock/aloha-agilex_clean_500/video/episode19.mp4",
+    "src_line_no": 191890
+  },
+  {
+    "gt_path": "/pool/adjust_bottle__aloha-agilex_clean_500__episode276__row113.mp4",
+    "prompt": "Identify the bottle with white neck and red top and grab it with the right arm",
+    "uuid": "adjust_bottle/aloha-agilex_clean_500/episode276",
+    "task_name": "adjust_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/adjust_bottle/aloha-agilex_clean_500/video/episode276.mp4",
+    "src_line_no": 144641
+  },
+  {
+    "gt_path": "/pool/stack_bowls_two__aloha-agilex_clean_500__episode241__row114.mp4",
+    "prompt": "the bowl with shiny texture goes at the bottom, the ceramic bowl rests above.",
+    "uuid": "stack_bowls_two/aloha-agilex_clean_500/episode241",
+    "task_name": "stack_bowls_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stack_bowls_two/aloha-agilex_clean_500/video/episode241.mp4",
+    "src_line_no": 210791
+  },
+  {
+    "gt_path": "/pool/place_dual_shoes__aloha-agilex_clean_500__episode356__row115.mp4",
+    "prompt": "Move two the sports shoe green with beige sole into the medium-sized box with Nike swoosh, ensure tips point left.",
+    "uuid": "place_dual_shoes/aloha-agilex_clean_500/episode356",
+    "task_name": "place_dual_shoes",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_dual_shoes/aloha-agilex_clean_500/video/episode356.mp4",
+    "src_line_no": 42552
+  },
+  {
+    "gt_path": "/pool/scan_object__aloha-agilex_clean_500__episode154__row116.mp4",
+    "prompt": "Take the hand scanner with blue lens area, then grab the black tea-box, and scan the black tea-box with the hand scanner with blue lens area.",
+    "uuid": "scan_object/aloha-agilex_clean_500/episode154",
+    "task_name": "scan_object",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/scan_object/aloha-agilex_clean_500/video/episode154.mp4",
+    "src_line_no": 138458
+  },
+  {
+    "gt_path": "/pool/place_fan__aloha-agilex_clean_500__episode316__row117.mp4",
+    "prompt": "Set the white fan with adjustable arm on the Lime mat and make sure it faces the robot",
+    "uuid": "place_fan/aloha-agilex_clean_500/episode316",
+    "task_name": "place_fan",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0413_clean500_random500/place_fan/aloha-agilex_clean_500/video/episode316.mp4",
+    "src_line_no": 48522
+  },
+  {
+    "gt_path": "/pool/place_bread_skillet__aloha-agilex_clean_500__episode428__row118.mp4",
+    "prompt": "Pick the light brown porous bread up using the right arm and drop it in the versatile skillet for stovetop cooking.",
+    "uuid": "place_bread_skillet/aloha-agilex_clean_500/episode428",
+    "task_name": "place_bread_skillet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_bread_skillet/aloha-agilex_clean_500/video/episode428.mp4",
+    "src_line_no": 217763
+  },
+  {
+    "gt_path": "/pool/place_can_basket__aloha-agilex_clean_500__episode292__row119.mp4",
+    "prompt": "Use the same arm to grab the hand-sized metallic can, place in the brown basket with woven ridges, and then lift the brown basket with woven ridges.",
+    "uuid": "place_can_basket/aloha-agilex_clean_500/episode292",
+    "task_name": "place_can_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_can_basket/aloha-agilex_clean_500/video/episode292.mp4",
+    "src_line_no": 159794
+  },
+  {
+    "gt_path": "/pool/adjust_bottle__aloha-agilex_clean_500__episode387__row120.mp4",
+    "prompt": "Position the dark drink bottle with logo head-up and lift it",
+    "uuid": "adjust_bottle/aloha-agilex_clean_500/episode387",
+    "task_name": "adjust_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/adjust_bottle/aloha-agilex_clean_500/video/episode387.mp4",
+    "src_line_no": 195839
+  },
+  {
+    "gt_path": "/pool/pick_diverse_bottles__aloha-agilex_clean_500__episode97__row121.mp4",
+    "prompt": "Hold both the green bottle with indented base and the red bottle with curved grooves.",
+    "uuid": "pick_diverse_bottles/aloha-agilex_clean_500/episode97",
+    "task_name": "pick_diverse_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/pick_diverse_bottles/aloha-agilex_clean_500/video/episode97.mp4",
+    "src_line_no": 96683
+  },
+  {
+    "gt_path": "/pool/place_object_stand__aloha-agilex_clean_500__episode241__row122.mp4",
+    "prompt": "Grab the gray mouse with the left arm and place on the medium-sized rectangular displaystand.",
+    "uuid": "place_object_stand/aloha-agilex_clean_500/episode241",
+    "task_name": "place_object_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_object_stand/aloha-agilex_clean_500/video/episode241.mp4",
+    "src_line_no": 186811
+  },
+  {
+    "gt_path": "/pool/place_bread_skillet__aloha-agilex_clean_500__episode22__row123.mp4",
+    "prompt": "Place the golden bread into the round skillet with open handle end with the right arm.",
+    "uuid": "place_bread_skillet/aloha-agilex_clean_500/episode22",
+    "task_name": "place_bread_skillet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_bread_skillet/aloha-agilex_clean_500/video/episode22.mp4",
+    "src_line_no": 163922
+  },
+  {
+    "gt_path": "/pool/place_cans_plasticbox__aloha-agilex_clean_500__episode397__row124.mp4",
+    "prompt": "Use both arms to place the white can and the red can with decorative label inside the boxy light blue plasticbox.",
+    "uuid": "place_cans_plasticbox/aloha-agilex_clean_500/episode397",
+    "task_name": "place_cans_plasticbox",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_cans_plasticbox/aloha-agilex_clean_500/video/episode397.mp4",
+    "src_line_no": 228616
+  },
+  {
+    "gt_path": "/pool/hanging_mug__aloha-agilex_clean_500__episode218__row125.mp4",
+    "prompt": "Use the left arm to grab the cylindrical coffee mug with handle, flip it, set it down, and then attach it to the rack with two rods sticking out.",
+    "uuid": "hanging_mug/aloha-agilex_clean_500/episode218",
+    "task_name": "hanging_mug",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/hanging_mug/aloha-agilex_clean_500/video/episode218.mp4",
+    "src_line_no": 150266
+  },
+  {
+    "gt_path": "/pool/pick_diverse_bottles__aloha-agilex_clean_500__episode273__row126.mp4",
+    "prompt": "One arm grabs the medium bottle with glossy surface; the other arm grabs the long thin bottle.",
+    "uuid": "pick_diverse_bottles/aloha-agilex_clean_500/episode273",
+    "task_name": "pick_diverse_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/pick_diverse_bottles/aloha-agilex_clean_500/video/episode273.mp4",
+    "src_line_no": 145792
+  },
+  {
+    "gt_path": "/pool/scan_object__aloha-agilex_clean_500__episode364__row127.mp4",
+    "prompt": "the right arm grabs the black scanner, the left arm picks the smooth black tea-box, and the black scanner scans the smooth black tea-box.",
+    "uuid": "scan_object/aloha-agilex_clean_500/episode364",
+    "task_name": "scan_object",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/scan_object/aloha-agilex_clean_500/video/episode364.mp4",
+    "src_line_no": 138470
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode192__row128.mp4",
+    "prompt": "Push the white bell with black bottom's <top center> on the table",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode192",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode192.mp4",
+    "src_line_no": 216900
+  },
+  {
+    "gt_path": "/pool/blocks_ranking_size__aloha-agilex_clean_500__episode336__row129.mp4",
+    "prompt": "Shift large block, medium block, and small block to the center and align by size.",
+    "uuid": "blocks_ranking_size/aloha-agilex_clean_500/episode336",
+    "task_name": "blocks_ranking_size",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/blocks_ranking_size/aloha-agilex_clean_500/video/episode336.mp4",
+    "src_line_no": 180739
+  },
+  {
+    "gt_path": "/pool/pick_diverse_bottles__aloha-agilex_clean_500__episode28__row130.mp4",
+    "prompt": "Grab the cylindrical bottle with narrow neck using an arm and the plastic bottle with the other arm.",
+    "uuid": "pick_diverse_bottles/aloha-agilex_clean_500/episode28",
+    "task_name": "pick_diverse_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/pick_diverse_bottles/aloha-agilex_clean_500/video/episode28.mp4",
+    "src_line_no": 96461
+  },
+  {
+    "gt_path": "/pool/place_a2b_right__aloha-agilex_clean_500__episode478__row131.mp4",
+    "prompt": "Move the small playingcards pack to the right beside the woodenblock with triangular green side.",
+    "uuid": "place_a2b_right/aloha-agilex_clean_500/episode478",
+    "task_name": "place_a2b_right",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_a2b_right/aloha-agilex_clean_500/video/episode478.mp4",
+    "src_line_no": 111027
+  },
+  {
+    "gt_path": "/pool/click_alarmclock__aloha-agilex_clean_500__episode122__row132.mp4",
+    "prompt": "Press the lightweight plastic alarm-clock's top button using the left arm",
+    "uuid": "click_alarmclock/aloha-agilex_clean_500/episode122",
+    "task_name": "click_alarmclock",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/click_alarmclock/aloha-agilex_clean_500/video/episode122.mp4",
+    "src_line_no": 90457
+  },
+  {
+    "gt_path": "/pool/turn_switch__aloha-agilex_clean_500__episode359__row133.mp4",
+    "prompt": "Press the light plastic switch via automation",
+    "uuid": "turn_switch/aloha-agilex_clean_500/episode359",
+    "task_name": "turn_switch",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/turn_switch/aloha-agilex_clean_500/video/episode359.mp4",
+    "src_line_no": 24359
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode474__row134.mp4",
+    "prompt": "Hold the white microphone handle black accents securely and shift it to another arm.",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode474",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode474.mp4",
+    "src_line_no": 99342
+  },
+  {
+    "gt_path": "/pool/place_object_scale__aloha-agilex_clean_500__episode111__row135.mp4",
+    "prompt": "Place the plastic and metal bell onto the small rectangular electronicscale using the left arm.",
+    "uuid": "place_object_scale/aloha-agilex_clean_500/episode111",
+    "task_name": "place_object_scale",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_object_scale/aloha-agilex_clean_500/video/episode111.mp4",
+    "src_line_no": 142470
+  },
+  {
+    "gt_path": "/pool/place_phone_stand__aloha-agilex_clean_500__episode400__row136.mp4",
+    "prompt": "Lift the glass-faced phone onto the phonestand with smooth texture.",
+    "uuid": "place_phone_stand/aloha-agilex_clean_500/episode400",
+    "task_name": "place_phone_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_phone_stand/aloha-agilex_clean_500/video/episode400.mp4",
+    "src_line_no": 89746
+  },
+  {
+    "gt_path": "/pool/put_bottles_dustbin__aloha-agilex_clean_500__episode429__row137.mp4",
+    "prompt": "Grab the bottle with green cap, the medium-sized water bottle, and the rounded bottle with a white neck and put them sequentially into the trash bin.",
+    "uuid": "put_bottles_dustbin/aloha-agilex_clean_500/episode429",
+    "task_name": "put_bottles_dustbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/put_bottles_dustbin/aloha-agilex_clean_500/video/episode429.mp4",
+    "src_line_no": 221949
+  },
+  {
+    "gt_path": "/pool/place_bread_basket__aloha-agilex_clean_500__episode31__row138.mp4",
+    "prompt": "Move the golden brown bread and the rectangular bread soft inside at once into the rectangular breadbasket.",
+    "uuid": "place_bread_basket/aloha-agilex_clean_500/episode31",
+    "task_name": "place_bread_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_bread_basket/aloha-agilex_clean_500/video/episode31.mp4",
+    "src_line_no": 145307
+  },
+  {
+    "gt_path": "/pool/place_object_basket__aloha-agilex_clean_500__episode241__row139.mp4",
+    "prompt": "Put the bright blue toycar with roof buttons in the basket for carrying things and pull the basket for carrying things away.",
+    "uuid": "place_object_basket/aloha-agilex_clean_500/episode241",
+    "task_name": "place_object_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_object_basket/aloha-agilex_clean_500/video/episode241.mp4",
+    "src_line_no": 171570
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_500__episode90__row140.mp4",
+    "prompt": "Use the right arm to grab the the compact matte gray computer mouse and place it on the Black colored mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_500/episode90",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_mouse_pad/aloha-agilex_clean_500/video/episode90.mp4",
+    "src_line_no": 185580
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode136__row141.mp4",
+    "prompt": "Lift the audio microphone with soft covering and hand it to someone else.",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode136",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode136.mp4",
+    "src_line_no": 200662
+  },
+  {
+    "gt_path": "/pool/hanging_mug__clean_100_12__episode51__row142.mp4",
+    "prompt": "With the left arm, grab the brown medium-sized ceramic mug from the table, rotate it, place it centrally, and with the right arm, hang it onto the angular rack with slanted support rod.",
+    "uuid": "hanging_mug/clean_100_12/episode51",
+    "task_name": "hanging_mug",
+    "robot_config": "clean_100_12",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_difficult_task/hanging_mug/clean_100_12/video/episode51.mp4",
+    "src_line_no": 123957
+  },
+  {
+    "gt_path": "/pool/place_bread_skillet__aloha-agilex_clean_500__episode473__row143.mp4",
+    "prompt": "Take the smooth loaf with rounded edges off the table into the medium-sized frying skillet",
+    "uuid": "place_bread_skillet/aloha-agilex_clean_500/episode473",
+    "task_name": "place_bread_skillet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_bread_skillet/aloha-agilex_clean_500/video/episode473.mp4",
+    "src_line_no": 114377
+  },
+  {
+    "gt_path": "/pool/handover_block__aloha-agilex_clean_500__episode149__row144.mp4",
+    "prompt": "Lift, switch arms, and place the red block.",
+    "uuid": "handover_block/aloha-agilex_clean_500/episode149",
+    "task_name": "handover_block",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/handover_block/aloha-agilex_clean_500/video/episode149.mp4",
+    "src_line_no": 8261
+  },
+  {
+    "gt_path": "/pool/press_stapler__aloha-agilex_clean_500__episode144__row145.mp4",
+    "prompt": "Push the stapler the small handheld stapler to operate it.",
+    "uuid": "press_stapler/aloha-agilex_clean_500/episode144",
+    "task_name": "press_stapler",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/press_stapler/aloha-agilex_clean_500/video/episode144.mp4",
+    "src_line_no": 153172
+  },
+  {
+    "gt_path": "/pool/place_a2b_right__aloha-agilex_clean_500__episode429__row146.mp4",
+    "prompt": "Place the blue stapler with curved design directly on the phone with smooth back panel's right.",
+    "uuid": "place_a2b_right/aloha-agilex_clean_500/episode429",
+    "task_name": "place_a2b_right",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_a2b_right/aloha-agilex_clean_500/video/episode429.mp4",
+    "src_line_no": 111390
+  },
+  {
+    "gt_path": "/pool/put_bottles_dustbin__aloha-agilex_clean_500__episode239__row147.mp4",
+    "prompt": "Take the yellow bottle with smooth texture, the cylindrical bottle, and the black bottle with red label and place them into the black and white trash holder on the left.",
+    "uuid": "put_bottles_dustbin/aloha-agilex_clean_500/episode239",
+    "task_name": "put_bottles_dustbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0413_clean500_random500/put_bottles_dustbin/aloha-agilex_clean_500/video/episode239.mp4",
+    "src_line_no": 50226
+  },
+  {
+    "gt_path": "/pool/rotate_qrcode__aloha-agilex_clean_500__episode224__row148.mp4",
+    "prompt": "Pick the paymentsign for scanning QR codes up and turn its QR code toward you using the right arm.",
+    "uuid": "rotate_qrcode/aloha-agilex_clean_500/episode224",
+    "task_name": "rotate_qrcode",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/rotate_qrcode/aloha-agilex_clean_500/video/episode224.mp4",
+    "src_line_no": 151298
+  },
+  {
+    "gt_path": "/pool/shake_bottle__aloha-agilex_clean_500__episode57__row149.mp4",
+    "prompt": "With the left arm, pick the smooth cylindrical bottle and shake properly.",
+    "uuid": "shake_bottle/aloha-agilex_clean_500/episode57",
+    "task_name": "shake_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/shake_bottle/aloha-agilex_clean_500/video/episode57.mp4",
+    "src_line_no": 81076
+  },
+  {
+    "gt_path": "/pool/blocks_ranking_rgb__aloha-agilex_clean_500__episode230__row150.mp4",
+    "prompt": "First, place red block on the far left, then green block in the middle, and finish with blue block on the right.",
+    "uuid": "blocks_ranking_rgb/aloha-agilex_clean_500/episode230",
+    "task_name": "blocks_ranking_rgb",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/blocks_ranking_rgb/aloha-agilex_clean_500/video/episode230.mp4",
+    "src_line_no": 118790
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode443__row151.mp4",
+    "prompt": "Use the right arm for the compact seal and stamp Tan",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode443",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode443.mp4",
+    "src_line_no": 93645
+  },
+  {
+    "gt_path": "/pool/lift_pot__aloha-agilex_clean_500__episode156__row152.mp4",
+    "prompt": "Lift the gray kitchenpot upward and hold it",
+    "uuid": "lift_pot/aloha-agilex_clean_500/episode156",
+    "task_name": "lift_pot",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/lift_pot/aloha-agilex_clean_500/video/episode156.mp4",
+    "src_line_no": 115400
+  },
+  {
+    "gt_path": "/pool/hanging_mug__aloha-agilex_clean_500__episode399__row153.mp4",
+    "prompt": "Lift the medium mug fits in hand, turn it around, set it in the middle, and place it on the metallic rack with smooth finish.",
+    "uuid": "hanging_mug/aloha-agilex_clean_500/episode399",
+    "task_name": "hanging_mug",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/hanging_mug/aloha-agilex_clean_500/video/episode399.mp4",
+    "src_line_no": 99888
+  },
+  {
+    "gt_path": "/pool/shake_bottle__aloha-agilex_clean_500__episode18__row154.mp4",
+    "prompt": "Pick the medium rectangular yellow bottle, shake it with the right arm.",
+    "uuid": "shake_bottle/aloha-agilex_clean_500/episode18",
+    "task_name": "shake_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/shake_bottle/aloha-agilex_clean_500/video/episode18.mp4",
+    "src_line_no": 181722
+  },
+  {
+    "gt_path": "/pool/place_container_plate__aloha-agilex_clean_500__episode375__row155.mp4",
+    "prompt": "Place the container onto the round plate with the dark green plastic tapered cup.",
+    "uuid": "place_container_plate/aloha-agilex_clean_500/episode375",
+    "task_name": "place_container_plate",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_container_plate/aloha-agilex_clean_500/video/episode375.mp4",
+    "src_line_no": 208995
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode376__row156.mp4",
+    "prompt": "Take the microphone with cylindrical handle, shift it, and release it to the other side.",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode376",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode376.mp4",
+    "src_line_no": 98983
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode251__row157.mp4",
+    "prompt": "Move the blue rounded-bottom cup to the flat surface gray wooden coaster",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode251",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode251.mp4",
+    "src_line_no": 168231
+  },
+  {
+    "gt_path": "/pool/stack_blocks_three__aloha-agilex_clean_500__episode243__row158.mp4",
+    "prompt": "Place red block, green block, blue block in the middle and stack them using the left arm, the left arm, the right arm, green block on red block, blue block on green block.",
+    "uuid": "stack_blocks_three/aloha-agilex_clean_500/episode243",
+    "task_name": "stack_blocks_three",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/stack_blocks_three/aloha-agilex_clean_500/video/episode243.mp4",
+    "src_line_no": 2840
+  },
+  {
+    "gt_path": "/pool/place_shoe__aloha-agilex_clean_500__episode21__row159.mp4",
+    "prompt": "Using the right arm, lift the lace-up sneaker from the table and place it onto the mat",
+    "uuid": "place_shoe/aloha-agilex_clean_500/episode21",
+    "task_name": "place_shoe",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_shoe/aloha-agilex_clean_500/video/episode21.mp4",
+    "src_line_no": 158598
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_50__episode22__row160.mp4",
+    "prompt": "Pick up the microphone for recording sound and move it to the opposite side",
+    "uuid": "handover_mic/aloha-agilex_clean_50/episode22",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/handover_mic/aloha-agilex_clean_50/video/episode22.mp4",
+    "src_line_no": 61614
+  },
+  {
+    "gt_path": "/pool/press_stapler__aloha-agilex_clean_500__episode316__row161.mp4",
+    "prompt": "Push down on the stapler the compact bright blue stapler.",
+    "uuid": "press_stapler/aloha-agilex_clean_500/episode316",
+    "task_name": "press_stapler",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/press_stapler/aloha-agilex_clean_500/video/episode316.mp4",
+    "src_line_no": 23721
+  },
+  {
+    "gt_path": "/pool/place_phone_stand__aloha-agilex_clean_500__episode369__row162.mp4",
+    "prompt": "Carry the rectangular phone to the green plastic holder.",
+    "uuid": "place_phone_stand/aloha-agilex_clean_500/episode369",
+    "task_name": "place_phone_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_phone_stand/aloha-agilex_clean_500/video/episode369.mp4",
+    "src_line_no": 89403
+  },
+  {
+    "gt_path": "/pool/move_stapler_pad__aloha-agilex_clean_500__episode229__row163.mp4",
+    "prompt": "Carry the stapler with orange top lever and drop it onto the Gray mat",
+    "uuid": "move_stapler_pad/aloha-agilex_clean_500/episode229",
+    "task_name": "move_stapler_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/move_stapler_pad/aloha-agilex_clean_500/video/episode229.mp4",
+    "src_line_no": 213966
+  },
+  {
+    "gt_path": "/pool/shake_bottle__aloha-agilex_clean_500__episode321__row164.mp4",
+    "prompt": "Use the right arm to lift and shake the bottle with ridges on bottom.",
+    "uuid": "shake_bottle/aloha-agilex_clean_500/episode321",
+    "task_name": "shake_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/shake_bottle/aloha-agilex_clean_500/video/episode321.mp4",
+    "src_line_no": 130654
+  },
+  {
+    "gt_path": "/pool/place_fan__aloha-agilex_clean_500__episode8__row165.mp4",
+    "prompt": "Pick the white fan, place it on the Indigo mat, and ensure it points toward the robot.",
+    "uuid": "place_fan/aloha-agilex_clean_500/episode8",
+    "task_name": "place_fan",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_fan/aloha-agilex_clean_500/video/episode8.mp4",
+    "src_line_no": 151921
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode474__row166.mp4",
+    "prompt": "Move the rounded base blue cup onto the coaster with circular shape with the arm",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode474",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode474.mp4",
+    "src_line_no": 168151
+  },
+  {
+    "gt_path": "/pool/blocks_ranking_rgb__aloha-agilex_clean_500__episode252__row167.mp4",
+    "prompt": "Use the left arm for red block, then the left arm for green block, and the right arm for blue block, arranging them left to right.",
+    "uuid": "blocks_ranking_rgb/aloha-agilex_clean_500/episode252",
+    "task_name": "blocks_ranking_rgb",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/blocks_ranking_rgb/aloha-agilex_clean_500/video/episode252.mp4",
+    "src_line_no": 223957
+  },
+  {
+    "gt_path": "/pool/scan_object__aloha-agilex_clean_500__episode84__row168.mp4",
+    "prompt": "Hold the hand scanner with blue lens area and the light beige tea-box with different arms, then scan the light beige tea-box using the hand scanner with blue lens area.",
+    "uuid": "scan_object/aloha-agilex_clean_500/episode84",
+    "task_name": "scan_object",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/scan_object/aloha-agilex_clean_500/video/episode84.mp4",
+    "src_line_no": 88782
+  },
+  {
+    "gt_path": "/pool/put_object_cabinet__aloha-agilex_clean_500__episode116__row169.mp4",
+    "prompt": "Put the pink car with purple windows into the cabinet with gray sides's drawer once it is opened.",
+    "uuid": "put_object_cabinet/aloha-agilex_clean_500/episode116",
+    "task_name": "put_object_cabinet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/put_object_cabinet/aloha-agilex_clean_500/video/episode116.mp4",
+    "src_line_no": 206602
+  },
+  {
+    "gt_path": "/pool/move_playingcard_away__aloha-agilex_clean_500__episode228__row170.mp4",
+    "prompt": "Lift the small playingcards pack and push it off the table.",
+    "uuid": "move_playingcard_away/aloha-agilex_clean_500/episode228",
+    "task_name": "move_playingcard_away",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/move_playingcard_away/aloha-agilex_clean_500/video/episode228.mp4",
+    "src_line_no": 148287
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode236__row171.mp4",
+    "prompt": "Grab the compact stone seal, align it with Gray",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode236",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode236.mp4",
+    "src_line_no": 194742
+  },
+  {
+    "gt_path": "/pool/place_shoe__aloha-agilex_clean_500__episode275__row172.mp4",
+    "prompt": "Pick up the wearable foot protector shoe with the right arm from the table and place it on the mat",
+    "uuid": "place_shoe/aloha-agilex_clean_500/episode275",
+    "task_name": "place_shoe",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_shoe/aloha-agilex_clean_500/video/episode275.mp4",
+    "src_line_no": 211885
+  },
+  {
+    "gt_path": "/pool/place_fan__aloha-agilex_clean_500__episode281__row173.mp4",
+    "prompt": "With the left arm, grab the fan with round blades, align it to face the robot, and put it on the Pink mat.",
+    "uuid": "place_fan/aloha-agilex_clean_500/episode281",
+    "task_name": "place_fan",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_fan/aloha-agilex_clean_500/video/episode281.mp4",
+    "src_line_no": 152215
+  },
+  {
+    "gt_path": "/pool/dump_bin_bigbin__aloha-agilex_clean_500__episode281__row174.mp4",
+    "prompt": "Lift the light gray trashbin with open top and pour its contents into bin.",
+    "uuid": "dump_bin_bigbin/aloha-agilex_clean_500/episode281",
+    "task_name": "dump_bin_bigbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/dump_bin_bigbin/aloha-agilex_clean_500/video/episode281.mp4",
+    "src_line_no": 141625
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_500__episode259__row175.mp4",
+    "prompt": "Take the dark gray mouse and place it on the Green colored mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_500/episode259",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_mouse_pad/aloha-agilex_clean_500/video/episode259.mp4",
+    "src_line_no": 5211
+  },
+  {
+    "gt_path": "/pool/put_object_cabinet__aloha-agilex_clean_500__episode193__row176.mp4",
+    "prompt": "Slide open the drawer of the storage cabinet and set the smooth black cards container into it.",
+    "uuid": "put_object_cabinet/aloha-agilex_clean_500/episode193",
+    "task_name": "put_object_cabinet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/put_object_cabinet/aloha-agilex_clean_500/video/episode193.mp4",
+    "src_line_no": 25709
+  },
+  {
+    "gt_path": "/pool/press_stapler__aloha-agilex_clean_500__episode222__row177.mp4",
+    "prompt": "Press the paper stapler with silver tray downward using your arm the right arm.",
+    "uuid": "press_stapler/aloha-agilex_clean_500/episode222",
+    "task_name": "press_stapler",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/press_stapler/aloha-agilex_clean_500/video/episode222.mp4",
+    "src_line_no": 103350
+  },
+  {
+    "gt_path": "/pool/move_can_pot__aloha-agilex_clean_500__episode229__row178.mp4",
+    "prompt": "Use the left arm to pick the smooth sauce can up and set it beside the kitchenpot used for cooking meals",
+    "uuid": "move_can_pot/aloha-agilex_clean_500/episode229",
+    "task_name": "move_can_pot",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/move_can_pot/aloha-agilex_clean_500/video/episode229.mp4",
+    "src_line_no": 83828
+  },
+  {
+    "gt_path": "/pool/shake_bottle__aloha-agilex_clean_500__episode92__row179.mp4",
+    "prompt": "Grab the yellow-capped plastic bottle using the left arm, then shake.",
+    "uuid": "shake_bottle/aloha-agilex_clean_500/episode92",
+    "task_name": "shake_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/shake_bottle/aloha-agilex_clean_500/video/episode92.mp4",
+    "src_line_no": 130377
+  },
+  {
+    "gt_path": "/pool/put_object_cabinet__aloha-agilex_clean_500__episode459__row180.mp4",
+    "prompt": "Put the rubikscube cube shape into the cabinet with gray sides's drawer once it is opened.",
+    "uuid": "put_object_cabinet/aloha-agilex_clean_500/episode459",
+    "task_name": "put_object_cabinet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/put_object_cabinet/aloha-agilex_clean_500/video/episode459.mp4",
+    "src_line_no": 206756
+  },
+  {
+    "gt_path": "/pool/place_phone_stand__aloha-agilex_clean_500__episode146__row181.mp4",
+    "prompt": "Carry the smooth-screen phone to the compact plastic phonestand.",
+    "uuid": "place_phone_stand/aloha-agilex_clean_500/episode146",
+    "task_name": "place_phone_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_phone_stand/aloha-agilex_clean_500/video/episode146.mp4",
+    "src_line_no": 89673
+  },
+  {
+    "gt_path": "/pool/place_burger_fries__aloha-agilex_clean_500__episode94__row182.mp4",
+    "prompt": "Put the smooth yellow hamburg packaging and the French fries in red packaging on the plastic tray for holding items using both arms",
+    "uuid": "place_burger_fries/aloha-agilex_clean_500/episode94",
+    "task_name": "place_burger_fries",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_burger_fries/aloha-agilex_clean_500/video/episode94.mp4",
+    "src_line_no": 106359
+  },
+  {
+    "gt_path": "/pool/move_playingcard_away__aloha-agilex_clean_500__episode491__row183.mp4",
+    "prompt": "Using the left arm, lift the rectangular playingcards case and move it outward.",
+    "uuid": "move_playingcard_away/aloha-agilex_clean_500/episode491",
+    "task_name": "move_playingcard_away",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/move_playingcard_away/aloha-agilex_clean_500/video/episode491.mp4",
+    "src_line_no": 199607
+  },
+  {
+    "gt_path": "/pool/stack_blocks_two__aloha-agilex_clean_500__episode200__row184.mp4",
+    "prompt": "the left arm grabs red block, places it in the center, the right arm stacks green block on red block.",
+    "uuid": "stack_blocks_two/aloha-agilex_clean_500/episode200",
+    "task_name": "stack_blocks_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/stack_blocks_two/aloha-agilex_clean_500/video/episode200.mp4",
+    "src_line_no": 174607
+  },
+  {
+    "gt_path": "/pool/grab_roller__aloha-agilex_clean_500__episode62__row185.mp4",
+    "prompt": "Hold the medium-sized roller firmly from the table.",
+    "uuid": "grab_roller/aloha-agilex_clean_500/episode62",
+    "task_name": "grab_roller",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/grab_roller/aloha-agilex_clean_500/video/episode62.mp4",
+    "src_line_no": 122151
+  },
+  {
+    "gt_path": "/pool/move_playingcard_away__aloha-agilex_clean_500__episode204__row186.mp4",
+    "prompt": "Use the left arm to pick the blue pack holding playingcards and move it outward.",
+    "uuid": "move_playingcard_away/aloha-agilex_clean_500/episode204",
+    "task_name": "move_playingcard_away",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/move_playingcard_away/aloha-agilex_clean_500/video/episode204.mp4",
+    "src_line_no": 147911
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode198__row187.mp4",
+    "prompt": "Use arm to place the medium-sized plastic blue cup on the flat surface gray wooden coaster",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode198",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode198.mp4",
+    "src_line_no": 167925
+  },
+  {
+    "gt_path": "/pool/pick_dual_bottles__aloha-agilex_clean_500__episode139__row188.mp4",
+    "prompt": "Use one arm for the long thin bottle and the other for the bottle with white printed label.",
+    "uuid": "pick_dual_bottles/aloha-agilex_clean_500/episode139",
+    "task_name": "pick_dual_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/pick_dual_bottles/aloha-agilex_clean_500/video/episode139.mp4",
+    "src_line_no": 161971
+  },
+  {
+    "gt_path": "/pool/beat_block_hammer__aloha-agilex_clean_500__episode462__row189.mp4",
+    "prompt": "Pick up the medium-sized metal hammer and use it on the block",
+    "uuid": "beat_block_hammer/aloha-agilex_clean_500/episode462",
+    "task_name": "beat_block_hammer",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/beat_block_hammer/aloha-agilex_clean_500/video/episode462.mp4",
+    "src_line_no": 116339
+  },
+  {
+    "gt_path": "/pool/place_object_stand__aloha-agilex_clean_500__episode240__row190.mp4",
+    "prompt": "Take the dark gray palm-sized mouse with the left arm and put it on the medium-size black displaystand.",
+    "uuid": "place_object_stand/aloha-agilex_clean_500/episode240",
+    "task_name": "place_object_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_object_stand/aloha-agilex_clean_500/video/episode240.mp4",
+    "src_line_no": 135654
+  },
+  {
+    "gt_path": "/pool/shake_bottle_horizontally__aloha-agilex_clean_500__episode60__row191.mp4",
+    "prompt": "Lift the bottle with ribbed orange bottom using the left arm and shake horizontally.",
+    "uuid": "shake_bottle_horizontally/aloha-agilex_clean_500/episode60",
+    "task_name": "shake_bottle_horizontally",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/shake_bottle_horizontally/aloha-agilex_clean_500/video/episode60.mp4",
+    "src_line_no": 220854
+  },
+  {
+    "gt_path": "/pool/shake_bottle_horizontally__aloha-agilex_clean_500__episode220__row192.mp4",
+    "prompt": "Grip the black bottle, then shake it back and forth.",
+    "uuid": "shake_bottle_horizontally/aloha-agilex_clean_500/episode220",
+    "task_name": "shake_bottle_horizontally",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/shake_bottle_horizontally/aloha-agilex_clean_500/video/episode220.mp4",
+    "src_line_no": 167021
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode428__row193.mp4",
+    "prompt": "Press the flat-topped bell's top center with the right arm firmly.",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode428",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode428.mp4",
+    "src_line_no": 113140
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode483__row194.mp4",
+    "prompt": "Drop the smooth blue cup for liquids on top of the round coaster with light streaks.",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode483",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode483.mp4",
+    "src_line_no": 118395
+  },
+  {
+    "gt_path": "/pool/place_burger_fries__aloha-agilex_clean_500__episode133__row195.mp4",
+    "prompt": "Move the rectangular hamburg box and the Palm-sized red fries container with dual arms to the medium rectangular flat tray.",
+    "uuid": "place_burger_fries/aloha-agilex_clean_500/episode133",
+    "task_name": "place_burger_fries",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_burger_fries/aloha-agilex_clean_500/video/episode133.mp4",
+    "src_line_no": 209707
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode401__row196.mp4",
+    "prompt": "Take the seal with wooden-like grip and stamp it on Maroon.",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode401",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode401.mp4",
+    "src_line_no": 143354
+  },
+  {
+    "gt_path": "/pool/pick_diverse_bottles__aloha-agilex_clean_500__episode381__row197.mp4",
+    "prompt": "Catch the medium plastic bottle, then catch the brown bottle.",
+    "uuid": "pick_diverse_bottles/aloha-agilex_clean_500/episode381",
+    "task_name": "pick_diverse_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/pick_diverse_bottles/aloha-agilex_clean_500/video/episode381.mp4",
+    "src_line_no": 96792
+  },
+  {
+    "gt_path": "/pool/place_burger_fries__aloha-agilex_clean_500__episode317__row198.mp4",
+    "prompt": "Take the foldable hamburg cardboard box, take the thin crispy potato fries, and place them onto the medium plastic tray.",
+    "uuid": "place_burger_fries/aloha-agilex_clean_500/episode317",
+    "task_name": "place_burger_fries",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_burger_fries/aloha-agilex_clean_500/video/episode317.mp4",
+    "src_line_no": 106434
+  },
+  {
+    "gt_path": "/pool/dump_bin_bigbin__aloha-agilex_clean_500__episode281__row199.mp4",
+    "prompt": "Control the arm to raise the simple tabletop trashbin and pour.",
+    "uuid": "dump_bin_bigbin/aloha-agilex_clean_500/episode281",
+    "task_name": "dump_bin_bigbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/dump_bin_bigbin/aloha-agilex_clean_500/video/episode281.mp4",
+    "src_line_no": 91734
+  },
+  {
+    "gt_path": "/pool/move_pillbottle_pad__aloha-agilex_clean_500__episode131__row200.mp4",
+    "prompt": "Direct the right arm to grab the flat base orange bottle and drop it there",
+    "uuid": "move_pillbottle_pad/aloha-agilex_clean_500/episode131",
+    "task_name": "move_pillbottle_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/move_pillbottle_pad/aloha-agilex_clean_500/video/episode131.mp4",
+    "src_line_no": 86500
+  },
+  {
+    "gt_path": "/pool/place_a2b_right__aloha-agilex_clean_500__episode182__row201.mp4",
+    "prompt": "Position the light gray soap bar to the right of the bread with golden crust.",
+    "uuid": "place_a2b_right/aloha-agilex_clean_500/episode182",
+    "task_name": "place_a2b_right",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_a2b_right/aloha-agilex_clean_500/video/episode182.mp4",
+    "src_line_no": 33319
+  },
+  {
+    "gt_path": "/pool/place_a2b_right__aloha-agilex_clean_500__episode161__row202.mp4",
+    "prompt": "Use the right arm to place the light yellow tea box right of the palm-sized playingcards carton.",
+    "uuid": "place_a2b_right/aloha-agilex_clean_500/episode161",
+    "task_name": "place_a2b_right",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_a2b_right/aloha-agilex_clean_500/video/episode161.mp4",
+    "src_line_no": 214623
+  },
+  {
+    "gt_path": "/pool/press_stapler__aloha-agilex_clean_50__episode0__row203.mp4",
+    "prompt": "Firmly push the handheld blue and silver stapler using the right arm to operate it.",
+    "uuid": "press_stapler/aloha-agilex_clean_50/episode0",
+    "task_name": "press_stapler",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/press_stapler/aloha-agilex_clean_50/video/episode0.mp4",
+    "src_line_no": 63819
+  },
+  {
+    "gt_path": "/pool/place_can_basket__aloha-agilex_clean_500__episode454__row204.mp4",
+    "prompt": "Use the right arm to grab the red-orange text on white can, put it into the oval-shaped basket with woven body, and lift the oval-shaped basket with woven body with another arm.",
+    "uuid": "place_can_basket/aloha-agilex_clean_500/episode454",
+    "task_name": "place_can_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_can_basket/aloha-agilex_clean_500/video/episode454.mp4",
+    "src_line_no": 109136
+  },
+  {
+    "gt_path": "/pool/place_a2b_right__aloha-agilex_clean_500__episode206__row205.mp4",
+    "prompt": "Make sure the round-topped golden bread is placed right of the soap with uneven tan grains.",
+    "uuid": "place_a2b_right/aloha-agilex_clean_500/episode206",
+    "task_name": "place_a2b_right",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_a2b_right/aloha-agilex_clean_500/video/episode206.mp4",
+    "src_line_no": 33170
+  },
+  {
+    "gt_path": "/pool/beat_block_hammer__aloha-agilex_clean_500__episode213__row206.mp4",
+    "prompt": "Lift the handheld medium claw hammer and hit the block",
+    "uuid": "beat_block_hammer/aloha-agilex_clean_500/episode213",
+    "task_name": "beat_block_hammer",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/beat_block_hammer/aloha-agilex_clean_500/video/episode213.mp4",
+    "src_line_no": 219954
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode9__row207.mp4",
+    "prompt": "Tap the top center of the compact bell with round base.",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode9",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode9.mp4",
+    "src_line_no": 163119
+  },
+  {
+    "gt_path": "/pool/place_dual_shoes__aloha-agilex_clean_500__episode403__row208.mp4",
+    "prompt": "Transfer two the shoe with beige sole, tips left-aligned, into the medium-sized box with Nike swoosh.",
+    "uuid": "place_dual_shoes/aloha-agilex_clean_500/episode403",
+    "task_name": "place_dual_shoes",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_dual_shoes/aloha-agilex_clean_500/video/episode403.mp4",
+    "src_line_no": 224988
+  },
+  {
+    "gt_path": "/pool/put_object_cabinet__aloha-agilex_clean_500__episode165__row209.mp4",
+    "prompt": "Open the cabinet with gray sides's drawer and place the playingcards box with white accents inside it.",
+    "uuid": "put_object_cabinet/aloha-agilex_clean_500/episode165",
+    "task_name": "put_object_cabinet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/put_object_cabinet/aloha-agilex_clean_500/video/episode165.mp4",
+    "src_line_no": 206541
+  },
+  {
+    "gt_path": "/pool/place_mouse_pad__aloha-agilex_clean_50__episode18__row210.mp4",
+    "prompt": "Grab the dark gray mouse with the left arm and lay it onto the Magenta colored mat.",
+    "uuid": "place_mouse_pad/aloha-agilex_clean_50/episode18",
+    "task_name": "place_mouse_pad",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/place_mouse_pad/aloha-agilex_clean_50/video/episode18.mp4",
+    "src_line_no": 53309
+  },
+  {
+    "gt_path": "/pool/hanging_mug__aloha-agilex_clean_50__episode22__row211.mp4",
+    "prompt": "Grab the mug with curved handle, rotate it, place it in the middle, and hang it on the dark gray rack.",
+    "uuid": "hanging_mug/aloha-agilex_clean_50/episode22",
+    "task_name": "hanging_mug",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/hanging_mug/aloha-agilex_clean_50/video/episode22.mp4",
+    "src_line_no": 62210
+  },
+  {
+    "gt_path": "/pool/place_a2b_left__aloha-agilex_clean_500__episode32__row212.mp4",
+    "prompt": "Grab the mouse for cursor control using the left arm and place left of the brown-bottomed bell.",
+    "uuid": "place_a2b_left/aloha-agilex_clean_500/episode32",
+    "task_name": "place_a2b_left",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_a2b_left/aloha-agilex_clean_500/video/episode32.mp4",
+    "src_line_no": 82644
+  },
+  {
+    "gt_path": "/pool/lift_pot__aloha-agilex_clean_500__episode492__row213.mp4",
+    "prompt": "Lift the medium-sized kitchenpot using both arms now.",
+    "uuid": "lift_pot/aloha-agilex_clean_500/episode492",
+    "task_name": "lift_pot",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/lift_pot/aloha-agilex_clean_500/video/episode492.mp4",
+    "src_line_no": 218893
+  },
+  {
+    "gt_path": "/pool/rotate_qrcode__aloha-agilex_clean_500__episode159__row214.mp4",
+    "prompt": "Grab the white paymentsign with raised base, lift it from the table, and rotate it QR front",
+    "uuid": "rotate_qrcode/aloha-agilex_clean_500/episode159",
+    "task_name": "rotate_qrcode",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/rotate_qrcode/aloha-agilex_clean_500/video/episode159.mp4",
+    "src_line_no": 150819
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode414__row215.mp4",
+    "prompt": "Grasp the sound microphone with teal body and switch it to another hand.",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode414",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode414.mp4",
+    "src_line_no": 99019
+  },
+  {
+    "gt_path": "/pool/pick_dual_bottles__aloha-agilex_clean_500__episode348__row216.mp4",
+    "prompt": "Use one arm for the brown bottle with red label and the other for the smooth green plastic bottle.",
+    "uuid": "pick_dual_bottles/aloha-agilex_clean_500/episode348",
+    "task_name": "pick_dual_bottles",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/pick_dual_bottles/aloha-agilex_clean_500/video/episode348.mp4",
+    "src_line_no": 215552
+  },
+  {
+    "gt_path": "/pool/put_bottles_dustbin__aloha-agilex_clean_500__episode493__row217.mp4",
+    "prompt": "Use the arms to move the bottle with green cap into the plastic dustbin, then repeat for the water bottle with textured body and the smooth plastic bottle.",
+    "uuid": "put_bottles_dustbin/aloha-agilex_clean_500/episode493",
+    "task_name": "put_bottles_dustbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/put_bottles_dustbin/aloha-agilex_clean_500/video/episode493.mp4",
+    "src_line_no": 179361
+  },
+  {
+    "gt_path": "/pool/place_dual_shoes__aloha-agilex_clean_500__episode93__row218.mp4",
+    "prompt": "Grasp two the lace-up black and white shoe, tips aligned left, and place them in the medium-sized box with Nike swoosh.",
+    "uuid": "place_dual_shoes/aloha-agilex_clean_500/episode93",
+    "task_name": "place_dual_shoes",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_dual_shoes/aloha-agilex_clean_500/video/episode93.mp4",
+    "src_line_no": 224724
+  },
+  {
+    "gt_path": "/pool/move_stapler_pad__aloha-agilex_clean_500__episode342__row219.mp4",
+    "prompt": "Relocate the white body stapler with accents to the Green colored mat",
+    "uuid": "move_stapler_pad/aloha-agilex_clean_500/episode342",
+    "task_name": "move_stapler_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/move_stapler_pad/aloha-agilex_clean_500/video/episode342.mp4",
+    "src_line_no": 160648
+  },
+  {
+    "gt_path": "/pool/shake_bottle__aloha-agilex_clean_500__episode84__row220.mp4",
+    "prompt": "Hold the black plastic bottle with Pepsi logo and shake it properly.",
+    "uuid": "shake_bottle/aloha-agilex_clean_500/episode84",
+    "task_name": "shake_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/shake_bottle/aloha-agilex_clean_500/video/episode84.mp4",
+    "src_line_no": 181805
+  },
+  {
+    "gt_path": "/pool/hanging_mug__aloha-agilex_clean_500__episode124__row221.mp4",
+    "prompt": "Take the medium mug with blue design from the table, rotate it, place it in the center, then hang it onto the angular rack with slanted support rod.",
+    "uuid": "hanging_mug/aloha-agilex_clean_500/episode124",
+    "task_name": "hanging_mug",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/hanging_mug/aloha-agilex_clean_500/video/episode124.mp4",
+    "src_line_no": 100405
+  },
+  {
+    "gt_path": "/pool/place_burger_fries__aloha-agilex_clean_500__episode66__row222.mp4",
+    "prompt": "Put the white hamburg with yellow and brown stains and the Small red box fries inside on the beige tray using both arms",
+    "uuid": "place_burger_fries/aloha-agilex_clean_500/episode66",
+    "task_name": "place_burger_fries",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_burger_fries/aloha-agilex_clean_500/video/episode66.mp4",
+    "src_line_no": 28176
+  },
+  {
+    "gt_path": "/pool/place_container_plate__aloha-agilex_clean_50__episode34__row223.mp4",
+    "prompt": "Lift the container with the cup with black base, then place it onto the medium plate for food.",
+    "uuid": "place_container_plate/aloha-agilex_clean_50/episode34",
+    "task_name": "place_container_plate",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/place_container_plate/aloha-agilex_clean_50/video/episode34.mp4",
+    "src_line_no": 66011
+  },
+  {
+    "gt_path": "/pool/turn_switch__aloha-agilex_clean_500__episode495__row224.mp4",
+    "prompt": "Engage the medium-sized black rectangular switch using the robotic arm",
+    "uuid": "turn_switch/aloha-agilex_clean_500/episode495",
+    "task_name": "turn_switch",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/turn_switch/aloha-agilex_clean_500/video/episode495.mp4",
+    "src_line_no": 104112
+  },
+  {
+    "gt_path": "/pool/place_object_stand__aloha-agilex_clean_500__episode486__row225.mp4",
+    "prompt": "Transfer the rubikscube with smooth square tiles using the left arm to the smooth black hollow displaystand.",
+    "uuid": "place_object_stand/aloha-agilex_clean_500/episode486",
+    "task_name": "place_object_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/place_object_stand/aloha-agilex_clean_500/video/episode486.mp4",
+    "src_line_no": 85599
+  },
+  {
+    "gt_path": "/pool/open_laptop__aloha-agilex_clean_500__episode372__row226.mp4",
+    "prompt": "Lift the hinged laptop with screen and base slightly.",
+    "uuid": "open_laptop/aloha-agilex_clean_500/episode372",
+    "task_name": "open_laptop",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/open_laptop/aloha-agilex_clean_500/video/episode372.mp4",
+    "src_line_no": 120083
+  },
+  {
+    "gt_path": "/pool/place_can_basket__aloha-agilex_clean_500__episode78__row227.mp4",
+    "prompt": "Grab the red green beverage can, drop it into the yellow basket for carrying stuff, and raise the yellow basket for carrying stuff with the other arm.",
+    "uuid": "place_can_basket/aloha-agilex_clean_500/episode78",
+    "task_name": "place_can_basket",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0413_clean500_random500/place_can_basket/aloha-agilex_clean_500/video/episode78.mp4",
+    "src_line_no": 49544
+  },
+  {
+    "gt_path": "/pool/put_object_cabinet__aloha-agilex_clean_500__episode445__row228.mp4",
+    "prompt": "Pull open the drawer of the rectangular slanted cabinet and move the rubikscube into it.",
+    "uuid": "put_object_cabinet/aloha-agilex_clean_500/episode445",
+    "task_name": "put_object_cabinet",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/put_object_cabinet/aloha-agilex_clean_500/video/episode445.mp4",
+    "src_line_no": 104929
+  },
+  {
+    "gt_path": "/pool/move_can_pot__aloha-agilex_clean_500__episode168__row229.mp4",
+    "prompt": "Place the metal can with plastic lid next to the gray pot for boiling food",
+    "uuid": "move_can_pot/aloha-agilex_clean_500/episode168",
+    "task_name": "move_can_pot",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_can_pot/aloha-agilex_clean_500/video/episode168.mp4",
+    "src_line_no": 4350
+  },
+  {
+    "gt_path": "/pool/stack_bowls_two__aloha-agilex_clean_500__episode14__row230.mp4",
+    "prompt": "Place the bowl with brown outer rim down, then set the bowl with brown outer rim on top of the bowl with brown outer rim.",
+    "uuid": "stack_bowls_two/aloha-agilex_clean_500/episode14",
+    "task_name": "stack_bowls_two",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/stack_bowls_two/aloha-agilex_clean_500/video/episode14.mp4",
+    "src_line_no": 210884
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode499__row231.mp4",
+    "prompt": "Use the left arm to touch the bell with protruding knob's top center.",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode499",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode499.mp4",
+    "src_line_no": 35091
+  },
+  {
+    "gt_path": "/pool/move_playingcard_away__aloha-agilex_clean_500__episode431__row232.mp4",
+    "prompt": "Move the palm-sized playingcards carton away from its position on the table.",
+    "uuid": "move_playingcard_away/aloha-agilex_clean_500/episode431",
+    "task_name": "move_playingcard_away",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/move_playingcard_away/aloha-agilex_clean_500/video/episode431.mp4",
+    "src_line_no": 98237
+  },
+  {
+    "gt_path": "/pool/place_object_scale__aloha-agilex_clean_500__episode414__row233.mp4",
+    "prompt": "After grabbing the white dome bell, place it on the electronicscale.",
+    "uuid": "place_object_scale/aloha-agilex_clean_500/episode414",
+    "task_name": "place_object_scale",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_object_scale/aloha-agilex_clean_500/video/episode414.mp4",
+    "src_line_no": 12965
+  },
+  {
+    "gt_path": "/pool/adjust_bottle__aloha-agilex_clean_500__episode293__row234.mp4",
+    "prompt": "Lift the Coca-Cola bottle from the table with the left arm",
+    "uuid": "adjust_bottle/aloha-agilex_clean_500/episode293",
+    "task_name": "adjust_bottle",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/adjust_bottle/aloha-agilex_clean_500/video/episode293.mp4",
+    "src_line_no": 15146
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode64__row235.mp4",
+    "prompt": "Set the plastic cup for drinks carefully onto the round coaster",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode64",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode64.mp4",
+    "src_line_no": 167909
+  },
+  {
+    "gt_path": "/pool/press_stapler__aloha-agilex_clean_500__episode68__row236.mp4",
+    "prompt": "Lower the red plastic stapler with smooth top using an arm",
+    "uuid": "press_stapler/aloha-agilex_clean_500/episode68",
+    "task_name": "press_stapler",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/press_stapler/aloha-agilex_clean_500/video/episode68.mp4",
+    "src_line_no": 103073
+  },
+  {
+    "gt_path": "/pool/open_microwave__aloha-agilex_clean_500__episode205__row237.mp4",
+    "prompt": "Pull the the gray microwave's handle using the left arm.",
+    "uuid": "open_microwave/aloha-agilex_clean_500/episode205",
+    "task_name": "open_microwave",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/open_microwave/aloha-agilex_clean_500/video/episode205.mp4",
+    "src_line_no": 208015
+  },
+  {
+    "gt_path": "/pool/click_bell__aloha-agilex_clean_500__episode232__row238.mp4",
+    "prompt": "Click the blue bell at its top center on table.",
+    "uuid": "click_bell/aloha-agilex_clean_500/episode232",
+    "task_name": "click_bell",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/click_bell/aloha-agilex_clean_500/video/episode232.mp4",
+    "src_line_no": 35051
+  },
+  {
+    "gt_path": "/pool/dump_bin_bigbin__aloha-agilex_clean_500__episode390__row239.mp4",
+    "prompt": "Take the mini white trashbin for desk using arm, pour contents inside",
+    "uuid": "dump_bin_bigbin/aloha-agilex_clean_500/episode390",
+    "task_name": "dump_bin_bigbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/dump_bin_bigbin/aloha-agilex_clean_500/video/episode390.mp4",
+    "src_line_no": 192680
+  },
+  {
+    "gt_path": "/pool/place_empty_cup__aloha-agilex_clean_500__episode260__row240.mp4",
+    "prompt": "Grab the blue rounded-bottom cup and set it onto the flat round wooden coaster.",
+    "uuid": "place_empty_cup/aloha-agilex_clean_500/episode260",
+    "task_name": "place_empty_cup",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0424_clean500_random500/place_empty_cup/aloha-agilex_clean_500/video/episode260.mp4",
+    "src_line_no": 222752
+  },
+  {
+    "gt_path": "/pool/place_fan__aloha-agilex_clean_500__episode300__row241.mp4",
+    "prompt": "Use the left arm to grab the smooth compact fan, then align it on the Silver mat facing the robot.",
+    "uuid": "place_fan/aloha-agilex_clean_500/episode300",
+    "task_name": "place_fan",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_fan/aloha-agilex_clean_500/video/episode300.mp4",
+    "src_line_no": 152223
+  },
+  {
+    "gt_path": "/pool/place_burger_fries__aloha-agilex_clean_500__episode276__row242.mp4",
+    "prompt": "Using both arms, grab the box with green hamburg lid and the Golden fries crispy red package container for the bright orange tray for serving.",
+    "uuid": "place_burger_fries/aloha-agilex_clean_500/episode276",
+    "task_name": "place_burger_fries",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_burger_fries/aloha-agilex_clean_500/video/episode276.mp4",
+    "src_line_no": 28446
+  },
+  {
+    "gt_path": "/pool/place_a2b_left__aloha-agilex_clean_500__episode354__row243.mp4",
+    "prompt": "Use the left arm, move the stapler for stapling paper left of the rubikscube with six colored faces",
+    "uuid": "place_a2b_left/aloha-agilex_clean_500/episode354",
+    "task_name": "place_a2b_left",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/place_a2b_left/aloha-agilex_clean_500/video/episode354.mp4",
+    "src_line_no": 3607
+  },
+  {
+    "gt_path": "/pool/grab_roller__aloha-agilex_clean_500__episode347__row244.mp4",
+    "prompt": "Take the medium-sized roller directly from the table.",
+    "uuid": "grab_roller/aloha-agilex_clean_500/episode347",
+    "task_name": "grab_roller",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/grab_roller/aloha-agilex_clean_500/video/episode347.mp4",
+    "src_line_no": 172626
+  },
+  {
+    "gt_path": "/pool/rotate_qrcode__aloha-agilex_clean_500__episode149__row245.mp4",
+    "prompt": "Employ the left arm to seize the smooth plastic paymentsign with QR code, raise it, and rotate it QR-forward",
+    "uuid": "rotate_qrcode/aloha-agilex_clean_500/episode149",
+    "task_name": "rotate_qrcode",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/rotate_qrcode/aloha-agilex_clean_500/video/episode149.mp4",
+    "src_line_no": 101051
+  },
+  {
+    "gt_path": "/pool/stack_bowls_three__aloha-agilex_clean_500__episode488__row246.mp4",
+    "prompt": "Grab the first the rounded bowl with light blue color, position the second, then add the third.",
+    "uuid": "stack_bowls_three/aloha-agilex_clean_500/episode488",
+    "task_name": "stack_bowls_three",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/stack_bowls_three/aloha-agilex_clean_500/video/episode488.mp4",
+    "src_line_no": 146896
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode353__row247.mp4",
+    "prompt": "Use one arm to pick up the gray and dark blue microphone and give it to the other.",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode353",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode353.mp4",
+    "src_line_no": 149129
+  },
+  {
+    "gt_path": "/pool/place_phone_stand__aloha-agilex_clean_500__episode89__row248.mp4",
+    "prompt": "Move the phone with touchscreen onto the light brown phonestand.",
+    "uuid": "place_phone_stand/aloha-agilex_clean_500/episode89",
+    "task_name": "place_phone_stand",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/place_phone_stand/aloha-agilex_clean_500/video/episode89.mp4",
+    "src_line_no": 139616
+  },
+  {
+    "gt_path": "/pool/beat_block_hammer__aloha-agilex_clean_500__episode369__row249.mp4",
+    "prompt": "Use the right arm to take the silver curved hammer head and strike",
+    "uuid": "beat_block_hammer/aloha-agilex_clean_500/episode369",
+    "task_name": "beat_block_hammer",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/beat_block_hammer/aloha-agilex_clean_500/video/episode369.mp4",
+    "src_line_no": 115933
+  },
+  {
+    "gt_path": "/pool/place_a2b_left__aloha-agilex_clean_50__episode23__row250.mp4",
+    "prompt": "Move the gray mouse with smooth surface to the left of the bread with firm crust edges.",
+    "uuid": "place_a2b_left/aloha-agilex_clean_50/episode23",
+    "task_name": "place_a2b_left",
+    "robot_config": "aloha-agilex_clean_50",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0409_clean50_random500/place_a2b_left/aloha-agilex_clean_50/video/episode23.mp4",
+    "src_line_no": 52200
+  },
+  {
+    "gt_path": "/pool/stamp_seal__aloha-agilex_clean_500__episode251__row251.mp4",
+    "prompt": "the left arm picks the small stone seal, stamps Navy",
+    "uuid": "stamp_seal/aloha-agilex_clean_500/episode251",
+    "task_name": "stamp_seal",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/stamp_seal/aloha-agilex_clean_500/video/episode251.mp4",
+    "src_line_no": 14235
+  },
+  {
+    "gt_path": "/pool/dump_bin_bigbin__aloha-agilex_clean_500__episode187__row252.mp4",
+    "prompt": "Take the tabletrashbin and empty its contents.",
+    "uuid": "dump_bin_bigbin/aloha-agilex_clean_500/episode187",
+    "task_name": "dump_bin_bigbin",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0420_clean500_random500/dump_bin_bigbin/aloha-agilex_clean_500/video/episode187.mp4",
+    "src_line_no": 91906
+  },
+  {
+    "gt_path": "/pool/handover_mic__aloha-agilex_clean_500__episode55__row253.mp4",
+    "prompt": "Use one arm to pick up the microphone with smooth gray stem and give it to the other.",
+    "uuid": "handover_mic/aloha-agilex_clean_500/episode55",
+    "task_name": "handover_mic",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0423_clean500_random500/handover_mic/aloha-agilex_clean_500/video/episode55.mp4",
+    "src_line_no": 148997
+  },
+  {
+    "gt_path": "/pool/move_stapler_pad__aloha-agilex_clean_500__episode63__row254.mp4",
+    "prompt": "Pick up the desk stapler with red body with the right arm and set it on Cyan",
+    "uuid": "move_stapler_pad/aloha-agilex_clean_500/episode63",
+    "task_name": "move_stapler_pad",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/move_stapler_pad/aloha-agilex_clean_500/video/episode63.mp4",
+    "src_line_no": 31932
+  },
+  {
+    "gt_path": "/pool/stack_bowls_three__aloha-agilex_clean_500__episode306__row255.mp4",
+    "prompt": "Stack all three the blue bowl by placing one on top of another.",
+    "uuid": "stack_bowls_three/aloha-agilex_clean_500/episode306",
+    "task_name": "stack_bowls_three",
+    "robot_config": "aloha-agilex_clean_500",
+    "data_type": "clean",
+    "orig_video_path": "/media/unify/RoboTwin2.0/aloha-agilex_0410_clean500_random500/stack_bowls_three/aloha-agilex_clean_500/video/episode306.mp4",
+    "src_line_no": 18068
+  }
+]

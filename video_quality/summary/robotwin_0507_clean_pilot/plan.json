@@ -1,0 +1,44 @@
+{
+  "run_name": "robotwin_0507_clean_pilot",
+  "jsonl": "/mydir/code/WorldArena/RoboTwin2.0/robotwin_0507_230k.jsonl",
+  "num_total": 1024,
+  "num_chunks": 4,
+  "seed": 42,
+  "data_type": "clean",
+  "video_quality_dir": "/mydir/code/WorldArena/video_quality",
+  "summary_root": "/mydir/code/WorldArena/video_quality/summary",
+  "flat_root": "/mydir/code/WorldArena/video_quality/data_pool",
+  "output_root": "/mydir/code/WorldArena/video_quality/output_VLM",
+  "config_path": "/mydir/code/WorldArena/video_quality/config/config.yaml",
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "size": 256,
+      "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk0.json",
+      "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk0",
+      "model_name": "robotwin_0507_clean_pilot_chunk0"
+    },
+    {
+      "chunk_id": 1,
+      "size": 256,
+      "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk1.json",
+      "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk1",
+      "model_name": "robotwin_0507_clean_pilot_chunk1"
+    },
+    {
+      "chunk_id": 2,
+      "size": 256,
+      "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk2.json",
+      "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk2",
+      "model_name": "robotwin_0507_clean_pilot_chunk2"
+    },
+    {
+      "chunk_id": 3,
+      "size": 256,
+      "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk3.json",
+      "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk3",
+      "model_name": "robotwin_0507_clean_pilot_chunk3"
+    }
+  ],
+  "missing_videos": []
+}

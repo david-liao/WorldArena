@@ -7,7 +7,7 @@ TEMPLATE_ROOT="$(dirname "$SCRIPT_DIR")"
 LOCAL_DIR="${1:-$TEMPLATE_ROOT}"
 
 echo "Downloading dataset.tar.gz to ${LOCAL_DIR} ..."
-huggingface-cli download WorldArena/WorldArena_Robotwin2.0 \
+hf download WorldArena/WorldArena_Robotwin2.0 \
   dataset.tar.gz \
   --repo-type dataset \
   --local-dir "${LOCAL_DIR}"
