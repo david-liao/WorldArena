@@ -334,11 +334,17 @@ def vlm_judge(model_name, video_dir, summary_json, output_root, tmp_root, metric
               f"min={min(video_times):.1f}s  max={max(video_times):.1f}s")
     print(f"{'='*60}\n")
 
-    # Save final aggregated results
+    # Save final aggregated results.
+    # Use basename(model_name) for the file prefix so that callers may pass a
+    # subpath (e.g. "robotwin_0507_clean_pilot/chunk0") as model_name and have
+    # outputs land at output_VLM/<subpath>/<leaf>_summary_val_all_intern.json
+    # without an extra nested directory. Behavior is identical for plain
+    # (non-slash) model names since basename(x) == x in that case.
     out_dir = os.path.join(output_root, model_name)
     os.makedirs(out_dir, exist_ok=True)
     suffix = f"_shard{shard_id}" if num_shards > 1 else ""
-    out_file = os.path.join(out_dir, f"{model_name}_summary_val_all_intern{suffix}.json")
+    leaf_name = os.path.basename(os.path.normpath(model_name))
+    out_file = os.path.join(out_dir, f"{leaf_name}_summary_val_all_intern{suffix}.json")
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 

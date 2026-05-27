@@ -16,28 +16,32 @@
       "size": 256,
       "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk0.json",
       "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk0",
-      "model_name": "robotwin_0507_clean_pilot_chunk0"
+      "model_name": "robotwin_0507_clean_pilot/chunk0",
+      "leaf_name": "chunk0"
     },
     {
       "chunk_id": 1,
       "size": 256,
       "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk1.json",
       "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk1",
-      "model_name": "robotwin_0507_clean_pilot_chunk1"
+      "model_name": "robotwin_0507_clean_pilot/chunk1",
+      "leaf_name": "chunk1"
     },
     {
       "chunk_id": 2,
       "size": 256,
       "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk2.json",
       "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk2",
-      "model_name": "robotwin_0507_clean_pilot_chunk2"
+      "model_name": "robotwin_0507_clean_pilot/chunk2",
+      "leaf_name": "chunk2"
     },
     {
       "chunk_id": 3,
       "size": 256,
       "summary": "/mydir/code/WorldArena/video_quality/summary/robotwin_0507_clean_pilot/chunk3.json",
       "video_dir": "/mydir/code/WorldArena/video_quality/data_pool/robotwin_0507_clean_pilot/chunk3",
-      "model_name": "robotwin_0507_clean_pilot_chunk3"
+      "model_name": "robotwin_0507_clean_pilot/chunk3",
+      "leaf_name": "chunk3"
     }
   ],
   "missing_videos": []

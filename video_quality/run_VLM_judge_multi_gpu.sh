@@ -18,6 +18,12 @@ METRICS=${5:-all}
 MAX_VIDEOS=${6:-0}
 NGPUS=${7:-0}
 
+# Allow MODEL_NAME to be a subpath (e.g. "run_name/chunk0") so multiple chunks
+# can share a single parent directory under output_VLM/. File names always use
+# the leaf segment to avoid nested duplication. Plain names (no slash) behave
+# identically to before since basename(x) == x.
+LEAF_NAME=$(basename "$MODEL_NAME")
+
 ROOT_DIR=$(cd -- "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 PY="$ROOT_DIR/VLM_judge.py"
 OUTPUT_ROOT="$ROOT_DIR/output_VLM"
@@ -75,7 +81,7 @@ else
     SHARD_FILES=()
     for (( i=0; i<NGPUS; i++ )); do
         shard_log="$LOG_DIR/shard_${i}.log"
-        SHARD_FILES+=("$LOG_DIR/${MODEL_NAME}_summary_val_all_intern_shard${i}.json")
+        SHARD_FILES+=("$LOG_DIR/${LEAF_NAME}_summary_val_all_intern_shard${i}.json")
 
         CUDA_VISIBLE_DEVICES=$i python3 "$PY" \
             --model_name "$MODEL_NAME" \
@@ -110,7 +116,7 @@ else
     fi
 
     # Merge shard results
-    MERGED="$LOG_DIR/${MODEL_NAME}_summary_val_all_intern.json"
+    MERGED="$LOG_DIR/${LEAF_NAME}_summary_val_all_intern.json"
     python3 -c "
 import json, sys
 merged = []

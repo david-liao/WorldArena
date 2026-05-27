@@ -32,6 +32,10 @@ video_quality/JEDi/pretrained_models/
 video_quality/results
 video_quality/compare_data/
 video_quality/myscript/eval/results/
+video_quality/filtered/
+video_quality/summary/robotwin_0507_clean_pilot/
+video_quality/summary/robotwin_0507_clean_full/
+video_quality/sam3_stride_test/
 
 embodied_task/models/
 embodied_task/output/
@@ -80,6 +84,7 @@ venv/
 video_quality/__pycache__/
 video_quality/config/.auto_eval_config_*.yaml
 docs/
+tmp/
 
 # === links ===
 RoboTwin2.0

@@ -108,7 +108,7 @@ DEFAULT_VIDEO_QUALITY_DIR = Path("/mydir/code/WorldArena/video_quality")
 DEFAULT_GT_VIDEO_DIR = Path(
     "/mydir/code/WorldArena/datasets/new_test_dataset/gt_video/fixed_scene_task"
 )
-DEFAULT_SUMMARY_JSON = "./summary.json"
+DEFAULT_SUMMARY_JSON = "./summary/summary.json"
 DEFAULT_CONFIG_PATH = "./config/config.yaml"
 
 # 多节点并发相关常量

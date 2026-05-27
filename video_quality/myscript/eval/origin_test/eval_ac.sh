@@ -1,8 +1,8 @@
 cd /mydir/code/WorldArena/video_quality
 
-MODEL_NAME=Pelican-Unified_eval
-VIDEO_DIR=/mnt/jackzou/WorldArena_Submission/Pelican-Unified_eval/Pelican-Unified_test
-SUMMARY_JSON=./summary.json
+MODEL_NAME=OminiEWM_0521_5_ac
+VIDEO_DIR=/media/datasets/zhangshilin/Eval_0521_5/Pelican-Unified_test
+SUMMARY_JSON=./summary/summary.json
 CONFIG_PATH=./config/config.yaml
 
 

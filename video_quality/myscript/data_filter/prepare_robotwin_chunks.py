@@ -178,7 +178,11 @@ def main() -> None:
             "size": len(summary_items),
             "summary": str(chunk_summary),
             "video_dir": str(chunk_dir),
-            "model_name": f"{args.run_name}_chunk{c}",
+            # Use a subpath so all chunks land under one parent dir in output_VLM/.
+            # run_VLM_judge_multi_gpu.sh + VLM_judge.py both treat model_name as
+            # "<dir>/<leaf>" and use basename() for the output file prefix.
+            "model_name": f"{args.run_name}/chunk{c}",
+            "leaf_name": f"chunk{c}",
         })
         print(f"[chunk{c}] {len(summary_items)} videos -> {chunk_dir}")
 
@@ -209,9 +213,9 @@ def main() -> None:
     print("\n" + "=" * 80)
     print("After all 4 nodes finish, merge results with:")
     print("=" * 80)
-    merged_path = output_root / f"{args.run_name}_merged.json"
+    merged_path = output_root / args.run_name / "merged.json"
     shard_paths = [
-        str(output_root / m["model_name"] / f"{m['model_name']}_summary_val_all_intern.json")
+        str(output_root / m["model_name"] / f"{m['leaf_name']}_summary_val_all_intern.json")
         for m in chunks_meta
     ]
     merge_snippet = (
